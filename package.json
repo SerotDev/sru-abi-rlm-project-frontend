@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "bootstrap": "^5.3.2",
-    "jquery": "^3.7.1",
-    "primeng": "^17.1.0"
-  }
-}
