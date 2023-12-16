@@ -1,0 +1,52 @@
+#topbuttons{
+    background-color: rgb(93, 156, 89);
+    border-bottom: 3px solid #467543;
+    min-height: 80px;
+}
+.nav-link{
+    color: white;
+    font-size: 1.1rem;
+    width: 130px;
+}
+
+.nav-link:hover{
+    transition: 100ms;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#search{
+    margin-right: 7%;
+}
+
+#search:hover{
+    color: #467543;
+}
+
+
+#cookie{
+    filter: invert(100%);
+}
+
+.nav-item{
+    display: flex;
+    align-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+button{
+    width: min-content 100px;
+}
+
+#barsearch{
+    display: flex;
+    justify-content: center;
+}
+
+#right{
+    min-width: 350px;
+    margin-left: 20px;
+    
+}
+/*@media max-width 768px  {}*/
