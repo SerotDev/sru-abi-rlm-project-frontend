@@ -1,0 +1,20 @@
+body{
+    width: 100vw;
+    min-height: 80vh;
+}
+
+
+#fav-contain{ 
+}
+
+h3{
+    color: #E64848;
+    margin-top: 6%;
+
+}
+.btn{
+    color: green;
+}
+.btn:hover{
+    color: white;
+}
