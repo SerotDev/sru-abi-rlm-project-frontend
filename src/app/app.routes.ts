@@ -4,6 +4,7 @@ import { HotelComponent } from './hotel/hotel.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FavouritesComponent } from './profile/favourites/favourites.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const routes: Routes = [
     {path:'navbar', component: NavbarComponent},
@@ -11,5 +12,6 @@ export const routes: Routes = [
     {path:'login', component: LoginComponent},
     {path:'hotel', component: HotelComponent},
     {path:'favourites', component: FavouritesComponent},
+    {path:'profile', component: ProfileComponent},
     ];
 
