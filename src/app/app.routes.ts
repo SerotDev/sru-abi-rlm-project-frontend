@@ -1,32 +1,26 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HotelComponent } from './hotel/hotel.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import { AddHotelComponent } from './profile/add-hotel/add-hotel.component';
-import { UpdateHotelComponent } from './profile/update-hotel/update-hotel.component';
-import { HotelsComponent } from './profile/hotels/hotels.component';
-import { EventsComponent } from './profile/hotels/events/events.component';
-import { AddEventComponent } from './profile/hotels/add-event/add-event.component';
-import { UpdateEventComponent } from './profile/hotels/update-event/update-event.component';
 import { AboutComponent } from './about/about.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SearchComponent } from './search/search.component';
+import { SearchMapComponent } from './search-map/search-map.component';
+import { FavouritesComponent } from './profile/favourites/favourites.component';
+
 
 export const routes: Routes = [
-    {path:'', component: HomeComponent},
+    {path:'', component: HomeComponent, pathMatch: 'full'},
     {path:'about', component: AboutComponent},
-    {path:'navbar', component: NavbarComponent},
-    {path:'footer', component: FooterComponent},
+    {path:'about', component: AboutComponent},
     {path:'login', component: LoginComponent},
-    {path:'register', component: RegisterComponent},
-    {path:'hotel', component: HotelComponent},
-    {path:'home', component: HomeComponent},
-    {path:'hotel/add-hotel', component: AddHotelComponent},
-    {path:'hotels', component: HotelsComponent},
-    {path:'hotel/update-hotel', component: UpdateHotelComponent},
-    {path:'hotel/events', component: EventsComponent},
-    {path:'hotel/add-event', component: AddEventComponent},
-    {path:'hotel/update-event', component: UpdateEventComponent},
+    {path:'favourites', component: FavouritesComponent},
+    {path:'hotels-list', component: SearchComponent},
+    {path:'map', component: SearchMapComponent},
+    {path:'hotel:id', component: HotelComponent},
+    {path:'event:id', component: HotelComponent},
+    {path:'not-found', component: NotFoundComponent},
+    {path:'**', redirectTo: '/not-found'}
     ];
 
