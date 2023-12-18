@@ -96,7 +96,7 @@ bg-hohoho-secondary-light {
   width: 100%;
   height: 100%;
   background-color: #fffde3;
-  min-height: 58vh;
+  min-height: calc(100vh - 80px);
 }
 
 textarea:focus,
