@@ -11,9 +11,11 @@ import { HotelsComponent } from './profile/hotels/hotels.component';
 import { EventsComponent } from './profile/hotels/events/events.component';
 import { AddEventComponent } from './profile/hotels/add-event/add-event.component';
 import { UpdateEventComponent } from './profile/hotels/update-event/update-event.component';
+import { AboutComponent } from './about/about.component';
 
 export const routes: Routes = [
     {path:'', component: HomeComponent},
+    {path:'about', component: AboutComponent},
     {path:'navbar', component: NavbarComponent},
     {path:'footer', component: FooterComponent},
     {path:'login', component: LoginComponent},
