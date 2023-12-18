@@ -1,6 +1,31 @@
-<div>
-<div class="hohoho-content home-container">
-    <div class="blur-bg"></div>
-    <div class="content home-container"></div>
-</div>
+<div class="hohoho-content home-container d-flex flex-column justify-content-center align-items-center text-center">
+    <div class="snow">
+        <div></div>
+    </div>
+    <div class="snow-container">
+        <div class="snow foreground"></div>
+        <div class="snow foreground layered"></div>
+        <div class="snow middleground"></div>
+        <div class="snow middleground layered"></div>
+        <div class="snow background"></div>
+        <div class="snow background layered"></div>
+      </div>
+    <form>
+        <div class="d-flex flex-column justify-content-center align-items-center text-center">
+            <p class="h4 text-white m-3 mb-5 text-selector-town">Find amazing hotels with special events in your town to
+                enjoy these holidays.</p>
+            <div class="search-section d-flex justify-content-center align-items-center text-center">
+                <select class="form-select selector-town me-1" aria-label="Select your Town">
+                    <option value="1" selected>Tarragona</option>
+                    <option value="2">Reus</option>
+                    <option value="3">Cambrils</option>
+                </select>
+
+                <input type="submit" value="Search" class="btn btn-block btn-success rounded-2 ms-1">
+                <span class="submitting"></span>
+            </div>
+        </div>
+    </form>
+    <div id="form-message-success"></div>
+    <div id="form-message-warning mt-4"></div>
 </div>
