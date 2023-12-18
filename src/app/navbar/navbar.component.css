@@ -1,0 +1,16 @@
+#topbuttons{
+    background-color: rgb(93, 156, 89);
+    border-bottom: 5px dotted red;
+}
+/*#divisor{
+    width: 100%;
+    height: 100px;
+    background-image: url("/src/assets/img/pattern3.webp");
+    background-repeat: repeat;
+}*/
+
+#cookie{
+    filter: invert(100%);
+}
+
+/*@media max-width 768px  {}*/
