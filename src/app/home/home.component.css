@@ -49,8 +49,6 @@
   animation: animatedBackground 15s linear infinite;
 }
 
-*/
-
 @keyframes animatedBackground {
   0% {
     background-position: 0 0;
@@ -59,6 +57,8 @@
     background-position: 0px 300px;
   }
 }
+
+*/
 
 .snow-container {
   position: absolute;
