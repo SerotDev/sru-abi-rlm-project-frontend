@@ -5,10 +5,6 @@
 #cookie{
     filter: invert(100%);
 }
-.rounded-bottom{
-    border-bottom-left-radius: 300px;
-    border-bottom-right-radius: 300px;
 
-}
 
 /*@media max-width 768px  {}*/
