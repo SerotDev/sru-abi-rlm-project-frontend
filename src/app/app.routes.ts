@@ -7,6 +7,7 @@ import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
 import { SearchMapComponent } from './search-map/search-map.component';
+import { FavouritesComponent } from './profile/favourites/favourites.component';
 
 
 export const routes: Routes = [
@@ -14,7 +15,7 @@ export const routes: Routes = [
     {path:'about', component: AboutComponent},
     {path:'about', component: AboutComponent},
     {path:'login', component: LoginComponent},
-
+    {path:'favourites', component: FavouritesComponent},
     {path:'hotels-list', component: SearchComponent},
     {path:'map', component: SearchMapComponent},
     {path:'hotel:id', component: HotelComponent},
