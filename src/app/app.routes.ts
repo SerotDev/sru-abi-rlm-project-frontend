@@ -8,7 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { SearchMapComponent } from './search-map/search-map.component';
 
 export const routes: Routes = [
-    {path:'', component: HomeComponent},
+    {path:'', component: HomeComponent, pathMatch: 'full'},
     {path:'about', component: AboutComponent},
     {path:'about', component: AboutComponent},
     {path:'login', component: LoginComponent},
@@ -17,6 +17,6 @@ export const routes: Routes = [
     {path:'hotel:id', component: HotelComponent},
     {path:'event:id', component: HotelComponent},
     {path:'not-found', component: NotFoundComponent},
-    {path:'**', component: NotFoundComponent}
+    {path:'**', redirectTo: '/not-found'}
     ];
 
