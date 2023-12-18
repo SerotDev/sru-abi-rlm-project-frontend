@@ -8,12 +8,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
 import { SearchMapComponent } from './search-map/search-map.component';
 import { FavouritesComponent } from './profile/favourites/favourites.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 export const routes: Routes = [
     {path:'', component: HomeComponent, pathMatch: 'full'},
     {path:'about', component: AboutComponent},
-    {path:'about', component: AboutComponent},
+    {path:'profile', component: ProfileComponent},
     {path:'login', component: LoginComponent},
     {path:'favourites', component: FavouritesComponent},
     {path:'hotels-list', component: SearchComponent},
