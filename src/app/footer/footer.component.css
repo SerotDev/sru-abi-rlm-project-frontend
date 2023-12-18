@@ -1,6 +1,7 @@
 footer{
     width: 100%;
     margin-top: auto;
+    background-color: #467543;
 }
 p{
     font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important; 
