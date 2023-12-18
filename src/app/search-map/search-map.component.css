@@ -1,0 +1,36 @@
+.filters-right{
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-left: 0px solid rgb(194, 16, 16, 0.5);
+    border-bottom: 1px solid rgb(194, 16, 16, 0.5);
+}
+
+.range-input:focus,
+.range-input[type]:focus {
+  box-shadow: 0 0 01px rgba(0, 0, 0, 0);
+  outline: 0 none;
+}
+
+.lbl-stl{
+    color: #467543;
+}
+
+.text-map{
+    height: 75px;
+}
+
+.map-box{
+    min-height: calc(100px + 40vh);
+    height: calc(100% - 100px);
+    background-image: url("https://andoraconsulting.com/content/images/thumbs/0000157_google-map-for-nopcommerce-show-location-of-products-evaluate.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .filters-right{
+        border-left: 1px solid rgb(194, 16, 16, 0.5);
+        border-bottom: 0px solid rgb(194, 16, 16, 0.5);
+    }
+}

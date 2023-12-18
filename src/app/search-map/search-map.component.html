@@ -1,1 +1,116 @@
-<p>search-map works!</p>
+<div class="hohoho-content pb-4 pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="card bg-white col-12 mx-auto">
+                <div class="card-body p-0">
+                    <div class="row">
+                        <div class="col-12 col-lg-4 order-lg-2 filters-right text-center ps-4 pe-4">
+                            <p class="h2 pt-4 pb-2">Filters</p>
+                            <hr>
+                            <form action="">
+                                <form class="mb-5" method="post" id="contactForm" name="contactForm"
+                                    novalidate="novalidate">
+                                    <div class="row">
+                                        <div class="col-12 form-group mb-3">
+                                            <label for="town" class="col-form-label lbl-stl fw-bold">Select
+                                                Town</label>
+                                            <select name="town" class="form-select me-1" aria-label="Select your Town">
+                                                <option value="1" selected>Tarragona</option>
+                                                <option value="2">Reus</option>
+                                                <option value="3">Cambrils</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12 form-group mb-3">
+                                            <label for="hotel-name "
+                                                class="col-form-label lbl-stl fw-bold">Search By Name</label>
+                                            <input type="text" class="form-control" name="name" id="hotel-name"
+                                                placeholder="Hotel Name">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12 form-group mt-1 mb-1">
+                                            <label for="star-rating" class="form-label lbl-stl fw-bold">Rating
+                                                Average</label>
+                                            <input type="range" class="form-range range-input" min="1" max="5"
+                                                id="star-rating">
+                                            <div class="d-flex justify-content-between fw-light text-muted">
+                                                <p>1</p>
+                                                <p>2</p>
+                                                <p>3</p>
+                                                <p>4</p>
+                                                <p>5</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12 form-group mt-1 mb-3">
+                                            <label for="min-num-rooms" class="form-label lbl-stl fw-bold">Min
+                                                Number of Rooms</label>
+                                            <input type="number" class="form-control" name="min-num-rooms"
+                                                id="min-num-rooms" placeholder="0">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label for="min-price" class="col-form-label lbl-stl fw-bold">Min
+                                                Price</label>
+                                            <input type="number" class="form-control" name="min-rice" id="min-price"
+                                                placeholder="0">
+                                        </div>
+                                        <div class="col-md-6 form-group mb-3">
+                                            <label for="max-price" class="col-form-label lbl-stl fw-bold">Max
+                                                Price</label>
+                                            <input type="number" class="form-control" name="max-price" id="max-price"
+                                                placeholder="500">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12 form-group mb-3">
+                                            <fieldset>
+                                                <legend class="fs-6 lbl-stl fw-bold">Services</legend>
+                                                <div class="form-check d-inline-block text-truncate m-2">
+                                                    <input class="form-check-input range-input" type="checkbox" value=""
+                                                        id="flexCheckDefault"> <label class="form-check-label"
+                                                        for="flexCheckDefault"> SPA </label>
+                                                </div>
+                                                <div class="form-check d-inline-block text-truncate m-2">
+                                                    <input class="form-check-input range-input" type="checkbox" value=""
+                                                        id="flexCheckChecked" checked> <label class="form-check-label"
+                                                        for="flexCheckChecked"> Own activities </label>
+                                                </div>
+                                                <div class="form-check d-inline-block text-truncate m-2">
+                                                    <input class="form-check-input range-input" type="checkbox" value=""
+                                                        id="flexCheckChecked" checked> <label class="form-check-label"
+                                                        for="flexCheckChecked"> Wifi </label>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-12 form-group mt-4 mb-0">
+                                            <input type="submit" value="Filter Results"
+                                                class="btn btn-outline-success py-2 px-4 w-100"> <span
+                                                class="submitting"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </form>
+                        </div>
+                        <div class="col-12 col-lg-8 order-lg-1">
+                            <h1 class="text-map text-center pt-3">Map</h1>
+                            <div class="map-box card w-100 mb-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
