@@ -1,0 +1,102 @@
+<div class="container">
+
+    <div class="row align-items-stretch justify-content-center no-gutters">
+        <div class="col-md-7">
+            <div class="form h-100 contact-wrap p-5">
+                <h3 class="text-center">Create Hotel</h3>
+                <form class="mb-5" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="" class="col-form-label">Name</label>
+                            <input type="text" class="form-control" name="name" name="name" id="floatingName" placeholder="Hotel name">
+                            <div id="floatingName" class="invalid-feedback">
+                                Nombre Plato no puede estar vacio!
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="town" class="col-form-label">Town</label>
+                            <select class="form-control" name="town" id="town">
+                                <option value="" disabled selected></option>
+                                <option value="town1">Town 1</option>
+                                <option value="town2">Town 2</option>
+                                <option value="town3">Town 3</option>
+                            </select>
+                        </div>                      
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="email" class="col-form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Hotel email">
+                        </div>                        
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="phone" class="col-form-label">Phone</label>
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Hotel phone">
+                        </div>                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="" class="col-form-label">Price</label>
+                            <input type="number" class="form-control" name="price" id="price" placeholder="Hotel price">
+                        </div>      
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="" class="col-form-label">Number rooms</label>
+                            <input type="number" class="form-control" name="number_rooms" id="number_rooms" placeholder="Hotel number rooms">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="" class="col-form-label">Latitude</label>
+                            <input type="text" class="form-control" name="latitude" id="latitude" placeholder="Hotel latitude">
+                        </div>
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="" class="col-form-label">Longitude</label>
+                            <input type="text" class="form-control" name="longitude" id="longitude" placeholder="Hotel longitude">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group mb-3">
+                            <label for="" class="col-form-label">Web</label>
+                            <input type="text" class="form-control" name="web" id="web" placeholder="Hotel web">
+                        </div>                   
+                    </div>
+                    <div class="col-md-12 form-group mb-3">
+                        <label for="description" class="col-form-label">Description</label>
+                        <textarea class="form-control" name="description" id="description" placeholder="Hotel description" rows="6"></textarea>
+                    </div>                       
+                    <div class="row">
+                        <div class="col-md-12 form-group mb-3">
+                            <label for="urlimage" class="col-form-label">Upload Image</label>
+                            <input type="file" class="form-control" name="urlimage" id="urlimage" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-group mb-3">
+                        <label for="services" class="col-form-label">Select Hotel Services</label>
+                        <hr/>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="wifi" name="services" value="wifi">
+                            <label class="form-check-label" for="wifi">Wi-Fi</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="pool" name="services" value="pool">
+                            <label class="form-check-label" for="pool">Swimming Pool</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="gym" name="services" value="gym">
+                            <label class="form-check-label" for="gym">Gym</label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-5 form-group text-center">
+                            <input type="submit" value="Create" class="btn btn-block btn-outline-success rounded-0 py-2 px-4">
+                            <span class="submitting"></span>
+                        </div>
+                    </div>
+                </form>
+                <div id="form-message-warning mt-4"></div>
+                <div id="form-message-success">
+                    Your profile was sent to Santa Claus, thank you!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.filters-right{
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    border-left: 0px solid rgb(194, 16, 16, 0.5);
+    border-bottom: 3px solid rgb(194, 16, 16, 0.5);
+}
+
+.range-input:focus,
+.range-input[type]:focus {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  outline: 0 none;
+}
+
+.lbl-stl{
+    color: #467543;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .filters-right{
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        border-left: 1px solid rgb(194, 16, 16, 0.5);
+        border-bottom: 0px solid rgb(194, 16, 16, 0.5);
+    }
+}
