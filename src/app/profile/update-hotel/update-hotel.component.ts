@@ -3,12 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-hotels',
+  selector: 'app-update-hotel',
   standalone: true,
   imports: [FormsModule, CommonModule],
-  templateUrl: './hotels.component.html',
-  styleUrl: './hotels.component.css'
+  templateUrl: './update-hotel.component.html',
+  styleUrl: './update-hotel.component.css'
 })
-export class HotelsComponent {
+export class UpdateHotelComponent {
 
 }

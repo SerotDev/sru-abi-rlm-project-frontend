@@ -7,9 +7,13 @@
     margin-top: 4px;
   }
   
-  h5 {
+  h3 {
     text-align: left;
   }
+  
+  h3 img {
+    float: right;
+}
   
   .p1 {
     text-align: left;
@@ -18,3 +22,8 @@
   .candado {
     float: right;
   }
+
+  #box {
+    background-color: #5D9C59;
+    border: 5px dotted red;
+}

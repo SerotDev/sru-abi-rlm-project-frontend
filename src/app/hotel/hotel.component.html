@@ -1,1 +1,40 @@
-<p>hotel works!</p>
+<div class="container mt-5">
+    <!-- Primera parte: Información del hotel -->
+    <div class="mb-4 text-center d-flex flex-column align-items-center">
+      <h2>Hotel name</h2>
+      <div class="d-flex align-items-center">
+        <div class="stars" style="font-size: 45px;">
+            <span (click)="rateHotel(1)" [ngClass]="{'filled': rating >= 1}">&#9733;</span>
+            <span (click)="rateHotel(2)" [ngClass]="{'filled': rating >= 2}">&#9733;</span>
+            <span (click)="rateHotel(3)" [ngClass]="{'filled': rating >= 3}">&#9733;</span>
+            <span (click)="rateHotel(4)" [ngClass]="{'filled': rating >= 4}">&#9733;</span>
+            <span (click)="rateHotel(5)" [ngClass]="{'filled': rating >= 5}">&#9733;</span>
+          </div>
+      </div>
+      <p class="text-justify mx-auto text-break">Hotel description AAAAAAAAAAAAAAAAA. Este es un texto más largo para ilustrar cómo se ve cuando hay mucho contenido en el párrafo. Puedes ajustar el contenido según tus necesidadesDJBADIHABoADYVAYIUDVAOYUvdoaUDCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC.</p>
+    </div>
+    <hr />
+    <!-- Segunda parte: Galería -->
+    <div class="mb-4 text-center">
+        <h2>Gallery</h2>
+        <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" [interval]="0">
+          <ng-template ngbSlide>
+            <div class="d-flex justify-content-around">
+              <img src="../../assets/img/elfo black.png" class="d-block w-25" alt="Imagen 1">
+              <img src="../../assets/img/elfo black.png" class="d-block w-25" alt="Imagen 2">
+              <img src="../../assets/img/elfo black.png" class="d-block w-25" alt="Imagen 3">
+            </div>
+          </ng-template>
+        </ngb-carousel>
+        <hr />
+      </div>
+    <!-- Tercera parte: Más información del hotel -->
+<div class="text-center">
+    <h2>Hotel Info</h2>
+    <div class="display-flex full-width">
+          <div class="display-flex align-items-center t-50 t-normal">
+            <span aria-hidden="true">Comunicación • Tolerancia • Aprendizaje activo • Constancia • Trabajo en equipo</span><span class="visually-hidden"></span>
+          </div>
+      </div>
+    </div>
+</div>
