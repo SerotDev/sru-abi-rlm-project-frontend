@@ -1,40 +1,303 @@
+<div class="hohoho-content pb-4 pt-4">
+  <div class="container">
+      <div class="row">
+          <div class="card bg-white col-12 mx-auto">
+              <div class="card-body">
 <div class="container mt-5">
-    <!-- Primera parte: Información del hotel -->
-    <div class="mb-4 text-center d-flex flex-column align-items-center">
-      <h2>Hotel name</h2>
-      <div class="d-flex align-items-center">
-        <div class="stars" style="font-size: 45px;">
-            <span (click)="rateHotel(1)" [ngClass]="{'filled': rating >= 1}">&#9733;</span>
-            <span (click)="rateHotel(2)" [ngClass]="{'filled': rating >= 2}">&#9733;</span>
-            <span (click)="rateHotel(3)" [ngClass]="{'filled': rating >= 3}">&#9733;</span>
-            <span (click)="rateHotel(4)" [ngClass]="{'filled': rating >= 4}">&#9733;</span>
-            <span (click)="rateHotel(5)" [ngClass]="{'filled': rating >= 5}">&#9733;</span>
-          </div>
+    <div class="mb-4 text-center d-flex align-items-center">
+      <h2>Hotel name</h2>&nbsp;
+      <div class="d-flex align-items-rig>ht">
+        <div class="star-rating">
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-regular fa-star"></span>
+          <span class="fa fa-regular fa-star"></span>
       </div>
-      <p class="text-justify mx-auto text-break">Hotel description AAAAAAAAAAAAAAAAA. Este es un texto más largo para ilustrar cómo se ve cuando hay mucho contenido en el párrafo. Puedes ajustar el contenido según tus necesidadesDJBADIHABoADYVAYIUDVAOYUvdoaUDCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC.</p>
+      </div>
     </div>
-    <hr />
-    <!-- Segunda parte: Galería -->
-    <div class="mb-4 text-center">
-        <h2>Gallery</h2>
-        <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" [interval]="0">
-          <ng-template ngbSlide>
-            <div class="d-flex justify-content-around">
-              <img src="../../assets/img/elfo black.png" class="d-block w-25" alt="Imagen 1">
-              <img src="../../assets/img/elfo black.png" class="d-block w-25" alt="Imagen 2">
-              <img src="../../assets/img/elfo black.png" class="d-block w-25" alt="Imagen 3">
+    
+    <div class="card" id="content-photo">
+      <div class="card-img-hotel" style="background-image: url('/assets/img/hotelxmas.jpg');"></div>
+      <div class="card-body">
+        
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-muted">Tarragona</small></p>
+        <div class="text-center">
+          <div class="display-flex full-width">
+                  <div class="hotel-services">
+                    <p>Spa</p>
+                    <p>Paella</p>
+                    <p>Piscina</p>
+                    <p>Bocata</p>
+                  </div>
+                </div>
             </div>
-          </ng-template>
-        </ngb-carousel>
-        <hr />
       </div>
-    <!-- Tercera parte: Más información del hotel -->
-<div class="text-center">
-    <h2>Hotel Info</h2>
-    <div class="display-flex full-width">
-          <div class="display-flex align-items-center t-50 t-normal">
-            <span aria-hidden="true">Comunicación • Tolerancia • Aprendizaje activo • Constancia • Trabajo en equipo</span><span class="visually-hidden"></span>
+      
+    </div>
+    <div class="events-hotel">
+    <h3 class="mt-5">Our events</h3>
+      <!--Buttons of NAV-->
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="active btn btn-outline-success" id="pills-private-tab" data-bs-toggle="pill" data-bs-target="#pills-private" type="button" role="tab" aria-controls="pills-private" aria-selected="true">Private hotel events</button>
+      </li>
+      &nbsp;
+      <li class="nav-item" role="presentation">
+        <button class="btn btn-outline-success" id="pills-public-tab" data-bs-toggle="pill" data-bs-target="#pills-public" type="button" role="tab" aria-controls="pills-public" aria-selected="false">Public events in the town</button>
+      </li>
+    </ul>
+      <!--Finish buttons of NAV AND start content-->
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-private" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="row w-100 justify-content-left mb-5">
+          <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+              <a id="anchor-to-hotel" href="#">
+                  <div class="hotel-card card">
+                      <div class="card-img-top"
+                          style="background-image: url('/assets/img/robert.png');"></div>
+                      <div class="card-body">
+                          <p class="card-title"><b>Nombre</b></p>
+                          <div class="hotel-services">
+                              <p>Spa</p>
+                              <p>Mocos</p>
+                              <p>Paella</p>
+                              <p>Piscina</p>
+                              <p>Bocata</p>
+                          </div>
+                          <div class="hotel-card-footer">
+                              <hr>
+                              <div class="star-rating">
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <p class="price-style h3 p-2"><b>69€</b></p>
+                  </div>
+              </a>
           </div>
+          <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+              <a id="anchor-to-hotel" href="#">
+                  <div class="hotel-card card">
+                      <div class="card-img-top"
+                          style="background-image: url('/assets/img/robert.png');"></div>
+                      <div class="card-body">
+                          <p class="card-title"><b>Nombre</b></p>
+                          <div class="hotel-services">
+                              <p>Spa</p>
+                              <p>Mocos</p>
+                              <p>Paella</p>
+                              <p>Piscina</p>
+                              <p>Bocata</p>
+                          </div>
+                          <div class="hotel-card-footer">
+                              <hr>
+                              <div class="star-rating">
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <p class="price-style h3 p-2"><b>69€</b></p>
+                  </div>
+              </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+              <a id="anchor-to-hotel" href="#">
+                  <div class="hotel-card card">
+                      <div class="card-img-top"
+                          style="background-image: url('/assets/img/robert.png');"></div>
+                      <div class="card-body">
+                          <p class="card-title"><b>Nombre</b></p>
+                          <div class="hotel-services">
+                              <p>Spa</p>
+                              <p>Mocos</p>
+                              <p>Paella</p>
+                              <p>Piscina</p>
+                              <p>Bocata</p>
+                          </div>
+                          <div class="hotel-card-footer">
+                              <hr>
+                              <div class="star-rating">
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <p class="price-style h3 p-2"><b>69€</b></p>
+                  </div>
+              </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+              <a id="anchor-to-hotel" href="#">
+                  <div class="hotel-card card">
+                      <div class="card-img-top"
+                          style="background-image: url('/assets/img/robert.png');"></div>
+                      <div class="card-body">
+                          <p class="card-title"><b>Nombre</b></p>
+                          <div class="hotel-services">
+                              <p>Spa</p>
+                              <p>Mocos</p>
+                              <p>Paella</p>
+                              <p>Piscina</p>
+                              <p>Bocata</p>
+                          </div>
+                          <div class="hotel-card-footer">
+                              <hr>
+                              <div class="star-rating">
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <p class="price-style h3 p-2"><b>69€</b></p>
+                  </div>
+              </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+              <a id="anchor-to-hotel" href="#">
+                  <div class="hotel-card card">
+                      <div class="card-img-top"
+                          style="background-image: url('/assets/img/robert.png');"></div>
+                      <div class="card-body">
+                          <p class="card-title"><b>Nombre</b></p>
+                          <div class="hotel-services">
+                              <p>Spa</p>
+                              <p>Mocos</p>
+                              <p>Paella</p>
+                              <p>Piscina</p>
+                              <p>Bocata</p>
+                          </div>
+                          <div class="hotel-card-footer">
+                              <hr>
+                              <div class="star-rating">
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <p class="price-style h3 p-2"><b>69€</b></p>
+                  </div>
+              </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+              <a id="anchor-to-hotel" href="#">
+                  <div class="hotel-card card">
+                      <div class="card-img-top"
+                          style="background-image: url('/assets/img/robert.png');"></div>
+                      <div class="card-body">
+                          <p class="card-title"><b>Nombre</b></p>
+                          <div class="hotel-services">
+                              <p>Spa</p>
+                              <p>Mocos</p>
+                              <p>Paella</p>
+                              <p>Piscina</p>
+                              <p>Bocata</p>
+                          </div>
+                          <div class="hotel-card-footer">
+                              <hr>
+                              <div class="star-rating">
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <p class="price-style h3 p-2"><b>69€</b></p>
+                  </div>
+              </a>
+          </div>
+
+      </div>
+      </div>
+      <!--Fish content private events and start content public events-->
+      <div class="tab-pane fade" id="pills-public" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div class="row w-100 justify-content-left mb-5">
+          <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+              <a id="anchor-to-hotel" href="#">
+                  <div class="hotel-card card">
+                      <div class="card-img-top"
+                          style="background-image: url('/assets/img/robert.png');"></div>
+                      <div class="card-body">
+                          <p class="card-title"><b>Nombre</b></p>
+                          <div class="hotel-services">
+                              <p>Spa</p>
+                              <p>Mocos</p>
+                              <p>Paella</p>
+                              <p>Piscina</p>
+                              <p>Bocata</p>
+                          </div>
+                          <div class="hotel-card-footer">
+                              <hr>
+                              <div class="star-rating">
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <p class="price-style h3 p-2"><b>69€</b></p>
+                  </div>
+              </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+              <a id="anchor-to-hotel" href="#">
+                  <div class="hotel-card card">
+                      <div class="card-img-top"
+                          style="background-image: url('/assets/img/robert.png');"></div>
+                      <div class="card-body">
+                          <p class="card-title"><b>Nombre</b></p>
+                          <div class="hotel-services">
+                              <p>Spa</p>
+                              <p>Mocos</p>
+                              <p>Paella</p>
+                              <p>Piscina</p>
+                              <p>Bocata</p>
+                          </div>
+                          <div class="hotel-card-footer">
+                              <hr>
+                              <div class="star-rating">
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                                  <span class="fa fa-regular fa-star"></span>
+                              </div>
+                          </div>
+                      </div>
+                      <p class="price-style h3 p-2"><b>69€</b></p>
+                  </div>
+              </a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
 </div>
