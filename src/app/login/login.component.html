@@ -4,19 +4,33 @@
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card text-white bg-warning mb-3" style="border-radius: 1rem">
           <div class="card-body p-5 text-center" id="box" style="border-radius: 1rem">
-            <form name="form">
+            <form name="form" [formGroup]="registerForm" (submit)="login()">
               <h3 class="fw-bold mb-2 text-uppercase text-selector-town" id="login_color">Login to our site<img
                   src="../../assets/img/candado.png"></h3>
               <p class="p1 text-white mb-5">Enter username and password</p>
               <div class="form-floating mb-4">
-                <input type="text" name="username" id="floatingUsername" class="form-control bg-dark text-white" />
-                <label for="floatingUsername">Username</label>
+                <input type="text" name="username" id="floatingUsername" class="form-control bg-dark text-white"/>
+                @if (registerForm.get('username')?.valid) {
+                  <div id="fullnameHelp" class="form-text text-success">✅ valid name</div>
+                  }
               </div>
               <div class="form-floating mb-4 ">
-                <input type="password" name="password" id="floatingPassword" class="form-control bg-dark text-white" />
-                <label for="floatingPassword">Password</label>
+                <input type="password" name="password" id="floatingPassword" class="form-control bg-dark text-white"/>
+                <div id="passwordHelpBlock" class="form-text">
+                  It must be 8-20 characters and a minimum of 1 capital letter.
+                </div>
+    
+                @if (registerForm.get('password')?.valid) {
+                  <div class="form-text text-success">✅ valid password </div>
+                  }
+                  <div class="col-12 text-center">
+                      <a class="link" (click)="sendPageRegister()">I am not registered</a>
+                  </div>
               </div>
-              <button class="btn btn-outline-light btn-lg mt-3 px-5 custom-btn" type="submit">Log in 
+              <button
+              class="btn btn-sm mt-2"
+              [class.btn-success]="registerForm.valid"
+              [class.btn-secondary]="!registerForm.valid" class="btn btn-outline-light btn-lg mt-3 px-5 custom-btn" type="submit">Log in 
                 <img src="../../assets/img/logging-unscreen.gif" class="white-image" height="23" width="23">
               </button>
             </form>
