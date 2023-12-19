@@ -12,37 +12,37 @@
                             src="../assets/img/elfo white.png" height="23" width="23"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" routerLink="search">Map <img src="../assets/img/map3.png" height="23"
+                    <a class="nav-link" [routerLink]="['/map']">Map <img src="../assets/img/map3.png" height="23"
                             width="23"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" routerLink="hotels">Hotels list <img src="../assets/img/hotel.png"
+                    <a class="nav-link" [routerLink]="['/hotels-list']">Hotels list <img src="../assets/img/list2.png"
                             height="23" width="23"></a>
-                </li>
+                </li>   
             </ul>
             <form class="d-flex align-items-center justify-items-center">
                 <ul class="navbar-nav menu-end-part">
                     <li>
                         <div class="collapse navbar-collapse justify-content-center" id="navbarToggle">
                     <li class="nav-item" width="150">
-                        <a class="nav-link" routerLink="login" aria-current="page" href="#">Login <img
+                        <a class="nav-link" [routerLink]="['/login']" aria-current="page" href="#">Login <img
                                 src="../assets/img/open present.png" height="23" width="23"></a>
                     </li>
                     <li class="nav-item" width="150">
-                        <a class="nav-link" routerLink="register" aria-current="page" href="#">Register <img
+                        <a class="nav-link" [routerLink]="['/register']" aria-current="page" href="#">Register <img
                                 src="../assets/img/close present.png" height="23" width="23"></a>
                     </li>
                     <li class="nav-item" width="150">
-                        <a class="nav-link" routerLink="profile" aria-current="page" href="#">Profile <img id="cookie"
+                        <a class="nav-link" [routerLink]="['/profile']" aria-current="page" href="#">Profile <img id="cookie"
                                 src="../assets/img/profile-unscreen.gif" height="25"></a>
                     </li>
                     <li class="nav-item" width="150">
-                        <a class="nav-link" routerLink="favourites" aria-current="page" href="#">Favourites <img
+                        <a class="nav-link" [routerLink]="['/favourites']" aria-current="page" href="#">Favourites <img
                                 src="../assets/img/star favourites.png" height="25"></a>
                     </li>
                     <li class="nav-item" width="150">
-                        <a class="nav-link" routerLink="my-hotels" aria-current="page" href="#">My Hotels <img
-                                src="../assets/img/window white.png" height="25"></a>
+                        <a class="nav-link" [routerLink]="['/my-hotels']" aria-current="page" href="#">My Hotels <img
+                                src="../assets/img/hotel.png" height="25"></a>
                     </li>
                 </div>
             </ul>
