@@ -1,7 +1,34 @@
 .contenedor {
     margin-top: 100px;
   }
+  .home-container {
+    position: relative;
+    background-image: url("/assets/img/background.webp");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 87vh;
+  }
+
+  .white-image {
+    filter: grayscale(100%) brightness(0) invert(1);
+  }
   
+  .custom-btn {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .custom-btn:hover {
+    background-color: gold;
+    color: #000;
+  }
+  
+  .text-selector-town {
+    text-shadow: 1px 1px 2px black;
+  }
+
   p {
     text-align: center;
     margin-top: 4px;
@@ -21,6 +48,10 @@
   
   .candado {
     float: right;
+  }
+
+  #register_color{
+    color: white;
   }
 
   #box {
