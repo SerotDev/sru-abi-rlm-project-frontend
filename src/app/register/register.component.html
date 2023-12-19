@@ -1,26 +1,25 @@
 <div class="hohoho-content home-container d-flex flex-column justify-content-center align-items-center text-center">
-<div class="contenedor container py-3 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
+<div class="content container h-100">
+    <div class="row d-flex justify-content-center align-items-top h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card text-white bg-warning mb-3" style="border-radius: 1rem">
           <div class="card-body p-5 text-center " id="box" style="border-radius: 1rem">
             <form name="form" novalidate>
               <h3 class="fw-bold mb-2 text-uppercase text-selector-town" id="register_color">Register on our site<img src="../../assets/img/candado.png"></h3>
-              <p class="p1 text-white mb-5">Enter username, email and password</p>
-              <div class="form-floating mb-4">
-                <input type="text" name="username" id="floatingUsername" class="form-control bg-dark text-white"/>
-                <label for="floatingUsername">Username</label>
-              </div>
-              <div class="form-floating mb-4">
-                <input type="text" name="email" id="floatingEmail" class="form-control bg-dark text-white"/>
-                <label for="floatingEmail">Email</label>
-              </div>
-              <div class="form-floating mb-4 ">
-                <input type="password" name="password" id="floatingPassword" class="form-control bg-dark text-white" />
-                <label for="floatingPassword">Password</label>
-              </div>
-              <button class="btn btn-outline-light btn-lg mt-3 px-5 custom-btn" type="submit">Log in <img src="../../assets/img/logging-unscreen.gif" class="white-image" height="23" width="23"></button>
+              <p class="p1 text-white mb-5">Enter name, email and password</p>
+                <input type="text" name="name" id="floatingName" class="form-control bg-light" placeholder="Name" required/><br >              
+                <input type="text" name="email" id="floatingEmail" class="form-control bg-light" placeholder="Email" required/><br >
+                <input type="password" name="password" id="floatingPassword" class="form-control bg-light" placeholder="Password" required/><br >
+              <div class="row pt-4" id="registerAs">
+                <div class="col-6">
+              <button class="btn btn-block btn-success px-2 custom-btn w-100" type="submit">Register as Hotel <img src="../../assets/img/logging-unscreen.gif" class="white-image" height="23" width="23"></button>
+                </div>
+                <div class="col-6">
+              <button class="btn btn-block btn-success px-2 custom-btn w-100" type="submit">Register as Visitor <img src="../../assets/img/logging-unscreen.gif" class="white-image" height="23" width="23"></button>
+            </div>
+          </div>  
             </form>
+
           </div>
         </div>
       </div>
