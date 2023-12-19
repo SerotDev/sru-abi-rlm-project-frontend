@@ -92,6 +92,7 @@ bg-hohoho-secondary-light {
   background-color: #fffde3;
 }
 
+
 .hohoho-content {
   width: 100%;
   height: 100%;
@@ -112,16 +113,3 @@ select:active:focus,
 select:focus {
   box-shadow: 0 0 0 0.25rem rgba(60, 153, 110, 0.5);
 }
-
-/*
-.btn:hover{
-    transition: 400ms;
-    color: white;
-    background-color: #DF2E38;
-    border-color: #C21010;
-}
-
-.btn-danger:hover{
-    background-color: #C21010;
-}
-*/
