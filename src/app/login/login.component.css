@@ -4,7 +4,7 @@
 
   .home-container {
     position: relative;
-    background-image: url("/assets/img/background.webp");
+    background-image: url("../../assets/img/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -13,8 +13,9 @@
   }
 
   .white-image {
-    filter: grayscale(100%) brightness(0) invert(1);
+    filter: invert(100%)
   }
+  
 
   .custom-btn {
     border-color: #fff;
@@ -22,12 +23,7 @@
   }
 
   .custom-btn:hover {
-    background-color: gold;
-    color: #000;
-  }
-  
-  .text-selector-town {
-    text-shadow: 1px 1px 2px black;
+    background-color:rgba(60, 153, 110, 0.5); ;
   }
 
   p {
@@ -47,15 +43,22 @@
     text-align: left;
   }
   
-  .candado {
-    float: right;
-  }
-
   #login_color{
     color: white;
+    text-shadow: 1px 1px 2px black;
+
   }
 
   #box {
     background-color: #5D9C59;
-    border: 5px dotted red;
+}
+#box {
+  background-color:  #5d9c59;
+}
+
+
+input:focus, input::selection [type]:focus {
+border-color: #5D9C59;
+box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgb(93, 156, 89);
+outline: 0 none;
 }
