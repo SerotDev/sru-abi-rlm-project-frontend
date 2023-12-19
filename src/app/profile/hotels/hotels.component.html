@@ -7,7 +7,7 @@
                         <div>
                             <h3>My Hotels</h3>
                         </div>
-                        <table class="table table-striped">
+                        <table *ngIf="peticionHoteles" class="table table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">Image</th>
@@ -19,17 +19,17 @@
                                     <th class="text-center"><button [routerLink]="['/my-hotels/add-hotel']" class="btn btn-outline-secondary"><i class="fas fa-plus"></i></button></th>
                                 </tr>
                             </thead>
-                            <tbody class="table-group-divider">
+                            <tbody class="table-group-divider" *ngFor="let hotel of hoteles">
                                 <tr class="align-middle">
                                     <td class="text-center">
                                         <img src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg"
                                             width="150" height="100">
                                     </td>
-                                    <td class="text-center">HOTEL NY</td>
-                                    <td class="text-center">New York</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
+                                    <td class="text-center">{{hotel.id}}</td>
+                                    <td class="text-center">{{hotel.description}}</td>
+                                    <td class="text-center">{{hotel.name}}</td>
+                                    <td class="text-center">{{hotel.phone}}</td>
+                                    <td class="text-center">{{hotel.email}}</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center">
                                             <button [routerLink]="['/hotel/:id']" class="btn btn-outline-warning me-2">
@@ -47,6 +47,9 @@
                                         </div>
                                     </td>
                                 </tr>
+                                <div *ngIf="!peticionHoteles">
+                                    Loading hotels...
+                                  </div>
                                 <tr class="align-middle">
                                     <td class="text-center">
                                         <img src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg"

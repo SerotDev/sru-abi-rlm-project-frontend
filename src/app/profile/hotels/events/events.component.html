@@ -7,7 +7,7 @@
                         <div>
                             <h3>My Events in "town name" (hotel name)</h3>
                         </div>
-                        <table class="table table-striped">
+                        <table *ngIf="peticionEvents" class="table table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">Image</th>
@@ -20,15 +20,15 @@
                                     <th class="text-center"><button [routerLink]="['/my-hotel/add-event']" class="btn btn-outline-primary"><i class="fas fa-plus"></i></button></th>
                                 </tr>
                             </thead>
-                            <tbody class="table-group-divider">
+                            <tbody class="table-group-divider" *ngFor="let event of events">
                                 <tr class="align-middle">
                                     <td class="text-center">
                                         <img src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg"
                                             width="150" height="100">
                                     </td>
-                                    <td class="text-center">PartyLoquisima</td>
-                                    <td class="text-center">Tarragona</td>
-                                    <td class="text-center">16/01/2001</td>
+                                    <td class="text-center">{{event.title}}</td>
+                                    <td class="text-center">{{event.id}}</td>
+                                    <td class="text-center">{{event.id}}</td>
                                     <td class="text-center">19/01/2001</td>
                                     <td class="text-center">16</td>
                                     <td class="text-center">Public</td>
