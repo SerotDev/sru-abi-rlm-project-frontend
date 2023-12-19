@@ -1,12 +1,6 @@
 body{
     width: 100vw;
-    min-height: 80vh;
-}
-
-h3{
-    color: #E64848;
-    margin-top: 6%;
-
+    min-height: 100vh;
 }
 .btn:hover{
     color: white;
