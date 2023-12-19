@@ -29,20 +29,82 @@
                     </td>
                     <td>HOTEL NY</td>
                     <td>New York</td>
-                    <td>*****</td>
+                    <td>Result of popup</td>
                     <td>
-                      <button class="btn btn-outline-warning me-2">
+                      <a href="#"><button class="btn btn-outline-warning me-2">
                         <i class="fa fa-eye"></i>
-                      </button>
+                      </button></a>
                       &nbsp;
-                      <button class="btn btn-outline-success me-2">
-                        <i class="fas fa-edit"></i>
+                      <!-- Button trigger modal -->
+                      <button
+                        type="button"
+                        class="btn btn-outline-success me-2"
+                        data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop"
+                      ><i class="fas fa-edit"></i>
                       </button>
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="staticBackdrop"
+                        data-bs-backdrop="static"
+                        data-bs-keyboard="false"
+                        tabindex="-1"
+                        aria-labelledby="staticBackdropLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel">
+                                Edit your favorite ranking 
+                              </h5>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              <!--Info of modal pop-up-->
+                              <div class="form-group mt-3 mb-3 ms-5 me-5">
+                                <input type="range" class="form-range range-input" min="1" max="5"
+                                    id="star-rating">
+                                <div class="d-flex justify-content-between fw-light text-muted">
+                                    <p>1</p>
+                                    <p>2</p>
+                                    <p>3</p>
+                                    <p>4</p>
+                                    <p>5</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                              <!--Finish of modal pop-up-->
+                              <!-- Buttons of inside pop-up-->
+                              <button
+                                type="button"
+                                class="btn btn btn-outline-danger"
+                                data-bs-dismiss="modal"
+                              >
+                                Close
+                              </button>
+                              <button type="button" class="btn btn-outline-success me-2">
+                                Done
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--Finish modal-->
                       &nbsp;
-                      <button class="btn btn-outline-danger">
+                      <button class="btn btn-outline-danger"  data-bs-toggle="modal"
+                      data-bs-target="#delete-success">
                         <i class="fas fa-trash"></i>
                       </button>
-                    </td>
+                      <app-delete-success></app-delete-success>
+                      </td>
                   </tr>
                   <tr class="align-middle">
                     <td>enlace</td>
