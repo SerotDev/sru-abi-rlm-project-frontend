@@ -1,0 +1,39 @@
+<div class="hohoho-content home-container d-flex flex-column justify-content-center align-items-center text-center">
+  <div class="contenedor container py-3 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="row d-flex justify-content-center align-items-top h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card text-black bg-warning mb-3" style="border-radius: 1rem">
+          <div class="card-body p-5 text-center" id="box" style="border-radius: 1rem">
+            <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && logUser()" #f="ngForm" novalidate>
+              <h3 class="fw-bold mb-2 text-uppercase text-selector-town" id="login_color">Login to our site<img src="../../assets/img/candado.png"></h3>
+              <p class="p1 text-white mb-5">Enter username and password</p>
+              <div class="form-floating mb-4">
+                <input type="text" name="name" id="floatingUsername" class="form-control bg-light text-black" [class.is-invalid]="username.errors && f.submitted" [(ngModel)]="login.username" required #username="ngModel" />
+                <label for="floatingUsername">Username</label>
+                <div id="floatingUsername" class="invalid-feedback">
+                  Username is required!
+                </div>
+              </div>
+              <div class="form-floating mb-4 ">
+                <input type="password" name="password" id="floatingPassword" class="form-control bg-light text-black" [class.is-invalid]="password.errors && f.submitted" [(ngModel)]="login.password" required #password="ngModel" />
+                <label for="floatingPassword">Password</label>
+                <div id="floatingPassword" class="invalid-feedback">
+                  <div *ngIf="password.errors?.['required']">Password is required</div>
+                </div>
+              </div>
+              <button class="btn btn-success btn-lg mt-3 px-5 custom-btn" type="submit">Log in <img src="../../assets/img/logging-unscreen.gif" class="white-image" height="23" width="23" *ngIf="isLoggin"></button>
+              <div class="text-danger mt-5" *ngIf="f.submitted && isLoginFailed">
+                Login failed: {{errorMessage}}
+              </div>
+            </form>
+            <div *ngIf="isLoggedIn">
+              <h4>Welcome {{login.username}}</h4>
+              <button class="btn btn-success btn-lg mt-3 px-5 custom-btn" routerLink="/home">Continue</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

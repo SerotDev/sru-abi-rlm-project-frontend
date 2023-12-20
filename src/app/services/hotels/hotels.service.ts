@@ -25,32 +25,38 @@ export class HotelsService {
     idServices: number[] | string
   ): Observable<object> {
     // Construir la URL con los parámetros
-    let url = `${baseAPI}/api/hotels/${page}/${size}`;
-  
-    // Agregar parámetros a la URL si están definidos
-    if (idTown !== "") url += `/${idTown}`;
-    if (search !== "") url += `/${search}`;
-    if (minStarRatingAvg !== "") url += `/${minStarRatingAvg}`;
-    if (minNumberRooms !== "") url += `/${minNumberRooms}`;
-    if (minPrice !== "") url += `/${minPrice}`;
-    if (maxPrice !== "") url += `/${maxPrice}`;
-    if (idServices !== "") url += `/${idServices}`;
+    let url = `${baseAPI}/api/hotels`;
   
     // Convertir a HttpParams para agregar los parámetros de consulta
     const params = new HttpParams()
-      .set('page', page.toString())
-      .set('size', size.toString());
+      .set('page', page != null ? page.toString() : "")
+      .set('size', size != null ? size.toString() : "")
+      .set('idTown', idTown != null ? idTown.toString() : "")
+      .set('search', search != null ? search.toString() : "")
+      .set('minStarRatingAvg', minStarRatingAvg != null ? minStarRatingAvg.toString() : "")
+      .set('minNumberRooms', minNumberRooms != null ? minNumberRooms.toString() : "")
+      .set('minPrice', minPrice != null ? minPrice.toString() : "")
+      .set('maxPrice', maxPrice != null ? maxPrice.toString() : "")
+      .set('idServices', idServices != null ? idServices.toString() : "");
   
     // Agregar parámetros de consulta a la URL
     url += '?' + params.toString();
+    console.log(url);
   
     return this.http.get<object>(url);
   }
   
-  
+  getMyHotles(id: number)
+  {
+    return this.http.get(`${baseAPI}/api/user/hoteles/${id}`);
+  }
 
   getHotelbyId(id : any) : Observable <object> {
     return this.http.get(`${baseAPI}/api/hotel/${id}`);
+  }
+
+  getHotelbyUserId(id : any) : Observable <object> {
+    return this.http.get(`${baseAPI}/api/user/hotels/${id}`);
   }
 
   getHotelbyStarRating(id : any) : Observable <object> {
