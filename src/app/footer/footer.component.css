@@ -31,4 +31,5 @@ h5{
 #logo-footer {
     width: 100%; 
     max-width: 185px;
+    opacity: 0.5;
 }
