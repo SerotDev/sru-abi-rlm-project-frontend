@@ -10,17 +10,20 @@ import { SearchMapComponent } from './search-map/search-map.component';
 import { FavouritesComponent } from './profile/favourites/favourites.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HotelsComponent } from './profile/hotels/hotels.component';
-import { AddHotelComponent } from './profile/add-hotel/add-hotel.component';
-import { UpdateHotelComponent } from './profile/update-hotel/update-hotel.component';
+import { AddHotelComponent } from './profile/hotels/add-hotel/add-hotel.component';
+import { UpdateHotelComponent } from './profile/hotels/update-hotel/update-hotel.component';
 import { EventsComponent } from './profile/hotels/events/events.component';
 import { AddEventComponent } from './profile/hotels/add-event/add-event.component';
 import { UpdateEventComponent } from './profile/hotels/update-event/update-event.component';
+import { isAdminGuard } from './guards/is-admin.guard';
+import { isHotelGuard } from './guards/is-hotel.guard';
+import { isVisitorGuard } from './guards/is-visitor.guard';
 import { EventComponent } from './event/event.component';
 
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'about', component: AboutComponent },
+    { path: 'about', component: AboutComponent, canActivate: [isHotelGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'hotels-list', component: SearchComponent },
@@ -28,13 +31,14 @@ export const routes: Routes = [
     { path: 'hotel/:id', component: HotelComponent },
     { path: 'event/:id', component: EventComponent },
     { path: 'profile', component: ProfileComponent },
-    { path: 'favourites', component: FavouritesComponent },
-    { path: 'my-hotels', component: HotelsComponent},
-    { path: 'my-hotels/add-hotel', component: AddHotelComponent },
-    { path: 'my-hotels/update-hotel', component: UpdateHotelComponent },
-    { path: 'my-hotel/events', component: EventsComponent},
-    { path: 'my-hotel/add-event', component: AddEventComponent},
-    { path: 'my-hotel/update-event', component: UpdateEventComponent},
+    { path: 'favourites', component: FavouritesComponent, canActivate: [isVisitorGuard]},
+    { path: 'my-hotels', component: HotelsComponent, canActivate: [isHotelGuard]},
+    { path: 'my-hotels/:id', component: HotelsComponent, canActivate: [isHotelGuard] },
+    { path: 'my-hotels/add-hotel', component: AddHotelComponent, canActivate: [isHotelGuard] },
+    { path: 'my-hotels/update-hotel', component: UpdateHotelComponent, canActivate: [isHotelGuard] },
+    { path: 'my-hotel/events', component: EventsComponent, canActivate: [isHotelGuard]},
+    { path: 'my-hotel/add-event', component: AddEventComponent, canActivate: [isHotelGuard]},
+    { path: 'my-hotel/update-event', component: UpdateEventComponent, canActivate: [isHotelGuard]},
     { path: 'not-found', component: NotFoundComponent },
     { path: '**', redirectTo: '/not-found' }
 ];
