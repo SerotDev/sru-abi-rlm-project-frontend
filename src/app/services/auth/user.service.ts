@@ -1,62 +1,53 @@
-import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { UserDTO } from '../../models/user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
-export interface UserforAdmin {
-  id: number;
-  username: string;
-  email: string;
-  role: string;
-}
+const AUTH_API = 'https://sru-abi-rlm-project-backend-production.up.railway.app/';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 @Injectable({
   providedIn: 'root'
 })
-export class UserDbService {
-  
-  private url = environment.apiUrl + '/api/v1/users';
-  private url2 = environment.apiUrl + '/api/v1/user';
-  private http = inject(HttpClient)
+export class UsersService {
 
-  private usersApi: UserforAdmin[] = []
+  constructor(private http: HttpClient) { }
 
-  private userSubject = new BehaviorSubject<UserforAdmin[]>(this.usersApi);
-  
-  getUsers(num1:number,num2:number): Observable<UserforAdmin[]> {
-    return this.http.get<any[]>(this.url+"?page="+num1+"&size="+num2);
+  login(username: string, password: string): Observable<any>
+  {
+    return this.http.post(AUTH_API + 'login', {
+      username,
+      password
+    }, httpOptions);
   }
 
-  deleteUser(userId: number): Observable<any> {
-    return this.http.delete<any[]>(this.url2+"/"+userId);
-
+  register(username: string, email: string, password: string): Observable<any>
+  {
+    return this.http.post(AUTH_API + 'register', {
+      username,
+      password,
+      email
+    }, httpOptions);
   }
 
-  updateUser(userId: number,user: UserDTO): Observable<any> {
-    let roleId:number=1;
-    const newRole = prompt('Ingrese el nuevo rol (visitor, hotel, admin):');
-      if (newRole && ['VISITOR', 'HOTEL', 'ADMIN'].includes(newRole.toLocaleUpperCase())) {
-        if(newRole.toLocaleUpperCase() == 'VISITOR') {
-          roleId =1;
-        }
-        else if(newRole.toLocaleUpperCase() == 'HOTEL'){
-          roleId=2;
-        }
-        else if(newRole.toLocaleUpperCase() == 'ADMIN'){
-          roleId=3;
-        }
-        user.role.name=newRole.toLocaleUpperCase();
-        user.role.id=roleId;
-        return this.http.put(this.url2+"/"+userId,user, { headers: { 'Content-Type': 'application/json' } });
-      } else {
-        alert('Rol inválido. Se requiere "visitor", "hotel" o "admin".');
-        return of();
-      }
+  getUsuario(usuario: string): Observable<any>
+  {
+    return this.http.get(AUTH_API + `api/usuarios/${usuario}/`, httpOptions);
   }
 
-  getTotalUsersCount(): number {
-    return this.usersApi.length;
+  getUsuarios(): Observable<any>
+  {
+    return this.http.get(AUTH_API + `usuarios/`, httpOptions);
   }
 
-  constructor() { }
+  getUsuarioPorId(id : any)  : Observable <any> {
+    return this.http.get(AUTH_API + `usuarios/${id}/`, httpOptions);
+  }
+
+  deleteUsuario(id: any): Observable<any>
+  {
+    return this.http.delete(AUTH_API + `usuarios/${id}/`, httpOptions);
+  }
 }

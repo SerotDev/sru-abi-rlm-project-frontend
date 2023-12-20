@@ -13,28 +13,28 @@ import { HotelsService } from '../../services/hotels/hotels.service';
 })
 export class HotelsComponent {
 
-  hoteles: any = null;
+  hotels: any = null;
   peticionHoteles = false;
+  user_id: number = 1;
 
   constructor(private hotelService: HotelsService, private route : ActivatedRoute) { }
 
- ngOnInit(): void {
-    const page = 1;
-    const size = 10;
-    const idTown = "";
-    const search = "";
-    const minStarRatingAvg = "";
-    const minNumberRooms = "";
-    const minPrice = "";
-    const maxPrice = "";
-    const idServices = "";
+  ngOnInit(): void {
+    //this.hotels = this.jsonData;
+    this.peticionHoteles = true;
+    console.log(this.hotels);
+    this.getHotels();
+  }
 
-    this.hotelService.getFilteredHotels(page, size, idTown, search, minStarRatingAvg, minNumberRooms, minPrice, maxPrice, idServices).subscribe(
+  getHotels()
+  {
+    this.hotelService.getHotelbyUserId(this.route.snapshot.paramMap.get('id')).subscribe(
       data => {
         this.peticionHoteles = true;
-        this.hoteles = data;
+        console.log(data);
+        this.hotels = data;
       }
-    );
+    )
   }
  /*
   hotel : any = {
