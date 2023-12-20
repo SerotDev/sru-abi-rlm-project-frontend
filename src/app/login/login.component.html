@@ -1,5 +1,5 @@
 <div class="hohoho-content home-container d-flex flex-column justify-content-center align-items-center text-center">
-  <div class="contenedor container py-3 h-100">
+  <div class="contenedor container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="row d-flex justify-content-center align-items-top h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -29,7 +29,7 @@
             </form>
             <div *ngIf="isLoggedIn">
               <h4>Welcome {{login.username}}</h4>
-              <button class="btn btn-success btn-lg mt-3 px-5 custom-btn" routerLink="/home">Continue</button>
+              <button class="btn btn-success btn-lg mt-3 px-5 custom-btn" [routerLink]="['/']">Continue</button>
             </div>
           </div>
         </div>

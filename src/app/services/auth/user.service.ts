@@ -23,6 +23,15 @@ export class UsersService {
     }, httpOptions);
   }
 
+  register(username: string, email: string, password: string): Observable<any>
+  {
+    return this.http.post(AUTH_API + 'register', {
+      username,
+      password,
+      email
+    }, httpOptions);
+  }
+
   getUsuario(usuario: string): Observable<any>
   {
     return this.http.get(AUTH_API + `api/usuarios/${usuario}/`, httpOptions);

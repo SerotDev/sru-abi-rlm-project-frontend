@@ -21,33 +21,35 @@
                 </li>   
             </ul>
             <form class="d-flex align-items-center justify-items-center">
-                <ul class="navbar-nav menu-end-part">
-                    <li>
-                        <div class="collapse navbar-collapse justify-content-center" id="navbarToggle">
+                <ul class="navbar-nav menu-end-part" *ngIf="!isLogged">
                     <li class="nav-item" width="150">
-                        <a class="nav-link" [routerLink]="['/login']" aria-current="page" href="#">Login <img
+                        <a class="nav-link" [routerLink]="['/login']" aria-current="page">Login <img
                                 src="../assets/img/open present.png" height="23" width="23"></a>
                     </li>
                     <li class="nav-item" width="150">
-                        <a class="nav-link" [routerLink]="['/register']" aria-current="page" href="#">Register <img
+                        <a class="nav-link" [routerLink]="['/register']" aria-current="page">Register <img
                                 src="../assets/img/close present.png" height="23" width="23"></a>
                     </li>
+                </ul>
+                <ul class="navbar-nav menu-end-part" *ngIf="isLogged">
                     <li class="nav-item" width="150">
-                        <a class="nav-link" [routerLink]="['/profile']" aria-current="page" href="#">Profile <img id="cookie"
+                        <a class="nav-link" [routerLink]="['/profile']" aria-current="page">{{username}} <img id="cookie"
                                 src="../assets/img/profile-unscreen.gif" height="25"></a>
                     </li>
                     <li class="nav-item" width="150">
-                        <a class="nav-link" [routerLink]="['/favourites']" aria-current="page" href="#">Favourites <img
+                        <a class="nav-link" [routerLink]="['/favourites']" aria-current="page">Favourites <img
                                 src="../assets/img/star favourites.png" height="25"></a>
                     </li>
                     <li class="nav-item" width="150">
-                        <a class="nav-link" [routerLink]="['/my-hotels']" aria-current="page" href="#">My Hotels <img
+                        <a class="nav-link" [routerLink]="['/my-hotels']" aria-current="page">My Hotels <img
                                 src="../assets/img/hotel.png" height="25"></a>
                     </li>
-                </div>
-            </ul>
-        </form>
-    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/login']" aria-current="page" (click)="logout()">LogOut</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
     </div>
 </nav>
 <div id="border-bottom"></div>
