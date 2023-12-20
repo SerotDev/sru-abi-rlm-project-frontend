@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HotelsService {
+  getHotelbyUserId(arg0: string | null) {
+    throw new Error('Method not implemented.');
+  }
   private baseAPI: string = 'https://sru-abi-rlm-project-backend-production.up.railway.app';
 
   constructor(private http : HttpClient) { }
@@ -43,7 +46,7 @@ export class HotelsService {
     return this.http.get<object>(`${this.baseAPI}/api/hotel/starRatingAvg/&${idHotel}`);
   }
 
-  getHotelId(idHotel: any) : Observable <any>{
+  getHotelById(idHotel: any) : Observable <any>{
     return this.http.get<any>(`${this.baseAPI}/api/hotel/&${idHotel}`);
   }
 

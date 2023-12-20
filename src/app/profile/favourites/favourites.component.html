@@ -3,151 +3,84 @@
     <div class="row">
       <div class="card bg-white col-12 mx-auto">
         <div class="card-body">
-          <body>
-            <div class="container text-center" id="fav-contain">
-              <div>
-                <h3>My favourites hotels</h3>
-              </div>
-              <table class="table table-striped">
-                <thead>
-                  <tr class="align-middle">
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Town</th>
-                    <th scope="col">Ranking</th>
-                    <th scope="col">Actions</th>
-                  </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                  <tr class="align-middle">
-                    <td>
-                      <img
-                        src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg"
-                        width="200"
-                        height="100"
-                      />
-                    </td>
-                    <td>HOTEL NY</td>
-                    <td>New York</td>
-                    <td>Result of popup</td>
-                    <td>
-                      <a href="#"><button class="btn btn-outline-warning me-2">
+          <div class="text-center">
+            <div>
+              <h1 class="pt-3 pb-3">My favourites hotels</h1>
+            </div>
+            <table class="table table-striped">
+              <thead>
+                <tr class="align-middle">
+                  <th class="d-no d-sm-cell" scope="col">Image</th>
+                  <th scope="col">Name</th>
+                  <th class="d-no d-md-cell" scope="col">Town</th>
+                  <th scope="col">Ranking</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr class="align-middle">
+                  <td class="d-no d-sm-cell">
+                    <img
+                      src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg" />
+                  </td>
+                  <td>HOTEL NY</td>
+                  <td class="d-no d-md-cell">New York</td>
+                  <td>Result of popup</td>
+                  <td class="td-btns">
+                    <a href="#"><button class="btn btn-outline-warning">
                         <i class="fa fa-eye"></i>
                       </button></a>
-                      &nbsp;
-                      <!-- Button trigger modal -->
-                      <button
-                        type="button"
-                        class="btn btn-outline-success me-2"
-                        data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop"
-                      ><i class="fas fa-edit"></i>
-                      </button>
-                      <!-- Modal -->
-                      <div
-                        class="modal fade"
-                        id="staticBackdrop"
-                        data-bs-backdrop="static"
-                        data-bs-keyboard="false"
-                        tabindex="-1"
-                        aria-labelledby="staticBackdropLabel"
-                        aria-hidden="true"
-                      >
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="staticBackdropLabel">
-                                Edit your favorite ranking 
-                              </h5>
-                              <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                              ></button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"><i class="fas fa-edit"></i>
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">
+                              Edit your favorite ranking
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <!--Info of modal pop-up-->
+                            <div class="form-group mt-3 mb-3 ms-5 me-5">
+                              <input type="range" class="form-range range-input" min="1" max="5" id="star-rating">
+                              <div class="d-flex justify-content-between fw-light text-muted">
+                                <p>1</p>
+                                <p>2</p>
+                                <p>3</p>
+                                <p>4</p>
+                                <p>5</p>
+                              </div>
                             </div>
-                            <div class="modal-body">
-                              <!--Info of modal pop-up-->
-                              <div class="form-group mt-3 mb-3 ms-5 me-5">
-                                <input type="range" class="form-range range-input" min="1" max="5"
-                                    id="star-rating">
-                                <div class="d-flex justify-content-between fw-light text-muted">
-                                    <p>1</p>
-                                    <p>2</p>
-                                    <p>3</p>
-                                    <p>4</p>
-                                    <p>5</p>
-                                </div>
-                            </div>
-                            </div>
-                            <div class="modal-footer">
-                              <!--Finish of modal pop-up-->
-                              <!-- Buttons of inside pop-up-->
-                              <button
-                                type="button"
-                                class="btn btn btn-outline-danger"
-                                data-bs-dismiss="modal"
-                              >
-                                Close
-                              </button>
-                              <button type="button" class="btn btn-outline-success me-2">
-                                Done
-                              </button>
-                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <!--Finish of modal pop-up-->
+                            <!-- Buttons of inside pop-up-->
+                            <button type="button" class="btn btn btn-outline-danger mx-1" data-bs-dismiss="modal">
+                              Close
+                            </button>
+                            <button type="button" class="btn btn-outline-success mx-1">
+                              Done
+                            </button>
                           </div>
                         </div>
                       </div>
-                      <!--Finish modal-->
-                      &nbsp;
-                      <button class="btn btn-outline-danger"  data-bs-toggle="modal"
-                      data-bs-target="#delete-success">
-                        <i class="fas fa-trash"></i>
-                      </button>
-                      <app-delete-success></app-delete-success>
-                      </td>
-                  </tr>
-                  <tr class="align-middle">
-                    <td>enlace</td>
-                    <td>hotel</td>
-                    <td>town</td>
-                    <td><!--<p-rating [(ngModel)]="value"></p-rating>--></td>
-                    <td>
-                      <button class="btn btn-outline-warning me-2">
-                        <i class="fa fa-eye"></i>
-                      </button>
-                      &nbsp;
-                      <button class="btn btn-outline-success me-2">
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      &nbsp;
-                      <button class="btn btn-outline-danger">
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <tr class="align-middle">
-                    <td>enlace</td>
-                    <td>hotel</td>
-                    <td>town</td>
-                    <td>estrellas</td>
-                    <td>
-                      <button class="btn btn-outline-warning me-2">
-                        <i class="fa fa-eye"></i>
-                      </button>
-                      &nbsp;
-                      <button class="btn btn-outline-success me-2">
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      &nbsp;
-                      <button class="btn btn-outline-danger">
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </body>
+                    </div>
+                    <!--Finish modal-->
+                    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete-success">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                    <app-delete-success></app-delete-success>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

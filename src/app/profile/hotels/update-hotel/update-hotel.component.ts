@@ -23,7 +23,7 @@ export class UpdateHotelComponent {
   constructor(private hotelService : HotelsService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.hotelService.getHotelId(this.route.snapshot.paramMap.get('id'))
+    this.hotelService.getHotelById(this.route.snapshot.paramMap.get('id'))
     .subscribe(
       respuesta => {
         this.recogidaDatos = true;

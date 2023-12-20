@@ -1,15 +1,36 @@
-
-
- body{
-    width: 100vw;
-    min-height: 80vh;
+body {
+  width: 100vw;
+  min-height: 80vh;
 }
 
-h3{
-    color: #E64848;
-    margin-top: 6%;
-
+.btn:hover {
+  color: white;
 }
-.btn:hover{
-    color: white;
+
+td img {
+  height: calc(30px + 10vw);
+  max-width: 200px;
+  max-height: 100px;
+  border-radius: 5px;
+}
+
+.td-btns button,
+.td-btns > a {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.td-btns > button,
+.td-btns > a {
+  margin: 4px;
+}
+
+.table,
+.container {
+  box-sizing: border-box;
+}
+
+.card,
+.card-body {
+  padding: 0px;
 }

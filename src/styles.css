@@ -3,7 +3,7 @@
 
 html {
   font-size: 16px;
-  background-color: #5d9c59;
+  background-color: #fffde3;
 }
 
 h1,
@@ -32,63 +32,63 @@ hr {
   border-radius: 0.5rem;
 }
 
-hohoho-red-strong {
+.hohoho-red-strong {
   color: #c21010;
 }
 
-hohoho-red {
+.hohoho-red {
   color: #df2e38;
 }
 
-hohoho-red-light {
+.hohoho-red-light {
   color: #e64848;
 }
 
-hohoho-primary-strong {
+.hohoho-primary-strong {
   color: #467543;
 }
 
-hohoho-primary {
+.hohoho-primary {
   color: #5d9c59;
 }
 
-hohoho-primary-clear {
+.hohoho-primary-clear {
   color: #c7e8ca;
 }
 
-hohoho-primary-light {
+.hohoho-primary-light {
   color: #ddf7e3;
 }
 
-hohoho-secondary {
+.hohoho-secondary {
   color: #cfe8a9;
 }
 
-hohoho-secondary-light {
+.hohoho-secondary-light {
   color: #fffde3;
 }
 
-bg-hohoho-strong {
+.bg-hohoho-strong {
   background-color: #467543;
 }
 
-bg-hohoho {
+.bg-hohoho {
   background-color: #5d9c59;
 }
 
-bg-hohoho-clear {
+.bg-hohoho-clear {
   background-color: #c7e8ca;
 }
 
-bg-hohoho-light {
+.bg-hohoho-light {
   background-color: #ddf7e3;
 }
 
-bg-hohoho-secondary {
+.bg-hohoho-secondary {
   background-color: #cfe8a9;
 }
 
-bg-hohoho-secondary-light {
+.bg-hohoho-secondary-light {
   background-color: #fffde3;
 }
 
@@ -113,4 +113,68 @@ select:focus {
 select:active:focus,
 select:focus {
   box-shadow: 0 0 0 0.25rem rgba(60, 153, 110, 0.5);
+}
+
+/* CUSTOM CELL HIDING AND SHOWING /*
+
+/* XX-Small devices (small phones, less than 400px)*/
+.d-cell {
+  display: table-cell!important;
+}
+.d-no {
+  display: none!important;
+}
+/* X-Small devices (portrait phones, 400px and up)*/
+@media screen and (min-width: 400px) {
+  .d-xs-cell {
+    display: table-cell!important;
+  }
+  .d-xs-no {
+    display: none!important;
+  }
+}
+/* Small devices (landscape phones, 576px and up)*/
+@media screen and (min-width: 576px) {
+  .d-sm-cell {
+    display: table-cell!important;
+  }
+  .d-sm-no {
+    display: none!important;
+  }
+}
+/* Medium devices (tablets, 768px and up)*/
+@media screen and (min-width: 768px) {
+  .d-md-cell {
+    display: table-cell!important;
+  }
+  .d-md-no {
+    display: none!important;
+  }
+}
+/* Large devices (desktops, 992px and up)*/
+@media screen and (min-width: 992px) {
+  .d-lg-cell {
+    display: table-cell!important;
+  }
+  .d-lg-no {
+    display: none!important;
+  }
+}
+/* X-Large devices (large desktops, 1200px and up)*/
+@media screen and (min-width: 1200px) {
+  .d-xl-cell {
+    display: table-cell!important;
+  }
+  .d-xl-no {
+    display: none!important;
+  }
+}
+/* XX-Large devices (larger desktops, 1400px and up)*/
+@media screen and (min-width: 1400px) {
+  .d-xxl-cell {
+    display: table-cell!important;
+  }
+  .d-xxl-no {
+    display: none!important;
+  }
 }
