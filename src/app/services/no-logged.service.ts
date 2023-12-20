@@ -11,8 +11,8 @@ export class NoLoggedService {
   constructor(private http : HttpClient) { }
 
   //Towns
-  getTowns() : Observable <object> {
-    return this.http.get<object>(`${this.baseAPI}/api/towns`);
+  getTowns() : Observable <any> {
+    return this.http.get<any>(`${this.baseAPI}/api/towns`);
   }
   getTownById(idTown: any) : Observable <object> {
     return this.http.get<object>(`${this.baseAPI}/api/town/&${idTown}`);

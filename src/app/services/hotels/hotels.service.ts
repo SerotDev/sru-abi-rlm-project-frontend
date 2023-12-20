@@ -43,8 +43,8 @@ export class HotelsService {
     return this.http.get<object>(`${this.baseAPI}/api/hotel/starRatingAvg/&${idHotel}`);
   }
 
-  getHotelId(idHotel: any) : Observable <object>{
-    return this.http.get<object>(`${this.baseAPI}/api/hotel/&${idHotel}`);
+  getHotelId(idHotel: any) : Observable <any>{
+    return this.http.get<any>(`${this.baseAPI}/api/hotel/&${idHotel}`);
   }
 
   addHotel(data : any) : Observable <object> {
@@ -58,4 +58,6 @@ export class HotelsService {
   deleteHotelById(id : any) : Observable <object> {
     return this.http.delete(`${this.baseAPI}/api/hotel/delete/&${id}`);
   }
+
+
 }  
