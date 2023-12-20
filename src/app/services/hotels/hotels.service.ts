@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const baseAPI = 'https://sru-abi-rlm-project-backend-production.up.railway.app';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HotelsService {
+  private baseAPI: string = 'https://sru-abi-rlm-project-backend-production.up.railway.app';
 
   constructor(private http : HttpClient) { }
 
@@ -24,52 +24,40 @@ export class HotelsService {
     maxPrice: number | string,
     idServices: number[] | string
   ): Observable<object> {
-
-    let url = `${baseAPI}/api/hotels`;
-    
-    const params = new HttpParams()
-      .set('page', page != null ? page.toString() : "")
-      .set('size', size != null ? size.toString() : "")
-      .set('idTown', idTown != null ? idTown.toString() : "")
-      .set('search', search != null ? search.toString() : "")
-      .set('minStarRatingAvg', minStarRatingAvg != null ? minStarRatingAvg.toString() : "")
-      .set('minNumberRooms', minNumberRooms != null ? minNumberRooms.toString() : "")
-      .set('minPrice', minPrice != null ? minPrice.toString() : "")
-      .set('maxPrice', maxPrice != null ? maxPrice.toString() : "")
-      .set('idServices', idServices != null ? idServices.toString() : "");
+    // URL with params
+    let url = `${this.baseAPI}/api/hotels/?page=${page}&size=&${size}&`;
   
-    url += '?' + params.toString();
-    console.log(url);
+    // Check params to URL
+    if (idTown !== "") url += `&${idTown}`;
+    if (search !== "") url += `&${search}`;
+    if (minStarRatingAvg !== "") url += `&${minStarRatingAvg}`;
+    if (minNumberRooms !== "") url += `&${minNumberRooms}`;
+    if (minPrice !== "") url += `&${minPrice}`;
+    if (maxPrice !== "") url += `&${maxPrice}`;
+    if (idServices !== "") url += `&${idServices}`;
   
     return this.http.get<object>(url);
   }
   
-  getMyHotles(id: number)
-  {
-    return this.http.get(`${baseAPI}/api/user/hoteles/${id}`);
+  getStarRating(idHotel: number) : Observable <object>{
+    return this.http.get<object>(`${this.baseAPI}/api/hotel/starRatingAvg/&${idHotel}`);
   }
 
-  getHotelbyId(id : any) : Observable <object> {
-    return this.http.get(`${baseAPI}/api/hotel/${id}`);
-  }
-
-  getHotelbyUserId(id : any) : Observable <object> {
-    return this.http.get(`${baseAPI}/api/user/hotels/${id}`);
-  }
-
-  getHotelbyStarRating(id : any) : Observable <object> {
-    return this.http.get(`${baseAPI}/api/hotel/starRatingAvg/${id}`);
+  getHotelId(idHotel: any) : Observable <any>{
+    return this.http.get<any>(`${this.baseAPI}/api/hotel/&${idHotel}`);
   }
 
   addHotel(data : any) : Observable <object> {
-    return this.http.post(`${baseAPI}/api/hotel/add`, data);
+    return this.http.post(`${this.baseAPI}/api/hotel/add`, data);
   }
 
   updateHotelById(id : any, data : any) : Observable <object> {
-    return this.http.put(`${baseAPI}/api/hotel/update/${id}`, data);
+    return this.http.put(`${this.baseAPI}/api/hotel/update/&${id}`, data);
   }
 
   deleteHotelById(id : any) : Observable <object> {
-    return this.http.delete(`${baseAPI}/api/hotel/delete/${id}`);
+    return this.http.delete(`${this.baseAPI}/api/hotel/delete/&${id}`);
   }
+
+
 }  
