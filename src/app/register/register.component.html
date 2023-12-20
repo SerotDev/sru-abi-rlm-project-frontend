@@ -1,41 +1,58 @@
 <div class="hohoho-content home-container d-flex flex-column justify-content-center align-items-center text-center">
+  <div class="snow-container">
+    <div class="snow foreground"></div>
+    <div class="snow foreground layered"></div>
+    <div class="snow middleground"></div>
+    <div class="snow middleground layered"></div>
+    <div class="snow background"></div>
+    <div class="snow background layered"></div>
+  </div>
   <div class="content container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
     <div class="row d-flex justify-content-center align-items-top h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card text-black bg-warning mb-3" style="border-radius: 1rem">
           <div class="card-body p-5 text-center" id="box" style="border-radius: 1rem">
             <form *ngIf="!isRegisterIn" name="form" (ngSubmit)="f.form.valid && registerUser()" #f="ngForm" novalidate>
-              <h3 class="fw-bold mb-2 text-uppercase text-selector-town" id="register_color">Register on our site<img src="../../assets/img/candado.png"></h3>
+              <h3 class="fw-bold mb-2 text-uppercase text-selector-town" id="register_color">Register on our site<img
+                  src="../../assets/img/candado.png"></h3>
               <p class="p1 text-white mb-5">Enter username, email and password</p>
               <div class="form-floating mb-4">
-                <input type="text" name="name" id="floatingUsername" class="form-control bg-light text-black" [class.is-invalid]="username.errors && f.submitted" [(ngModel)]="register.username" required #username="ngModel" />
+                <input type="text" name="name" id="floatingUsername" class="form-control bg-light text-black"
+                  [class.is-invalid]="username.errors && f.submitted" [(ngModel)]="register.username" required
+                  #username="ngModel" />
                 <label for="floatingUsername">Username</label>
                 <div id="floatingUsername" class="invalid-feedback">
                   Username is required!
                 </div>
-              </div>    
+              </div>
               <div class="form-floating mb-4">
-                <input type="text" name="email" id="floatingEmail" class="form-control bg-light text-black" [class.is-invalid]="email.errors && f.submitted" [(ngModel)]="register.email" required #email="ngModel" />
+                <input type="text" name="email" id="floatingEmail" class="form-control bg-light text-black"
+                  [class.is-invalid]="email.errors && f.submitted" [(ngModel)]="register.email" required
+                  #email="ngModel" />
                 <label for="floatingUseremail">Email</label>
                 <div id="floatingEmail" class="invalid-feedback">
                   Email is required!
                 </div>
-              </div>      
+              </div>
               <div class="form-floating mb-4 ">
-                <input type="password" name="password" id="floatingPassword" class="form-control bg-light text-black" [class.is-invalid]="password.errors && f.submitted" [(ngModel)]="register.password" required #password="ngModel" />
+                <input type="password" name="password" id="floatingPassword" class="form-control bg-light text-black"
+                  [class.is-invalid]="password.errors && f.submitted" [(ngModel)]="register.password" required
+                  #password="ngModel" />
                 <label for="floatingPassword">Password</label>
                 <div id="floatingPassword" class="invalid-feedback">
                   <div *ngIf="password.errors?.['required']">Password is required</div>
                 </div>
               </div>
-              <button class="btn btn-success btn-lg mt-3 px-5 custom-btn" type="submit">Register <img src="../../assets/img/logging-unscreen.gif" class="white-image" height="23" width="23" *ngIf="isLoggin"></button>
+              <button class="btn btn-success btn-lg mt-3 px-5 custom-btn" type="submit">Register <img
+                  src="../../assets/img/logging-unscreen.gif" class="white-image" height="23" width="23"
+                  *ngIf="isLoggin"></button>
               <div class="text-danger mt-5" *ngIf="f.submitted && isRegisterFailed">
                 {{errorMessage}}
               </div>
             </form>
             <div *ngIf="isRegisterIn && !isLoggedIn">
-              <h4>Loggin with {{register.username}} <img src="../../assets/img/logging-unscreen.gif" class="white-image" height="23" width="23"></h4>
+              <h4>Loggin with {{register.username}} <img src="../../assets/img/logging-unscreen.gif" class="white-image"
+                  height="23" width="23"></h4>
             </div>
             <div *ngIf="isLoggedIn">
               <h4>Welcome {{register.username}}</h4>
