@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UsersService } from '../services/auth/user.service'
+import { NavbarComponent } from '../navbar/navbar.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterLink],
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -42,22 +44,18 @@ export class LoginComponent implements OnInit {
       next: (response: any) => {
         window.sessionStorage.setItem("auth-token", response.token);
         window.sessionStorage.setItem("auth-username", response.username);
-        window.sessionStorage.setItem("auth-rol", response.rol.authority);
+        window.sessionStorage.setItem("auth-rol", response.rol[0].authority);
 
         this.isLoginFailed = false;
         this.isLoggin = false;
         this.isLoggedIn = true;
+        NavbarComponent.isLoggedIn = true;
+        NavbarComponent.username = window.sessionStorage.getItem("auth-username");
       },
       error: (error: any) => {
         this.isLoggin = false;
         this.isLoginFailed = true;
-        if ("Http failure response for https://reserva-restaurant-fe-jai.herokuapp.com/login: 403 OK" == error.message) {
-          this.errorMessage = 'Usuario y/o Contraseña Incorrectos';
-        }
-        else
-        {
-          this.errorMessage = error.message;
-        }
+        this.errorMessage = error.message;
       }
     });
   }
