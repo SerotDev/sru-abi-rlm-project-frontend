@@ -23,7 +23,7 @@ import { EventComponent } from './event/event.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'about', component: AboutComponent, canActivate: [isHotelGuard] },
+    { path: 'about', component: AboutComponent},
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'hotels-list', component: SearchComponent },
@@ -33,7 +33,6 @@ export const routes: Routes = [
     { path: 'profile', component: ProfileComponent },
     { path: 'favourites', component: FavouritesComponent, canActivate: [isVisitorGuard]},
     { path: 'my-hotels', component: HotelsComponent, canActivate: [isHotelGuard]},
-    { path: 'my-hotels/:id', component: HotelsComponent, canActivate: [isHotelGuard] },
     { path: 'my-hotels/add-hotel', component: AddHotelComponent, canActivate: [isHotelGuard] },
     { path: 'my-hotels/update-hotel', component: UpdateHotelComponent, canActivate: [isHotelGuard] },
     { path: 'my-hotel/events', component: EventsComponent, canActivate: [isHotelGuard]},

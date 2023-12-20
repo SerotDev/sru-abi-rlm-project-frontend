@@ -21,7 +21,7 @@ export class EventsService {
   }
 
   getEventByHotelId(id : any) : Observable <object> {
-    return this.http.get(`${baseAPI}/api/events-private/${id}`);
+    return this.http.get(`${this.baseAPI}/api/events-private/${id}`);
   }
 
   addEvent(data : any) : Observable <object> {

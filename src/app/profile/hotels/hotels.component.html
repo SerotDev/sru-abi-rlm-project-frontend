@@ -7,7 +7,7 @@
                         <div>
                             <h1 class="pt-3 pb-3">My Hotels</h1>
                         </div>
-                        <table *ngIf="peticionHoteles" class="table table-striped">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th class="d-no d-sm-cell" scope="col">Image</th>
@@ -20,7 +20,7 @@
                                             class="btn btn-outline-secondary"><i class="fas fa-plus"></i></button></th>
                                 </tr>
                             </thead>
-                            <tbody class="table-group-divider" *ngFor="let hotel of hotels">
+                            <tbody class="table-group-divider">
                                 <tr class="align-middle">
                                     <td class="text-center d-no d-sm-cell">
                                         <img

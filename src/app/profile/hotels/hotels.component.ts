@@ -28,7 +28,7 @@ export class HotelsComponent {
 
   getHotels()
   {
-    this.hotelService.getHotelbyUserId(this.route.snapshot.paramMap.get('id')).subscribe(
+    this.hotelService.getHotelById(this.route.snapshot.paramMap.get('id')).subscribe(
       data => {
         this.peticionHoteles = true;
         console.log(data);
