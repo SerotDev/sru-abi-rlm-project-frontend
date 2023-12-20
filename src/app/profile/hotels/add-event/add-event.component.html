@@ -2,81 +2,80 @@
     <div class="container">
         <div class="row">
             <div class="card bg-white col-12 mx-auto">
-                <div class="card-body">
-                    <div class="container">
+                <div class="card-body pt-0">
+                    <div class="container p-0">
                         <div class="row align-items-stretch justify-content-center no-gutters">
-                            <div class="form h-100 contact-wrap p-5">
-                                <h2 class="text-center">Create Event in Hotel (town name)</h2>
-                                <form class="mb-5" method="post" id="contactForm" name="contactForm"
-                                    novalidate="novalidate">
-                                    <div class="row">
+                            <div class="col-md-12">
+                                <div class="form h-100 contact-wrap p-0 px-md-3 px-lg-5">
+                                    <h1 class="text-center pt-3">Create Event</h1>
+                                    <h2 class="text-center pb-3">(Hotel Name)</h2>
+                                    <form class="mb-5" method="post" id="contactForm" name="contactForm"
+                                        novalidate="novalidate">
+                                        <div class="row">
+                                            <div class="col-md-12 form-group mb-3">
+                                                <label for="" class="col-form-label">Title</label>
+                                                <input type="text" class="form-control" name="name" id="name"
+                                                    placeholder="Event name">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 form-group mb-3">
+                                                <label for="start_date" class="col-form-label">Start date</label>
+                                                <input type="date" class="form-control" name="start_date"
+                                                    id="start_date" placeholder="Event start date">
+                                            </div>
+                                            <div class="col-md-6 form-group mb-3">
+                                                <label for="end_date" class="col-form-label">End date</label>
+                                                <input type="date" class="form-control" name="end_date" id="end_date"
+                                                    placeholder="Event end date">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 form-group mb-3">
+                                                <label for="entry_price" class="col-form-label">Entry price</label>
+                                                <input type="number" class="form-control" name="entry_price"
+                                                    id="entry_price" placeholder="Event entry price">
+                                            </div>
+                                            <div class="col-md-6 form-group mb-3">
+                                                <label for="town" class="col-form-label">State</label>
+                                                <select class="form-control" name="town" id="town">
+                                                    <option value="state1">Public</option>
+                                                    <option value="state2">Private</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 form-group mb-3">
+                                                <label for="" class="col-form-label">Latitude</label>
+                                                <input type="number" step="any" class="form-control" name="latitude" id="latitude"
+                                                    placeholder="Event latitude">
+                                            </div>
+                                            <div class="col-md-6 form-group mb-3">
+                                                <label for="" class="col-form-label">Longitude</label>
+                                                <input type="number" step="any" class="form-control" name="longitude" id="longitude"
+                                                    placeholder="Event longitude">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 form-group mb-3">
+                                                <label for="urlimage" class="col-form-label">Upload Image</label>
+                                                <input type="file" class="form-control" name="urlimage" id="urlimage"
+                                                    accept="image/*">
+                                            </div>
+                                        </div>
                                         <div class="col-md-12 form-group mb-3">
-                                            <label for="" class="col-form-label">Title</label>
-                                            <input type="text" class="form-control" name="name" id="name"
-                                                placeholder="Event name">
+                                            <label for="description" class="col-form-label">Description</label>
+                                            <textarea class="form-control" name="description" id="description"
+                                                placeholder="Event description" rows="6"></textarea>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 form-group mb-3">
-                                            <label for="start_date" class="col-form-label">Start date</label>
-                                            <input type="date" class="form-control" name="start_date" id="start_date"
-                                                placeholder="Event start date">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-5 form-group text-center">
+                                                <input type="submit" value="Create"
+                                                    class="btn btn-block btn-outline-success rounded-0 py-2 px-4 mt-5">
+                                                <span class="submitting"></span>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6 form-group mb-3">
-                                            <label for="end_date" class="col-form-label">End date</label>
-                                            <input type="date" class="form-control" name="end_date" id="end_date"
-                                                placeholder="Event end date">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 form-group mb-3">
-                                            <label for="entry_price" class="col-form-label">Entry price</label>
-                                            <input type="number" class="form-control" name="entry_price"
-                                                id="entry_price" placeholder="Event entry price">
-                                        </div>
-                                        <div class="col-md-6 form-group mb-3">
-                                            <label for="town" class="col-form-label">State</label>
-                                            <select class="form-control" name="town" id="town">
-                                                <option value="state1">Public</option>
-                                                <option value="state2">Private</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 form-group mb-3">
-                                            <label for="" class="col-form-label">Latitude</label>
-                                            <input type="text" class="form-control" name="latitude" id="latitude"
-                                                placeholder="Event latitude">
-                                        </div>
-                                        <div class="col-md-6 form-group mb-3">
-                                            <label for="" class="col-form-label">Longitude</label>
-                                            <input type="text" class="form-control" name="longitude" id="longitude"
-                                                placeholder="Event longitude">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 form-group mb-3">
-                                            <label for="urlimage" class="col-form-label">Upload Image</label>
-                                            <input type="file" class="form-control" name="urlimage" id="urlimage"
-                                                accept="image/*">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 form-group mb-3">
-                                        <label for="description" class="col-form-label">Description</label>
-                                        <textarea class="form-control" name="description" id="description"
-                                            placeholder="Event description" rows="6"></textarea>
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-5 form-group text-center">
-                                            <input type="submit" value="Create"
-                                                class="btn btn-block btn-outline-success rounded-0 py-2 px-4 mt-5">
-                                            <span class="submitting"></span>
-                                        </div>
-                                    </div>
-                                </form>
-                                <div id="form-message-warning mt-1"></div>
-                                <div id="form-message-success">
-                                    Your profile was sent to Santa Claus, thank you!
+                                    </form>
                                 </div>
                             </div>
                         </div>

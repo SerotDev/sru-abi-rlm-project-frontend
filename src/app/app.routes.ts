@@ -15,6 +15,7 @@ import { UpdateHotelComponent } from './profile/update-hotel/update-hotel.compon
 import { EventsComponent } from './profile/hotels/events/events.component';
 import { AddEventComponent } from './profile/hotels/add-event/add-event.component';
 import { UpdateEventComponent } from './profile/hotels/update-event/update-event.component';
+import { EventComponent } from './event/event.component';
 
 
 export const routes: Routes = [
@@ -25,7 +26,7 @@ export const routes: Routes = [
     { path: 'hotels-list', component: SearchComponent },
     { path: 'map', component: SearchMapComponent },
     { path: 'hotel/:id', component: HotelComponent },
-    { path: 'event/:id', component: HotelComponent },
+    { path: 'event/:id', component: EventComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'favourites', component: FavouritesComponent },
     { path: 'my-hotels', component: HotelsComponent},

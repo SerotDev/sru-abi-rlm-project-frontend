@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-bottom ps-3 pe-3" id="topbuttons">
     <div class="container-fluid">
-        <a href="#"> <img src="../assets/img/logo.svg" alt="HoHoHotel" height="65"></a>
+        <a href="#"><img id="logo-navbar" src="../assets/img/logo.svg" alt="HoHoHotel"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle"
             aria-controls="navbarToggle" aria-expanded="false" aria-label="navbarToggle">
             <span class="navbar-toggler-icon"><i class="fa fa-toggle-down" aria-hidden="true"></i></span>
@@ -18,8 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/hotels-list']">Hotels list <img src="../assets/img/list2.png"
                             height="23" width="23"></a>
-                </li>   
+                </li>
             </ul>
+            <div class="navbar-separator"></div>
             <form class="d-flex align-items-center justify-items-center">
                 <ul class="navbar-nav menu-end-part">
                     <li>
@@ -33,8 +34,8 @@
                                 src="../assets/img/close present.png" height="23" width="23"></a>
                     </li>
                     <li class="nav-item" width="150">
-                        <a class="nav-link" [routerLink]="['/profile']" aria-current="page" href="#">Profile <img id="cookie"
-                                src="../assets/img/profile-unscreen.gif" height="25"></a>
+                        <a class="nav-link" [routerLink]="['/profile']" aria-current="page" href="#">Profile <img
+                                id="cookie" src="../assets/img/profile-unscreen.gif" height="25"></a>
                     </li>
                     <li class="nav-item" width="150">
                         <a class="nav-link" [routerLink]="['/favourites']" aria-current="page" href="#">Favourites <img
@@ -44,8 +45,8 @@
                         <a class="nav-link" [routerLink]="['/my-hotels']" aria-current="page" href="#">My Hotels <img
                                 src="../assets/img/hotel.png" height="25"></a>
                     </li>
-                </div>
-            </ul>
+        </div>
+        </ul>
         </form>
     </div>
     </div>

@@ -3,122 +3,47 @@
         <div class="row">
             <div class="card bg-white col-12 mx-auto">
                 <div class="card-body">
-                    <div class="container text-center">
+                    <div class="container text-center p-0">
                         <div>
-                            <h3>My Events in "town name" (hotel name)</h3>
+                            <h1 class="pt-3">My Events (Hotel Name)</h1>
+                            <p class="h2 pb-3">town</p>
                         </div>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">Image</th>
+                                    <th class="d-no d-sm-cell" scope="col">Image</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Town</th>
-                                    <th scope="col">Start Date</th>
-                                    <th scope="col">End Date</th>
-                                    <th scope="col">Entry price (€)</th>
+                                    <th class="d-no d-lg-cell" scope="col">Start Date</th>
+                                    <th class="d-no d-lg-cell" scope="col">End Date</th>
+                                    <th class="d-no d-md-cell" scope="col">Entry price (€)</th>
                                     <th scope="col">Public/Private</th>
-                                    <th class="text-center"><button [routerLink]="['/my-hotel/add-event']" class="btn btn-outline-primary"><i class="fas fa-plus"></i></button></th>
+                                    <th class="text-center"><button [routerLink]="['/my-hotel/add-event']"
+                                            class="btn btn-outline-secondary"><i class="fas fa-plus"></i></button></th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
                                 <tr class="align-middle">
-                                    <td class="text-center">
-                                        <img src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg"
-                                            width="150" height="100">
+                                    <td class="text-center d-no d-sm-cell">
+                                        <img
+                                            src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg">
                                     </td>
-                                    <td class="text-center">PartyLoquisima</td>
-                                    <td class="text-center">Tarragona</td>
-                                    <td class="text-center">16/01/2001</td>
-                                    <td class="text-center">19/01/2001</td>
-                                    <td class="text-center">16</td>
-                                    <td class="text-center">Public</td>
-                                    <td class="text-center">
-                                        <div class="d-flex justify-content-center">
-                                            <button [routerLink]="['/event/:id']" class="btn btn-outline-warning me-2">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                            <button [routerLink]="['/my-hotel/update-event']" class="btn btn-outline-success me-2">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button [routerLink]="['/my-hotel/update-event']" class="btn btn-outline-danger">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="align-middle">
-                                    <td class="text-center">
-                                        <img src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg"
-                                            width="150" height="100">
-                                    </td>
-                                    <td class="text-center">HOTEL NY</td>
-                                    <td class="text-center">New York</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">
-                                        <div class="d-flex justify-content-center">
-                                            <button class="btn btn-outline-warning me-2">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                            <button class="btn btn-outline-success me-2">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn btn-outline-danger">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="align-middle">
-                                    <td class="text-center">
-                                        <img src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg"
-                                            width="150" height="100">
-                                    </td>
-                                    <td class="text-center">HOTEL NY</td>
-                                    <td class="text-center">New York</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">
-                                        <div class="d-flex justify-content-center">
-                                            <button class="btn btn-outline-warning me-2">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                            <button class="btn btn-outline-success me-2">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn btn-outline-danger">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="align-middle">
-                                    <td class="text-center">
-                                        <img src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg"
-                                            width="150" height="100">
-                                    </td>
-                                    <td class="text-center">HOTEL NY</td>
-                                    <td class="text-center">New York</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">Calle X</td>
-                                    <td class="text-center">
-                                        <div class="d-flex justify-content-center">
-                                            <button class="btn btn-outline-warning me-2">
-                                                <i class="fa fa-eye"></i>
-                                            </button>
-                                            <button class="btn btn-outline-success me-2">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn btn-outline-danger">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
+                                    <td class="text-center">title content</td>
+                                    <td class="text-center d-no d-lg-cell">start date content</td>
+                                    <td class="text-center d-no d-lg-cell">end date content</td>
+                                    <td class="text-center d-no d-md-cell">price content</td>
+                                    <td class="text-center">public or private</td>
+                                    <td class="text-center td-btns">
+                                        <button [routerLink]="['/event/:id']" class="btn btn-outline-warning">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                        <button [routerLink]="['/my-hotel/update-event']"
+                                            class="btn btn-outline-success">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button [routerLink]="['/my-hotel/update-event']"
+                                            class="btn btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>

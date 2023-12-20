@@ -1,0 +1,117 @@
+.star-rating > .fa {
+  color: orange;
+}
+
+.hotel-services > p {
+  color: #467543;
+  font-size: 1rem;
+  font-weight: bold;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 4px;
+  margin-right: 4px;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(194, 16, 16, 0.5);
+  background-color: #fffde3;
+  display: inline-block;
+}
+#content-photo {
+  width: 100%;
+}
+.card-img-hotel {
+  height: 200px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+/*Style of card events*/
+.hotel-card {
+  position: relative;
+  min-height: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.card-body {
+  position: relative;
+  height: 100%;
+}
+
+.hotel-container > a {
+  color: black;
+  text-decoration: none;
+}
+
+.card-img-top {
+  height: 160px;
+  width: 100%;
+  border-top-left-radius: 0.45rem;
+  border-top-right-radius: 0.45rem;
+  border-bottom: 1px solid rgb(194, 16, 16, 0.5);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.card-col {
+  box-sizing: border-box;
+}
+
+.price-style {
+  text-shadow: 1px 1px 2px black, 0px 0px 2px black, 0px 0px 40px black;
+  color: rgb(244, 233, 192);
+  position: absolute;
+}
+
+.hotel-card-footer {
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  bottom: 0px;
+}
+
+.hotel-container {
+  height: 320px;
+  padding: 0.7rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  transform: scale(1) translateY(0px);
+  transition: 0.5s ease all;
+  &:hover {
+    transform: perspective(900px) scale(1.03);
+  }
+  &:active {
+    transform: perspective(900px) scale(1.03);
+  }
+  &:focus {
+    transform: perspective(900px) scale(1.03);
+  }
+}
+
+.event-date-style > p {
+  color: #467543;
+  font-weight: bold;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(194, 16, 16, 0.5);
+  background-color: #fffde3;
+  display: inline-block;
+}
+
+.card-body a {
+  color: #467543;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline #46754352;
+  }
+}

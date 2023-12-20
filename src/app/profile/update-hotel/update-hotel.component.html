@@ -2,12 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="card bg-white col-12 mx-auto">
-                <div class="card-body">
-                    <div class="container">
+                <div class="card-body pt-0 m-0">
+                    <div class="container p-0 m-0">
                         <div class="row align-items-stretch justify-content-center no-gutters">
                             <div class="col-md-12">
-                                <div class="form h-100 contact-wrap p-5">
-                                    <h2 class="text-center">Update Hotel</h2>
+                                <div class="form h-100 contact-wrap p-0 px-md-3 px-lg-5">
+                                    <h1 class="text-center pt-3 pb-3">Update Hotel</h1>
                                     <form class="mb-5" method="post" id="contactForm" name="contactForm"
                                         novalidate="novalidate">
                                         <div class="row">
@@ -19,8 +19,7 @@
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="town" class="col-form-label">Town</label>
                                                 <select class="form-control" name="town" id="town">
-                                                    <option value="" disabled selected></option>
-                                                    <option value="town1">Town 1</option>
+                                                    <option value="town1" selected>Town 1</option>
                                                     <option value="town2">Town 2</option>
                                                     <option value="town3">Town 3</option>
                                                 </select>
@@ -53,13 +52,13 @@
                                         <div class="row">
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="" class="col-form-label">Latitude</label>
-                                                <input type="text" class="form-control" name="latitude" id="latitude"
-                                                    placeholder="Hotel latitude">
+                                                <input type="number" step="any" class="form-control" name="latitude"
+                                                    id="latitude" placeholder="Hotel latitude">
                                             </div>
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="" class="col-form-label">Longitude</label>
-                                                <input type="text" class="form-control" name="longitude" id="longitude"
-                                                    placeholder="Hotel longitude">
+                                                <input type="number" step="any" class="form-control" name="longitude"
+                                                    id="longitude" placeholder="Hotel longitude">
                                             </div>
                                         </div>
                                         <div class="row">
@@ -100,7 +99,6 @@
                                                 <label class="form-check-label" for="gym">Gym</label>
                                             </div>
                                         </div>
-
                                         <div class="row justify-content-center">
                                             <div class="col-md-5 form-group text-center">
                                                 <input type="submit" value="Update"
@@ -109,10 +107,6 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <div id="form-message-warning mt-1"></div>
-                                    <div id="form-message-success">
-                                        Your profile was sent to Santa Claus, thank you!
-                                    </div>
                                 </div>
                             </div>
                         </div>
