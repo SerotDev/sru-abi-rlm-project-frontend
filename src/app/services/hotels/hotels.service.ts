@@ -24,10 +24,9 @@ export class HotelsService {
     maxPrice: number | string,
     idServices: number[] | string
   ): Observable<object> {
-    // Construir la URL con los parámetros
+
     let url = `${baseAPI}/api/hotels`;
-  
-    // Convertir a HttpParams para agregar los parámetros de consulta
+    
     const params = new HttpParams()
       .set('page', page != null ? page.toString() : "")
       .set('size', size != null ? size.toString() : "")
@@ -39,7 +38,6 @@ export class HotelsService {
       .set('maxPrice', maxPrice != null ? maxPrice.toString() : "")
       .set('idServices', idServices != null ? idServices.toString() : "");
   
-    // Agregar parámetros de consulta a la URL
     url += '?' + params.toString();
     console.log(url);
   
