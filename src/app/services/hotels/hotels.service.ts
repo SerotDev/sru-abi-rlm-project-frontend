@@ -43,7 +43,7 @@ export class HotelsService {
     return this.http.get<object>(`${this.baseAPI}/api/hotel/starRatingAvg/&${idHotel}`);
   }
 
-  getHotelId(idHotel: number) : Observable <object>{
+  getHotelId(idHotel: any) : Observable <object>{
     return this.http.get<object>(`${this.baseAPI}/api/hotel/&${idHotel}`);
   }
 

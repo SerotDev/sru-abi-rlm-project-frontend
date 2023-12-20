@@ -10,7 +10,7 @@ export class AddFavouritesService {
 
   constructor(private http : HttpClient) { }
 
-  addFavourite(id : number) : Observable <object> {
+  addFavourite(id : any) : Observable <object> {
     return this.http.post(`${this.baseAPI}/api/addFavourite/add`, id);
   }
 

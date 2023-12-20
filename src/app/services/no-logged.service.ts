@@ -14,7 +14,7 @@ export class NoLoggedService {
   getTowns() : Observable <object> {
     return this.http.get<object>(`${this.baseAPI}/api/towns`);
   }
-  getTownById(idTown: number) : Observable <object> {
+  getTownById(idTown: any) : Observable <object> {
     return this.http.get<object>(`${this.baseAPI}/api/town/&${idTown}`);
   }
  /* getHotelsByIdTown(idTown: number) : Observable <object>{
@@ -34,7 +34,7 @@ export class NoLoggedService {
     return this.http.get<object>(`${this.baseAPI}/api/roles`);
   }
 
-  getRolById(idRol: number) : Observable <object>{
+  getRolById(idRol: any) : Observable <object>{
     return this.http.get<object>(`${this.baseAPI}/api/role/&${(idRol)}`);
   }
 
@@ -43,7 +43,7 @@ export class NoLoggedService {
     return this.http.get<object>(`${this.baseAPI}/api/hotelServices`);
   }
 
-  getHotelServiceById(idService : number) : Observable <object>{
+  getHotelServiceById(idService : any) : Observable <object>{
     return this.http.get<object>(`${this.baseAPI}/api/hotelService/&${(idService)}`);
   }
 }

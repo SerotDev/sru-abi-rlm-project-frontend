@@ -16,7 +16,7 @@ export class EventsService {
     return this.http.get<object>(`${this.baseAPI}/api/events`);
   }
 
-  getEventById(idEvent : number) : Observable <object> {
+  getEventById(idEvent : any) : Observable <object> {
     return this.http.get<object>(`${this.baseAPI}/api/event/&${idEvent}`);
   }
 
