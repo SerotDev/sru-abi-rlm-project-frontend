@@ -12,13 +12,21 @@
             <p class="h4 text-white m-3 mb-5 text-selector-town">Find amazing hotels with special events in your town to
                 enjoy these holidays.</p>
             <div class="search-section d-flex justify-content-center align-items-center text-center">
-                <select class="form-select selector-town me-1" aria-label="Select your Town">
-                    <option value="1" selected>Tarragona</option>
-                    <option value="2">Reus</option>
-                    <option value="3">Cambrils</option>
+                <select id="townSelector" class="form-select selector-town me-1" aria-label="Select your Town">
+                    @if (loaded) {
+                        @for (town of towns; track $index; let isFirst = $first) {
+                            @if (isFirst) {
+                                <option value="{{town.id}}" selected>{{town.name}}</option>
+                            } @else{
+                                <option value="{{town.id}}">{{town.name}}</option>
+                            }
+                        }
+                    } @else{
+                        <option value="Loading" selected>Loading...</option>
+                    }
                 </select>
 
-                <input type="submit" value="Search" class="btn btn-block btn-success rounded-2 ms-1">
+                <input [routerLink]="['/map']" type="submit" value="Search" class="btn btn-block btn-success rounded-2 ms-1">
                 <span class="submitting"></span>
             </div>
         </div>

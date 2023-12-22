@@ -28,3 +28,7 @@ td img {
 .card, .card-body {
     padding: 0px;
 }
+
+.modal-footer #popup-btn {
+  width: 100px!important;
+}
