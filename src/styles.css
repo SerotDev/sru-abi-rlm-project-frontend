@@ -178,3 +178,7 @@ select:focus {
     display: none!important;
   }
 }
+
+.btn-outline-warning .fa-eye {
+  margin-left: -2px;
+}

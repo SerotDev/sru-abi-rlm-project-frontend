@@ -4,13 +4,13 @@ import { CommonModule } from '@angular/common';
 import { HotelsService } from '../services/hotels/hotels.service';
 import { Hotel } from '../models/hotel';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { isNumber } from '@ng-bootstrap/ng-bootstrap/util/util';
 
 @Component({
   selector: 'app-hotel',
   standalone: true,
-  imports: [FormsModule, CommonModule, HttpClientModule,],
+  imports: [RouterLink, FormsModule, CommonModule, HttpClientModule,],
   templateUrl: './hotel.component.html',
   styleUrl: './hotel.component.css'
 })
