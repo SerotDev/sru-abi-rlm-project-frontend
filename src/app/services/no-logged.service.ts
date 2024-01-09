@@ -29,14 +29,6 @@ export class NoLoggedService {
   // }
 
   
-  //Rol
-  getRoles() : Observable <object>{
-    return this.http.get<object>(`${this.baseAPI}/api/roles`);
-  }
-
-  getRolById(idRol: any) : Observable <object>{
-    return this.http.get<object>(`${this.baseAPI}/api/role/&${(idRol)}`);
-  }
 
   //Service
   getHotelServices() : Observable <object>{
