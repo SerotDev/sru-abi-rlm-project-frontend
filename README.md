@@ -1,11 +1,11 @@
-# HoHoHotel
+# HoHoHotel Website
 [![Serot.dev badge](https://img.shields.io/badge/SerotDev-Sergi%20Rodriguez%20Utge-blue)](https://github.com/SerotDev)
 [![Ekirina badge](https://img.shields.io/badge/Ekirina-Ainara%20Blanco%20Iza-green)](https://github.com/Ekirina)
  <p align="left">This project contains the website source of HoHoHotel project, it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6. </p>
 
-## Source
-Backend: [https://github.com/SerotDev/sru-abi-rlm-project-backend/](https://github.com/SerotDev/sru-abi-rlm-project-backend/) version 1.0.0 (Spring 3).
-Frontend: [https://github.com/SerotDev/sru-abi-rlm-project-frontend/](https://github.com/SerotDev/sru-abi-rlm-project-frontend/) version 1.0.0 (Angular 17).
+## Source code
+Backend (API): [https://github.com/SerotDev/sru-abi-rlm-project-backend/](https://github.com/SerotDev/sru-abi-rlm-project-backend/) version 1.0.0 (Spring 3).
+Frontend (Website): [https://github.com/SerotDev/sru-abi-rlm-project-frontend/](https://github.com/SerotDev/sru-abi-rlm-project-frontend/) version 1.0.0 (Angular 17).
 
 ## Live Demo with sample data
 frontEnd
