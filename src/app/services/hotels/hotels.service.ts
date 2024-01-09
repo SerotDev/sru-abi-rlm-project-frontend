@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({
@@ -10,8 +11,6 @@ export class HotelsService {
   getHotelbyUserId(arg0: string | null) {
     throw new Error('Method not implemented.');
   }
-  private baseAPI: string = 'https://sru-abi-rlm-project-backend-production.up.railway.app';
-
   constructor(private http : HttpClient) { }
 
   // CRUD HOTELES
@@ -28,11 +27,11 @@ export class HotelsService {
     idServices: number[] | string
   ): Observable<object> {
     // URL with params
-    let url = `${this.baseAPI}/api/hotels/?page=${page}&size=&${size}&`;
+    let url = `${environment.apiUrl}/api/hotels/%7Bpage%7D%7Bsize%7D%7BidTown%7D%7Bsearch%7D%7BminStarRatingAvg%7D%7BminNumberRooms%7D%7BminPrice%7D%7BmaxPrice%7D%7BidServices%7D?page=${page}&size=&${size}&`;
   
     // Check params to URL
     if (idTown !== "") url += `&${idTown}`;
-    if (search !== "") url += `&${search}`;
+    if (search !== "") url += `&${encodeURIComponent(search)}`;
     if (minStarRatingAvg !== "") url += `&${minStarRatingAvg}`;
     if (minNumberRooms !== "") url += `&${minNumberRooms}`;
     if (minPrice !== "") url += `&${minPrice}`;
@@ -43,23 +42,23 @@ export class HotelsService {
   }
   
   getStarRating(idHotel: number) : Observable <object>{
-    return this.http.get<object>(`${this.baseAPI}/api/hotel/starRatingAvg/&${idHotel}`);
+    return this.http.get<object>(`${environment.apiUrl}/api/hotel/starRatingAvg/&${idHotel}`);
   }
 
   getHotelById(idHotel: any) : Observable <any>{
-    return this.http.get<any>(`${this.baseAPI}/api/hotel/&${idHotel}`);
+    return this.http.get<any>(`${environment.apiUrl}/api/hotel/&${idHotel}`);
   }
 
   addHotel(data : any) : Observable <object> {
-    return this.http.post(`${this.baseAPI}/api/hotel/add`, data);
+    return this.http.post(`${environment.apiUrl}/api/hotel/add`, data);
   }
 
   updateHotelById(id : any, data : any) : Observable <object> {
-    return this.http.put(`${this.baseAPI}/api/hotel/update/&${id}`, data);
+    return this.http.put(`${environment.apiUrl}/api/hotel/update/&${id}`, data);
   }
 
   deleteHotelById(id : any) : Observable <object> {
-    return this.http.delete(`${this.baseAPI}/api/hotel/delete/&${id}`);
+    return this.http.delete(`${environment.apiUrl}/api/hotel/delete/&${id}`);
   }
 
 

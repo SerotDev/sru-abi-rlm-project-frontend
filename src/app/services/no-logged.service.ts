@@ -1,21 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoLoggedService {
-  private baseAPI: string = 'https://sru-abi-rlm-project-backend-production.up.railway.app';
 
   constructor(private http : HttpClient) { }
 
   //Towns
   getTowns() : Observable <any> {
-    return this.http.get<any>(`${this.baseAPI}/api/towns`);
+    return this.http.get<any>(`${environment.apiUrl}/api/towns`);
   }
   getTownById(idTown: any) : Observable <object> {
-    return this.http.get<object>(`${this.baseAPI}/api/town/&${idTown}`);
+    return this.http.get<object>(`${environment.apiUrl}/api/town/&${idTown}`);
   }
  /* getHotelsByIdTown(idTown: number) : Observable <object>{
     return this.http.get<object>(`${this.baseAPI}/api/hotels?page=0&size=6&idTown=${idTown}`);
@@ -32,10 +32,10 @@ export class NoLoggedService {
 
   //Service
   getHotelServices() : Observable <object>{
-    return this.http.get<object>(`${this.baseAPI}/api/hotelServices`);
+    return this.http.get<object>(`${environment.apiUrl}/api/hotelServices`);
   }
 
   getHotelServiceById(idService : any) : Observable <object>{
-    return this.http.get<object>(`${this.baseAPI}/api/hotelService/&${(idService)}`);
+    return this.http.get<object>(`${environment.apiUrl}/api/hotelService/&${(idService)}`);
   }
 }

@@ -1,46 +1,46 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventsService {
-  private baseAPI: string = 'https://sru-abi-rlm-project-backend-production.up.railway.app';
 
 
   constructor(private http : HttpClient) { }
 
   getAllEvents() : Observable <object> {
-    return this.http.get<object>(`${this.baseAPI}/api/events`);
+    return this.http.get<object>(`${environment.apiUrl}/api/events`);
   }
 
   getEventById(idEvent : any) : Observable <object> {
-    return this.http.get<object>(`${this.baseAPI}/api/event/&${idEvent}`);
+    return this.http.get<object>(`${environment.apiUrl}/api/event/&${idEvent}`);
   }
 
   getEventByHotelId(id : any) : Observable <object> {
-    return this.http.get(`${this.baseAPI}/api/events-private/${id}`);
+    return this.http.get(`${environment.apiUrl}/api/events-private/${id}`);
   }
 
   addEvent(data : any) : Observable <object> {
-    return this.http.post(`${this.baseAPI}/api/event/add`, data);
+    return this.http.post(`${environment.apiUrl}/api/event/add`, data);
   }
 
   updateEventById(id : any, data : any) : Observable <object> {
-    return this.http.put(`${this.baseAPI}/api/event/update/&${id}`, data);
+    return this.http.put(`${environment.apiUrl}/api/event/update/&${id}`, data);
   }
 
   deleteEventById(id : any) : Observable <object> {
-    return this.http.delete(`${this.baseAPI}/api/event/delete/${id}`);
+    return this.http.delete(`${environment.apiUrl}/api/event/delete/${id}`);
   }
 
   getEventsPrivateByHotel(idHotel: number) : Observable <object>{
-    return this.http.get<object>(`${this.baseAPI}/api/events-private/&${idHotel}`);
+    return this.http.get<object>(`${environment.apiUrl}/api/events-private/&${idHotel}`);
   }
 
   getEventsPublicByTown(idTown: number) : Observable <object>{
-  return this.http.get<object>(`${this.baseAPI}/api/events-public/&${idTown}`);
+  return this.http.get<object>(`${environment.apiUrl}/api/events-public/&${idTown}`);
   }
 }
