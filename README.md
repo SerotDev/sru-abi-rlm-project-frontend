@@ -1,6 +1,7 @@
 # HoHoHotel
- ![Ekirina](https://img.shields.io/badge/Ainara%20Blanco%20Iza-green)
-This project contains the website source of HoHoHotel project, it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
+ ![Ekirina badge](https://img.shields.io/badge/Ekirina-Ainara%20Blanco%20Iza-green)
+ ![Ekirina badge](https://img.shields.io/badge/Ekirina-Ainara%20Blanco%20Iza-green)
+ !This project contains the website source of HoHoHotel project, it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
 
 ## Source
 Backend: [https://github.com/SerotDev/sru-abi-rlm-project-backend/](https://github.com/SerotDev/sru-abi-rlm-project-backend/) version 1.0.0 (Spring 3).
