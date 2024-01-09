@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { UsersService } from '../services/auth/user.service'
+import { UserService } from '../services/auth/user.service'
 import { NavbarComponent } from '../navbar/navbar.component';
 import { RouterLink } from '@angular/router';
 
@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   msg = '';
   rol: string | null = '';
 
-  constructor(private userService: UsersService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
 
