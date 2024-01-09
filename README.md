@@ -1,7 +1,6 @@
+# HoHoHotel
 [![Serot.dev badge](https://img.shields.io/badge/SerotDev-Sergi%20Rodriguez%20Utge-blue)](https://github.com/SerotDev)
 [![Ekirina badge](https://img.shields.io/badge/Ekirina-Ainara%20Blanco%20Iza-green)](https://github.com/Ekirina)
-# HoHoHotel
-
 This project contains the website source of HoHoHotel project, it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6.
 
 ## Source
