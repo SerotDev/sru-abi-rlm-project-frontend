@@ -16,10 +16,11 @@
 - 👉[HoHoHotel Live Demo with sample data](https://dev.d5z7g2y0k8cdc.amplifyapp.com/).
  
   > [!NOTE]
-  > Live Demo Credentials.
-  > ```
-  > Hola bro
-  > Que tal
+  > Live Demo Credentials:
+  > ** Login as Administrator rol user: **
+  >    Username: `Hotel`
+  >    Password: `password`
+  > 
   > ```
   - <b> Administrator credentials: </b> `Username: <code>Admin`, Password: `password` 
 ``` Login as hotel rol user: Username: `Hotel`, Password: `password` ```
