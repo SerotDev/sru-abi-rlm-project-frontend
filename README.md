@@ -15,8 +15,12 @@
 - 👉[HoHoHotel Website Source Code](https://github.com/SerotDev/sru-abi-rlm-project-frontend/) version 1.0.0 (Angular 17).
 - 👉[HoHoHotel Live Demo with sample data](https://dev.d5z7g2y0k8cdc.amplifyapp.com/).
  
-> [!NOTE]
-> Live Demo Credentials.
+  > [!NOTE]
+  > Live Demo Credentials.
+  > ```
+  > Hola bro
+  > Que tal
+  > ```
   - <b> Administrator credentials: </b> `Username: <code>Admin`, Password: `password` 
 ``` Login as hotel rol user: Username: `Hotel`, Password: `password` ```
   - Login as visitor user: Username: `Visitor`, Password: `password`
