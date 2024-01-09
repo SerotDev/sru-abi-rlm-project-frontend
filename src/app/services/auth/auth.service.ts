@@ -27,7 +27,7 @@ export class AuthService {
   login(user : User ): Observable<any>{
     return this.http.post(this.urlLogin, user, { headers: { 'Content-Type': 'application/json' } })
       .pipe(catchError(this.handleError<any>('login')));
-   }
+  }
 
   private handleError<T>(operation = 'opearation',result?:T){
     return (error: any): Observable<T > => {

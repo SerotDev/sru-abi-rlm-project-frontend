@@ -33,20 +33,23 @@ export class UserService {
     }, httpOptions);
   }
 
-  getUsuario(usuario: string): Observable<any>
+  getUser(usuario: string): Observable<any>
   {
-    return this.http.get(environment.apiUrl + `/api/usuarios/${usuario}/`, httpOptions);
+    return this.http.get(environment.apiUrl + `/users/${usuario}/`, httpOptions);
   }
 
-  getUsuarioPorId(id : any)  : Observable <any> {
-    return this.http.get(environment.apiUrl + `/usuarios/${id}/`, httpOptions);
+  getUserById(id : any)  : Observable <any> {
+    return this.http.get(environment.apiUrl + `/user/${id}/`, httpOptions);
   }
 
-  deleteUsuario(id: any): Observable<any>
+  deleteUser(id: any): Observable<any>
   { 
-    return this.http.delete(environment.apiUrl + `/usuarios/${id}/`, httpOptions);
+    return this.http.delete(environment.apiUrl + `/user/delete/${id}/`, httpOptions);
   }
   
+  editUserById(id: any): Observable <any>{
+    return this.http.put(environment.apiUrl + `/user/update/${id}`, httpOptions);
+  }
   //edit user by id
 
   
