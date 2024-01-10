@@ -21,18 +21,18 @@ export class AddFavouritesService {
 
   //Review
   updateAddFavouriteById(id: any, starRating: any) : Observable <object> {
-    return this.http.put(`${environment.apiUrl}/api/addFavourite/update/&${id}`, starRating);
+    return this.http.put(`${environment.apiUrl}/api/addFavourite/update/&${id}`, starRating, httpOptions);
   }
 
   deleteAddFavouriteById(id : any) : Observable <object> {
-    return this.http.delete(`${environment.apiUrl}/api/addFavourite/delete/&${id}`);
+    return this.http.delete(`${environment.apiUrl}/api/addFavourite/delete/&${id}`, httpOptions);
   }
 
   getAddFavourites() : Observable <object> {
-    return this.http.get<object>(`${environment.apiUrl}/api/addFavourites`);
+    return this.http.get<object>(`${environment.apiUrl}/api/addFavourites`, httpOptions);
   }
 
   getAddFavouriteById(idFavourite: number) : Observable <object>{
-    return this.http.get<object>(`${environment.apiUrl}/api/addFavourite/&${idFavourite}`);
+    return this.http.get<object>(`${environment.apiUrl}/api/addFavourite/&${idFavourite}`, httpOptions);
   }
 }

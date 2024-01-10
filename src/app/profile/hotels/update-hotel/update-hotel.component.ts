@@ -16,23 +16,23 @@ export class UpdateHotelComponent {
   hotel : any = {
     name : '', description : '', phone : '', address : '', email : '', web : '', number_rooms : '', imgs_url : '', price : '', latitude : '', longitude : '', town : ''
   };
-  recogidaDatos = false;
-  actualizado = false;
-  enviar = false;
+  dataCollection = false;
+  updated = false;
+  send = false;
 
   constructor(private hotelService : HotelsService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
     this.hotelService.getHotelById(this.route.snapshot.paramMap.get('id'))
     .subscribe(
-      respuesta => {
-        this.recogidaDatos = true;
-        this.hotel = respuesta;
+      answer => {
+        this.dataCollection = true;
+        this.hotel = answer;
     });
   }
 
   updateRegister(): void {
-    this.enviar = true;
+    this.send = true;
     const data = {
       id: this.hotel.id,
       name : this.hotel.name,
@@ -50,9 +50,9 @@ export class UpdateHotelComponent {
     };
   
     this.hotelService.updateHotelById(data.id, data).subscribe({
-      next: (response) => {
-        this.actualizado = true;
-        this.enviar = false;
+      next: () => {
+        this.updated = true;
+        this.send = false;
       },
       error: (error) => {
         console.log(error);

@@ -14,23 +14,23 @@ export class UpdateEventComponent {
   event : any = {
     title : '', description : '', img_url : '', start_date : '', end_date : '', is_public : '', entry_price : '', latitude : '', longitude : '', hotel : ''
   };
-  recogidaDatos = false;
-  actualizado = false;
-  enviar = false;
+  dataCollection = false;
+  updated = false;
+  send = false;
 
   constructor(private eventService : EventsService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
     this.eventService.getEventById(this.route.snapshot.paramMap.get('id'))
     .subscribe(
-      respuesta => {
-        this.recogidaDatos = true;
-        this.event = respuesta;
+      answer => {
+        this.dataCollection = true;
+        this.event = answer;
     });
   }
 
   updateRegister(): void {
-    this.enviar = true;
+    this.send = true;
     const data = {
       id: this.event.id,
       name : this.event.name,
@@ -48,9 +48,9 @@ export class UpdateEventComponent {
     };
   
     this.eventService.updateEventById(data.id, data).subscribe({
-      next: (response) => {
-        this.actualizado = true;
-        this.enviar = false;
+      next: () => {
+        this.updated = true;
+        this.send = false;
       },
       error: (error) => {
         console.log(error);
