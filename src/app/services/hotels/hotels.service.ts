@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams  } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -42,23 +45,23 @@ export class HotelsService {
   }
   
   getStarRating(idHotel: number) : Observable <object>{
-    return this.http.get<object>(`${environment.apiUrl}/api/hotel/starRatingAvg/&${idHotel}`);
+    return this.http.get<object>(`${environment.apiUrl}/api/hotel/starRatingAvg/&${idHotel}`, httpOptions);
   }
 
   getHotelById(idHotel: any) : Observable <any>{
-    return this.http.get<any>(`${environment.apiUrl}/api/hotel/&${idHotel}`);
+    return this.http.get<any>(`${environment.apiUrl}/api/hotel/&${idHotel}`, httpOptions);
   }
 
   addHotel(data : any) : Observable <object> {
-    return this.http.post(`${environment.apiUrl}/api/hotel/add`, data);
+    return this.http.post(`${environment.apiUrl}/api/hotel/add`, data, httpOptions);
   }
 
   updateHotelById(id : any, data : any) : Observable <object> {
-    return this.http.put(`${environment.apiUrl}/api/hotel/update/&${id}`, data);
+    return this.http.put(`${environment.apiUrl}/api/hotel/update/&${id}`, data, httpOptions);
   }
 
   deleteHotelById(id : any) : Observable <object> {
-    return this.http.delete(`${environment.apiUrl}/api/hotel/delete/&${id}`);
+    return this.http.delete(`${environment.apiUrl}/api/hotel/delete/&${id}`, httpOptions);
   }
 
 
