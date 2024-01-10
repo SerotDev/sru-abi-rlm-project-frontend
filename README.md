@@ -3,12 +3,6 @@
 [![Ekirina badge](https://img.shields.io/badge/Ekirina-Ainara%20Blanco%20Iza-green)](https://github.com/Ekirina)
  <p align="left">This project contains the website source of HoHoHotel project, it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.6. </p>
 
-## Project Source Code
-#### Backend: 
-- 👉 [HoHoHotel API Source Code](https://github.com/SerotDev/sru-abi-rlm-project-backend/) version 1.0.0 (Spring 3).
-#### Frontend: 
-- 👉 [HoHoHotel Website Source Code](https://github.com/SerotDev/sru-abi-rlm-project-frontend/) version 1.0.0 (Angular 17).
-
 ## Live Demo with sample data
 👉 [Go to Live demo](https://dev.d5z7g2y0k8cdc.amplifyapp.com/).
 
@@ -25,8 +19,14 @@
     Username: `Visitor` <br/>
     Password: `password` <br/>
 
-## Project Information
-- 👉 [Information and Documentation](https://github.com/SerotDev/sru-abi-rlm-project-backend/).
+## Project Source Code
+#### Backend: 
+- 👉 [HoHoHotel API Source Code](https://github.com/SerotDev/sru-abi-rlm-project-backend/) version 1.0.0 (Spring 3).
+#### Frontend: 
+- 👉 [HoHoHotel Website Source Code](https://github.com/SerotDev/sru-abi-rlm-project-frontend/) version 1.0.0 (Angular 17).
+
+## Project Documentation
+- 👉 [Project Design Document (PDD)](https://github.com/SerotDev/sru-abi-rlm-project-backend/).
 - 👉 [HoHoHotel API Documentation](https://sru-abi-rlm-project-backend-production.up.railway.app/swagger-ui/index.html).
 
 ## Development server
