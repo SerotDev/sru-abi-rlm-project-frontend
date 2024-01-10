@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
       next: (response: any) => {
         this.towns = response;
         this.loaded = true
+        //set the default value of the first town when data is loaded
+        this.selectedTown = this.towns[0].id;
       },
       error: (error: any) => {
         console.log("Error getting Towns:\n" + error);
@@ -34,7 +36,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getSelectedHotel(){
-    //this.selectedTown = (<HTMLSelectElement>document.getElementById('townSelector')).value;
-  }
+  onSelected(value:string): void {
+		this.selectedTown = value;
+	}
+
 }
