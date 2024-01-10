@@ -12,21 +12,20 @@
             <p class="h4 text-white m-3 mb-5 text-selector-town">Find amazing hotels with special events in your town to
                 enjoy these holidays.</p>
             <div class="search-section d-flex justify-content-center align-items-center text-center">
-                <select id="townSelector" class="form-select selector-town me-1" aria-label="Select your Town">
+                <select #townSelector (change)="onSelected(townSelector.value)" class="form-select selector-town me-1" aria-label="Select your Town">
                     @if (loaded) {
                         @for (town of towns; track $index; let isFirst = $first) {
                             @if (isFirst) {
-                                <option value="{{town.id}}" selected>{{town.name}}</option>
+                                <option value="{{town.id}}" default>{{town.name}}</option>
                             } @else{
                                 <option value="{{town.id}}">{{town.name}}</option>
                             }
                         }
                     } @else{
-                        <option value="Loading" selected>Loading...</option>
+                        <option value="Loading" default>Loading...</option>
                     }
                 </select>
-
-                <input [routerLink]="['/map']" type="submit" value="Search" class="btn btn-block btn-success rounded-2 ms-1">
+                <input (click)="onSelected(townSelector.value)" [routerLink]="['/hotels-list']" [queryParams]="{page: 1, idTown:selectedTown}" type="submit" value="Search" class="btn btn-block btn-success rounded-2 ms-1">
                 <span class="submitting"></span>
             </div>
         </div>
