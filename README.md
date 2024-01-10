@@ -10,7 +10,7 @@
 - 👉 [HoHoHotel Website Source Code](https://github.com/SerotDev/sru-abi-rlm-project-frontend/) version 1.0.0 (Angular 17).
 
 ## Live Demo with sample data
-👉 [Go to Live demo 🌐](https://dev.d5z7g2y0k8cdc.amplifyapp.com/).
+👉 [Go to Live demo](https://dev.d5z7g2y0k8cdc.amplifyapp.com/).
 
 <b>Live Demo Credentials:</b>
 - <u>Login as Administrator User:</u><br/>
