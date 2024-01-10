@@ -12,17 +12,16 @@
 ## Live Demo with sample data
 👉 [Go to Live demo](https://dev.d5z7g2y0k8cdc.amplifyapp.com/).
 
-> [!NOTE]
-> <b>Live Demo Credentials:</b>
-> - <u>Login as Administrator User:</u><br/>
+<b>Live Demo Credentials:</b>
+- <u>Login as Administrator User:</u><br/>
     Username: `Admin` <br/>
     Password: `password` <br/>
->
-> - <u>Login as Hotel User:</u><br/>
+
+- <u>Login as Hotel User:</u><br/>
     Username: `Hotel` <br/>
     Password: `password` <br/>
->
-> - <u>Login as Visitor User:</u><br/>
+
+- <u>Login as Visitor User:</u><br/>
     Username: `Visitor` <br/>
     Password: `password` <br/>
 
