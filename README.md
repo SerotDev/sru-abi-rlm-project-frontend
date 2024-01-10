@@ -5,12 +5,12 @@
 
 ## Project Source Code
 #### Backend: 
-- 👉[HoHoHotel API Source Code](https://github.com/SerotDev/sru-abi-rlm-project-backend/) version 1.0.0 (Spring 3).
+- 👉 [HoHoHotel API Source Code](https://github.com/SerotDev/sru-abi-rlm-project-backend/) version 1.0.0 (Spring 3).
 #### Frontend: 
-- 👉[HoHoHotel Website Source Code](https://github.com/SerotDev/sru-abi-rlm-project-frontend/) version 1.0.0 (Angular 17).
+- 👉 [HoHoHotel Website Source Code](https://github.com/SerotDev/sru-abi-rlm-project-frontend/) version 1.0.0 (Angular 17).
 
 ## Live Demo with sample data
-👉[Go to Live demo](https://dev.d5z7g2y0k8cdc.amplifyapp.com/).
+👉 [Go to Live demo](https://dev.d5z7g2y0k8cdc.amplifyapp.com/).
 
 > [!NOTE]
 > <b>Live Demo Credentials:</b>
@@ -27,8 +27,8 @@
     Password: `password` <br/>
 
 ## Project Information
-- 👉[Information and Documentation](https://github.com/SerotDev/sru-abi-rlm-project-backend/).
-- 👉[HoHoHotel API Documentation](https://sru-abi-rlm-project-backend-production.up.railway.app/swagger-ui/index.html).
+- 👉 [Information and Documentation](https://github.com/SerotDev/sru-abi-rlm-project-backend/).
+- 👉 [HoHoHotel API Documentation](https://sru-abi-rlm-project-backend-production.up.railway.app/swagger-ui/index.html).
 
 ## Development server
 
