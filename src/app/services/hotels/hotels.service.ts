@@ -21,31 +21,31 @@ export class HotelsService {
   getFilteredHotels(
     page: number,
     size: number,
-    idTown: number | string,
-    search: string,
-    minStarRatingAvg: number | string,
-    minNumberRooms: number | string,
-    minPrice: number | string,
-    maxPrice: number | string,
-    idServices: number[] | string
-  ): Observable<object> {
+    idTown?: number,
+    search?: string,
+    minStarRatingAvg?: number,
+    minNumberRooms?: number,
+    minPrice?: number,
+    maxPrice?: number,
+    idServices?: number[]
+  ): Observable<any> {
     // URL with params
-    let url = `${environment.apiUrl}/api/hotels/%7Bpage%7D%7Bsize%7D%7BidTown%7D%7Bsearch%7D%7BminStarRatingAvg%7D%7BminNumberRooms%7D%7BminPrice%7D%7BmaxPrice%7D%7BidServices%7D?page=${page}&size=&${size}&`;
+    let url = `${environment.apiUrl}/api/hotels/%7Bpage%7D%7Bsize%7D%7BidTown%7D%7Bsearch%7D%7BminStarRatingAvg%7D%7BminNumberRooms%7D%7BminPrice%7D%7BmaxPrice%7D%7BidServices%7D?page=${page}&size=${size}`;
   
     // Check params to URL
-    if (idTown !== "") url += `&${idTown}`;
-    if (search !== "") url += `&${encodeURIComponent(search)}`;
-    if (minStarRatingAvg !== "") url += `&${minStarRatingAvg}`;
-    if (minNumberRooms !== "") url += `&${minNumberRooms}`;
-    if (minPrice !== "") url += `&${minPrice}`;
-    if (maxPrice !== "") url += `&${maxPrice}`;
-    if (idServices !== "") url += `&${idServices}`;
+    if (idTown !== undefined) url += `&idTown=${idTown}`;
+    if (search !== undefined) url += `&search=${encodeURIComponent(search)}`;
+    if (minStarRatingAvg !== undefined) url += `&minStarRatingAvg=${minStarRatingAvg}`;
+    if (minNumberRooms !== undefined) url += `&minNumberRooms=${minNumberRooms}`;
+    if (minPrice !== undefined) url += `&minPrice=${minPrice}`;
+    if (maxPrice !== undefined) url += `&maxPrice=${maxPrice}`;
+    if (idServices !== undefined) url += `&idServices=${idServices.join(',')}`;
   
-    return this.http.get<object>(url);
+    return this.http.get<any>(url);
   }
   
   getStarRating(idHotel: number) : Observable <object>{
-    return this.http.get<object>(`${environment.apiUrl}/api/hotel/starRatingAvg/&${idHotel}`, httpOptions);
+    return this.http.get<object>(`${environment.apiUrl}/api/hotel/starRatingAvg/%7BhotelId%7D?hotelId=${idHotel}`, httpOptions);
   }
 
   getHotelById(idHotel: any) : Observable <any>{

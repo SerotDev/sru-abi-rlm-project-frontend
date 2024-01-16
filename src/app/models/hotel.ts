@@ -1,3 +1,5 @@
+import { Service } from '../models/service';
+
 export interface Hotel{
     id: number,
     name: string,
@@ -11,5 +13,6 @@ export interface Hotel{
     price: number,
     latitude: number,
     longitude: number,
-    hotelService: object[],
+    hotelServices: any[],
+    starRatingAvg: any
 }

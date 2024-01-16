@@ -108,206 +108,113 @@
                         <div class="col-12 col-lg-8 order-lg-1 ">
                             <div class="d-flex align-items-center flex-column text-center">
                                 <h1 class="pt-3">Hotels</h1>
-                                <div class="row w-100 justify-content-left mb-5">
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
+                                @if (loaded) {
+                                    @if (haveNoResults) {
+                                        <div class="row w-100 justify-content-left mb-5">
+                                            <hr class="mt-5">
+                                            <p class="h2 mt-4 mb-5">No results found.</p>
+                                            <hr>
+                                        </div>
+                                    } @else {
+                                        <div class="row w-100 justify-content-left mb-5">
+                                            @for (hotel of hotels; track $index;){
+                                                <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+                                                    <a id="anchor-to-hotel" [routerLink]="['/hotel/' + hotel.id]">
+                                                        <div class="hotel-card card">
+                                                            <div class="card-img-top"
+                                                                style="background-image: url('{{hotel.imgsUrl}}');">
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <p class="card-title"><b>{{hotel.name}}</b></p>
+                                                                <div class="hotel-services">
+                                                                    @for (service of hotel.hotelServices; track $index) {
+                                                                        <p>{{service.name}}</p>
+                                                                    }
+                                                                </div>
+                                                                <div class="hotel-card-footer">
+                                                                    <hr>
+                                                                    <h1></h1>
+                                                                    <div class="star-rating">
+                                                                        @switch (hotel.starRatingAvg) {
+                                                                            @case (0) {
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                            }
+                                                                            @case (1) {
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                            }
+                                                                            @case (2) {
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                            }
+                                                                            @case (3) {
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                            }
+                                                                            @case (4) {
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-regular fa-star"></span>
+                                                                            }
+                                                                            @case (5) {
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                            }
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <p class="price-style h3 p-2"><b>{{hotel.price}}€</b></p>
                                                         </div>
-                                                    </div>
+                                                    </a>
                                                 </div>
-                                                <p class="price-style h3 p-2"><b>69€</b></p>
-                                            </div>
-                                        </a>
+                                            }
+                                        </div>
+    
+                                        <nav class="pb-3" aria-label="Pages navigation">
+                                            <ul class="pagination">
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#" aria-label="Next">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    }
+                                } @else {
+                                    <div class="row w-100 justify-content-left mb-5">
+                                        <hr class="mt-5">
+                                        <p class="h2 mt-4 mb-5">loading results...</p>
+                                        <p><img src="../../assets/img/logging-unscreen.gif" class="white-image" height="50" width="50"></p>
+                                        <hr>
                                     </div>
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel"[routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>125€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>155€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>219€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>309€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>205€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    
-                                </div>
-                                <nav class="pb-3" aria-label="Pages navigation">
-                                    <ul class="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                                }
                             </div>
                         </div>
                     </div>
