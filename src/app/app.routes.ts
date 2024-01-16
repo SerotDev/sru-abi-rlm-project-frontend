@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { HotelComponent } from './hotel/hotel.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -19,6 +18,7 @@ import { isAdminGuard } from './guards/is-admin.guard';
 import { isHotelGuard } from './guards/is-hotel.guard';
 import { isVisitorGuard } from './guards/is-visitor.guard';
 import { EventComponent } from './event/event.component';
+import { HotelComponent } from './hotel/hotel.component';
 
 
 export const routes: Routes = [
