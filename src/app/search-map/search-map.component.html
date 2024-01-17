@@ -5,9 +5,19 @@
                 <div class="card-body p-0">
                     <div class="row">
                         <div class="col-12 col-lg-4 order-lg-2 filters-right text-center ps-4 pe-4">
-                            <p class="h2 pt-4 pb-2">Filters</p>
-                            <hr>
-                            <form action="">
+                            <div class="w-100 pt-3 pb-0 d-block d-lg-none position-relative">
+                                <a class="h2 btn-nav-accordion collapsed filters-title" data-bs-toggle="collapse" href="#collapseFilters"
+                                role="button" aria-expanded="false" aria-controls="collapseFilters">
+                                    <div class="position-absolute w-100 h-100"><p class="text-end mb-0"><i class="ms-3 fa fa-chevron-up"></i></p></div>
+                                    <span class="filters-title">Filters</span>
+                                </a>
+                                <hr class="mt-2">
+                            </div>
+                            <div class="w-100 d-none d-lg-block">
+                                <p class="h2 pt-4 pb-2 d-none d-lg-block">Filters</p>
+                                <hr>
+                            </div>
+                            <form class="collapse d-lg-block" id="collapseFilters">
                                 <form class="mb-5" method="post" id="contactForm" name="contactForm"
                                     novalidate="novalidate">
                                     <div class="row">

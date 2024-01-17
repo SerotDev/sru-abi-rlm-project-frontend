@@ -47,3 +47,34 @@
     height:100%;
     width:100%
 }
+
+.fa-chevron-up {
+  color: #e64848;
+  transition: all 0.3s ease;
+  border: 1px solid #e64848;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.btn-nav-accordion.collapsed .fa-chevron-up {
+  color: #467543;
+  border: 1px solid #467543;
+  padding: 2px;
+  border-radius: 5px;
+  transform: rotate(180deg);
+}
+
+.filters-title {
+  color: #e64848;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0);
+}
+
+.filters-title:hover {
+  color: #e64848;
+  transition: 0.3s;
+}
+
+.btn-nav-accordion.collapsed .filters-title {
+  color: #467543;
+}
