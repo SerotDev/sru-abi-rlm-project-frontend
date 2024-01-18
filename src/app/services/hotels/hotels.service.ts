@@ -39,7 +39,7 @@ export class HotelsService {
     if (minNumberRooms !== undefined) url += `&minNumberRooms=${minNumberRooms}`;
     if (minPrice !== undefined) url += `&minPrice=${minPrice}`;
     if (maxPrice !== undefined) url += `&maxPrice=${maxPrice}`;
-    if (idServices !== undefined) url += `&idServices=${idServices.join(',')}`;
+    if (idServices !== undefined) url += `&idServices=${idServices}`;
   
     return this.http.get<any>(url);
   }

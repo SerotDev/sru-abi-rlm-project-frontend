@@ -24,10 +24,19 @@
                                         <div class="col-12 form-group mb-3">
                                             <label for="town" class="col-form-label lbl-stl fw-bold">Select
                                                 Town</label>
-                                            <select name="town" class="form-select me-1" aria-label="Select your Town">
-                                                <option value="1" selected>Tarragona</option>
-                                                <option value="2">Reus</option>
-                                                <option value="3">Cambrils</option>
+                                            <select #townSelector name="town" (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" class="form-select selector-town me-1" aria-label="Select your Town">
+                                                @if (loaded) {
+                                                    <option value="" default>No selected</option>
+                                                    @for (town of towns; track $index; let isFirst = $first) {
+                                                        @if (isFirst) {
+                                                            <option value="{{town.id}}" default>{{town.name}}</option>
+                                                        } @else{
+                                                            <option value="{{town.id}}">{{town.name}}</option>
+                                                        }
+                                                    }
+                                                } @else{
+                                                    <option value="Loading" default>Loading...</option>
+                                                }
                                             </select>
                                         </div>
                                     </div>
@@ -36,7 +45,7 @@
                                         <div class="col-12 form-group mb-3">
                                             <label for="hotel-name " class="col-form-label lbl-stl fw-bold">Search By
                                                 Name</label>
-                                            <input type="text" class="form-control" name="name" id="hotel-name"
+                                            <input #hotelNameSearchSelector (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" type="text" class="form-control" name="name" id="hotel-name"
                                                 placeholder="Hotel Name">
                                         </div>
                                     </div>
@@ -45,7 +54,7 @@
                                         <div class="col-12 form-group mt-1 mb-1">
                                             <label for="star-rating" class="form-label lbl-stl fw-bold">Rating
                                                 Average</label>
-                                            <input type="range" class="form-range range-input" min="0" max="5" value="0"
+                                            <input #starRatingSelector (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" type="range" class="form-range range-input" min="0" max="5" value="0"
                                                 id="star-rating">
                                             <div class="d-flex justify-content-between fw-light text-muted ps-1 pe-1">
                                                 <p>0</p>
@@ -62,7 +71,7 @@
                                         <div class="col-12 form-group mt-1 mb-3">
                                             <label for="min-num-rooms" class="form-label lbl-stl fw-bold">Min
                                                 Number of Rooms</label>
-                                            <input type="number" class="form-control" name="min-num-rooms"
+                                            <input #minNumberRoomsSelector (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" type="number" class="form-control" name="min-num-rooms"
                                                 id="min-num-rooms" placeholder="0">
                                         </div>
                                     </div>
@@ -71,14 +80,14 @@
                                         <div class="col-md-6 form-group mb-3">
                                             <label for="min-price" class="col-form-label lbl-stl fw-bold">Min
                                                 Price</label>
-                                            <input type="number" class="form-control" name="min-rice" id="min-price"
+                                            <input #minPriceSelector (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" type="number" class="form-control" name="min-rice" id="min-price"
                                                 placeholder="0">
                                         </div>
                                         <div class="col-md-6 form-group mb-3">
                                             <label for="max-price" class="col-form-label lbl-stl fw-bold">Max
                                                 Price</label>
-                                            <input type="number" class="form-control" name="max-price" id="max-price"
-                                                placeholder="500">
+                                            <input #maxPriceSelector (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" type="number" class="form-control" name="max-price" id="max-price"
+                                                placeholder="">
                                         </div>
                                     </div>
                                     <hr>
@@ -86,30 +95,20 @@
                                         <div class="col-12 form-group mb-3">
                                             <fieldset>
                                                 <legend class="fs-6 lbl-stl fw-bold">Services</legend>
-                                                <div class="form-check d-inline-block text-truncate m-2">
-                                                    <input class="form-check-input range-input" type="checkbox" value=""
-                                                        id="flexCheckDefault"> <label class="form-check-label"
-                                                        for="flexCheckDefault"> SPA </label>
-                                                </div>
-                                                <div class="form-check d-inline-block text-truncate m-2">
-                                                    <input class="form-check-input range-input" type="checkbox" value=""
-                                                        id="flexCheckChecked" checked> <label class="form-check-label"
-                                                        for="flexCheckChecked"> Own activities </label>
-                                                </div>
-                                                <div class="form-check d-inline-block text-truncate m-2">
-                                                    <input class="form-check-input range-input" type="checkbox" value=""
-                                                        id="flexCheckChecked" checked> <label class="form-check-label"
-                                                        for="flexCheckChecked"> Wifi </label>
-                                                </div>
+                                                @for (service of services; track $index) {
+                                                    <div class="form-check d-inline-block text-truncate m-2">
+                                                        <input (change)="onChangeCheckbox(service.id)" class="form-check-input range-input" type="checkbox" value="{{service.id}}"
+                                                            id="flexCheckDefault"> <label class="form-check-label"
+                                                            for="flexCheckDefault"> {{service.name}} </label>
+                                                    </div>
+                                                }
                                             </fieldset>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-12 form-group mt-4 mb-0">
-                                            <input type="submit" value="Filter Results"
-                                                class="btn btn-outline-success py-2 px-4 w-100"> <span
-                                                class="submitting"></span>
+                                            <p (click)="onSubmitFilters()" value="Filter Results" class="btn btn-outline-success py-2 px-4 w-100">Filter Results</p>
                                         </div>
                                     </div>
                                 </form>
