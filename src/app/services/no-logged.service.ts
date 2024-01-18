@@ -28,9 +28,12 @@ export class NoLoggedService {
   //   return this.http.get<object>(`${this.baseAPI}/api/hotels?page0&size=${hotelQttNum}${parameters}`);
   // }
 
-  
-
   //Service
+  getServices() : Observable <object>{
+    return this.http.get<object>(`${environment.apiUrl}/api/services`);
+  }
+
+  //Hotel Services
   getHotelServices() : Observable <object>{
     return this.http.get<object>(`${environment.apiUrl}/api/hotelServices`);
   }
