@@ -22,8 +22,7 @@ export class SearchComponent implements OnInit {
   protected totalItems: any;
   protected totalPages: any;
   protected currentPage: any;
-  protected starRatingAvg: number | undefined;
-  protected idHotel: any;
+  protected navPages: any = [];
   protected haveNoResults: boolean = false;
   protected loaded: boolean = false;
   protected searchParams: {
@@ -57,7 +56,7 @@ export class SearchComponent implements OnInit {
     //reset variables when reload
     this.route.queryParams.subscribe(params => {
       //get params from url
-      this.searchParams.page = params['page'] ? params['page'] - 1 : this.searchParams.page;
+      this.searchParams.page = params['page'] ? params['page'] - 1 : 0;
       this.searchParams.size = params['size'] ? params['size'] : this.searchParams.size;
       this.searchParams.idTown = params['idTown'];
       this.searchParams.search = params['search'];
@@ -83,12 +82,56 @@ export class SearchComponent implements OnInit {
           this.totalItems = response.totalItems;
           this.totalPages = response.totalPages;
           this.currentPage = response.currentPage;
+          //calc pages navigation to show
+          this.navPages = [];
+          const numOfBtnsBetweenCurrentPage: number = 1 //1 left and 1 right
+          const maxNumOfBtns: number = (numOfBtnsBetweenCurrentPage * 2) + 1
+          //if the actual page range is in the start
+          if ((this.currentPage - numOfBtnsBetweenCurrentPage) < 0) {
+            let counter: number = 0;
+            for (let i = this.currentPage; i < this.totalPages; i++) {
+              if (counter < maxNumOfBtns) {
+                this.navPages.push(i + 1);
+              }
+              counter++;
+            }
+          //if the actual page range is at the end and not at the start
+          } else if((this.currentPage + numOfBtnsBetweenCurrentPage) >= this.totalPages){
+            let counter: number = 0;
+            if (this.currentPage - numOfBtnsBetweenCurrentPage - 1 >= 0) {
+              for (let i = this.currentPage - numOfBtnsBetweenCurrentPage - 1; i < this.totalPages; i++) {
+                if (counter < maxNumOfBtns) {
+                  this.navPages.push(i + 1);
+                }
+                counter++;
+              }
+            } else {
+              for (let i = 0; i < this.totalPages; i++) {
+                if (counter < maxNumOfBtns) {
+                  this.navPages.push(i + 1);
+                }
+                counter++;
+              }
+            }
+          // if the actual page is not at the start and not at the end
+          } else {
+            let counter: number = 0;
+            for (let i = this.currentPage - 1; i < this.totalPages; i++) {
+              if (counter < maxNumOfBtns) {
+                this.navPages.push(i + 1);
+              }
+              counter++;
+            }
+          }
+          
+          //get star rating average
           for (let i = 0; i < this.hotels.length; i++) {
             this.hotelsService.getStarRating(this.hotels[i].id).subscribe(responseAvg => {
               this.hotels[i].starRatingAvg = responseAvg;
             });
           }
           this.loaded = true;
+          //if has no results of hotels
           if (this.hotels.length === 0) {
             this.haveNoResults = true;
           }
@@ -177,6 +220,8 @@ export class SearchComponent implements OnInit {
     //set selected values in filter params object
     if (this.selectedPage !== undefined && this.selectedPage !== "") {
       filterParams['page'] = this.selectedPage;
+    } else {
+      filterParams['page'] = 1;
     }
     filterParams['idTown'] = setParams(this.selectedTown, filterParams['idTown']);
     filterParams['search'] = setParams(this.selectedHotelNameSearch, filterParams['search']);
