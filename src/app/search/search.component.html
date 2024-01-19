@@ -200,19 +200,46 @@
 
                                 <nav class="pb-3" aria-label="Pages navigation">
                                     <ul class="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
+                                        @for (navPage of navPages; track $index; let isFirst = $first; let isLast = $last) {
+                                            @if (isFirst) {
+                                                @if (navPage == currentPage+1) {
+                                                    <li class="page-item">
+                                                        <p (click)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light"><i class="fas fa-angle-double-left"></i></p>
+                                                    </li>
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light">{{navPage}}</p></li>
+                                                } @else {
+                                                    <li class="page-item">
+                                                        <p (click)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success"><i class="fas fa-angle-double-left"></i></p>
+                                                    </li>
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success">{{navPage}}</p></li>
+                                                }
+                                            }
+                                            @if (!isFirst && !isLast) {
+                                                @if (navPage == currentPage+1) {
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light">{{navPage}}</p></li>
+                                                } @else {
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success">{{navPage}}</p></li>
+                                                }
+                                            } 
+                                            @if (!isFirst && isLast) {
+                                                @if (navPage == currentPage+1) {
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light">{{navPage}}</p></li>
+                                                    <li class="page-item">
+                                                        <p (click)="onSelected(totalPages, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light"><i class="fas fa-angle-double-right"></i></p>
+                                                    </li>
+                                                } @else {
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success">{{navPage}}</p></li>
+                                                    <li class="page-item">
+                                                        <p (click)="onSelected(totalPages, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success"><i class="fas fa-angle-double-right"></i></p>
+                                                    </li>
+                                                }
+                                            } @else if (isFirst && isLast) {
+                                                <li class="page-item">
+                                                    <p (click)="onSelected(totalPages, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light"><i class="fas fa-angle-double-right"></i></p>
+                                                </li>
+                                            }
+
+                                        }
                                     </ul>
                                 </nav>
                                 }
