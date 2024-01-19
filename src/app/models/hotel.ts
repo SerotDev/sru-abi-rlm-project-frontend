@@ -1,4 +1,5 @@
 import { Service } from '../models/service';
+import { Town } from '../models/town';
 
 export interface Hotel{
     id: number,
@@ -14,5 +15,6 @@ export interface Hotel{
     latitude: number,
     longitude: number,
     hotelServices: any[],
-    starRatingAvg: any
+    starRatingAvg: any,
+    town: any;
 }
