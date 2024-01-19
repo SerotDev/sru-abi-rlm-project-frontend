@@ -16,31 +16,31 @@ export class EventsService {
     return this.http.get<object>(`${environment.apiUrl}/api/events`);
   }
 
-  getEventById(idEvent : any) : Observable <object> {
-    return this.http.get<object>(`${environment.apiUrl}/api/event/&${idEvent}`);
+  getEventById(idEvent : any) : Observable <any> {
+    return this.http.get<any>(`${environment.apiUrl}/api/event/${idEvent}`);
   }
 
-  getEventByHotelId(id : any) : Observable <object> {
+  getEventByHotelId(id : any) : Observable <any> {
     return this.http.get(`${environment.apiUrl}/api/events-private/${id}`);
   }
 
-  addEvent(data : any) : Observable <object> {
+  addEvent(data : any) : Observable <any> {
     return this.http.post(`${environment.apiUrl}/api/event/add`, data);
   }
 
-  updateEventById(id : any, data : any) : Observable <object> {
-    return this.http.put(`${environment.apiUrl}/api/event/update/&${id}`, data);
+  updateEventById(id : any, data : any) : Observable <any> {
+    return this.http.put(`${environment.apiUrl}/api/event/update/${id}`, data);
   }
 
-  deleteEventById(id : any) : Observable <object> {
+  deleteEventById(id : any) : Observable <any> {
     return this.http.delete(`${environment.apiUrl}/api/event/delete/${id}`);
   }
 
-  getEventsPrivateByHotel(idHotel: number) : Observable <object>{
-    return this.http.get<object>(`${environment.apiUrl}/api/events-private/&${idHotel}`);
+  getEventsPrivateByIdHotel(idHotel: number) : Observable <any>{
+    return this.http.get<any>(`${environment.apiUrl}/api/events-private/${idHotel}`);
   }
 
-  getEventsPublicByTown(idTown: number) : Observable <object>{
-  return this.http.get<object>(`${environment.apiUrl}/api/events-public/&${idTown}`);
+  getEventsPublicByIdTown(idTown: number) : Observable <any>{
+    return this.http.get<any>(`${environment.apiUrl}/api/events-public/${idTown}`);
   }
 }

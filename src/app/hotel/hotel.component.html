@@ -4,65 +4,101 @@
             <div class="card bg-white col-12 mx-auto">
                 <div class="card-body">
                     <div class="container mt-5 px-0">
-                        <h1 class="text-center">Hotel name</h1>
+                        <h1 class="text-center">{{hotel.name}}</h1>
                         <div class="d-flex justify-content-center mb-4">
                             <div class="star-rating">
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-regular fa-star"></span>
-                                <span class="fa fa-regular fa-star"></span>
+                                @switch (hotel.starRatingAvg) {
+                                    @case (0) {
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    }
+                                    @case (1) {
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    }
+                                    @case (2) {
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    }
+                                    @case (3) {
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    }
+                                    @case (4) {
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-regular fa-star fa-lg"></span>
+                                    }
+                                    @case (5) {
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-star fa-lg"></span>
+                                    <span class="fa fa-star fa-lg"></span>
+                                    }
+                                }
                             </div>
                         </div>
                         <div class="card" id="content-photo">
-                            <div class="card-img-hotel" style="background-image: url('/assets/img/hotelxmas.jpg');">
+                            <div class="card-img-hotel" style="background-image: url('{{hotel.imgsUrl}}');">
                             </div>
                             <div class="card-body">
                                 <div class="row text-left text-md-center">
                                     <div class="col-12 col-md-4">
                                         <p class="card-text"><a
-                                                href="mailto:test@test.com?subject=Interested%20in%20your%20Hotel&amp;body=Hello,%20I%20visited%20your%20page%20in%20HoHoHotel.com.%20I%20want%20to%20get%20more%20information.%20Thanks."
+                                                href="mailto:{{hotel.email}}?subject=Interested%20in%20your%20Hotel&amp;body=Hello,%20I%20visited%20your%20page%20in%20HoHoHotel.com.%20I%20want%20to%20get%20more%20information.%20Thanks."
                                                 target="_blank"><i class="fa-solid fa-envelope"></i>
-                                                test&#64;test.com</a></p>
+                                                 {{hotel.email}}</a></p>
                                     </div>
                                     <div class="col-12 col-md-4">
-                                        <p class="card-text"><a href="tel:+34699999999"><i
-                                                    class="fa-solid fa-phone"></i> 98575329875</a></p>
+                                        <p class="card-text"><a href="tel:{{hotel.phone}}"><i
+                                                    class="fa-solid fa-phone"></i> {{hotel.phone}}</a></p>
                                     </div>
                                     <div class="col-12 col-md-4">
-                                        <p class="card-text"><a href="www.hoteldomain.com" target="_blank"><i
-                                                    class="fa-solid fa-globe"></i> www.hoteldomain.com</a></p>
+                                        <p class="card-text"><a href="https://{{hotel.web}}" target="_blank"><i
+                                                    class="fa-solid fa-globe"></i> {{hotel.web}}</a></p>
                                     </div>
                                 </div>
                                 <hr>
                                 <h2 class="h5 card-title pt-3">Description:</h2>
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">{{hotel.description}}</p>
                                 <div class="row text-left text-md-center pt-md-4">
                                     <div class="col-12 col-md-4">
                                         <h2 class="h5 card-title">Number of roms:</h2>
-                                        <p class="card-text">43987</p>
+                                        <p class="card-text">{{hotel.numberRooms}}</p>
                                     </div>
                                     <div class="col-12 col-md-4 pt-3 pt-md-0">
                                         <h2 class="h5 card-title">Price:</h2>
-                                        <p class="card-text">538€</p>
+                                        <p class="card-text">{{hotel.price}}€</p>
                                     </div>
                                     <div class="col-12 col-md-4 col-services pt-3 pt-md-0">
                                         <h2 class="h5 card-title">Services:</h2>
                                         <div class="hotel-services d-flex flex-wrap justify-content-md-center">
-                                            <p>SPA</p>
-                                            <p>GYM</p>
-                                            <p>Wifi</p>
-                                            <p>Buffet</p>
+                                            @for (service of hotel.hotelServices; track $index) {
+                                                <p>{{service.name}}</p>
+                                            }
                                         </div>
                                     </div>
                                 </div>
                                 <hr class="mt-5">
                                 <h2 class="h5 card-title text-center">Adress:</h2>
                                 <p class="card-text text-center"><a
-                                        href="https://www.google.com/maps/search/?api=1&query=41.1493659%2C1.0980175"
-                                        target="_blank"><i class="fa-solid fa-map-location-dot"></i> Reus 1, rotonda
-                                        X</a>
+                                        href="https://www.google.com/maps/search/?api=1&query={{hotel.latitude}}%2C{{hotel.longitude}}"
+                                        target="_blank"><i class="fa-solid fa-map-location-dot"></i> {{hotel.address}}</a>
                                 </p>
                             </div>
 
@@ -72,76 +108,127 @@
                             <!--Buttons of NAV-->
                             <div class="d-flex justify-content-center">
                                 <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="active btn btn-outline-success" id="pills-private-tab"
-                                            data-bs-toggle="pill" data-bs-target="#pills-private" type="button"
-                                            role="tab" aria-controls="pills-private" aria-selected="true">Private hotel
-                                            events</button>
-                                    </li>
-                                    &nbsp;
-                                    <li class="nav-item" role="presentation">
-                                        <button class="btn btn-outline-success" id="pills-public-tab"
-                                            data-bs-toggle="pill" data-bs-target="#pills-public" type="button"
-                                            role="tab" aria-controls="pills-public" aria-selected="false">Public events
-                                            in the town</button>
-                                    </li>
+                                    @if (privateEventsHaveResults) {
+                                        <li class="nav-item" role="presentation">
+                                            <button class="active btn btn-outline-success" id="pills-private-tab"
+                                                data-bs-toggle="pill" data-bs-target="#pills-private" type="button"
+                                                role="tab" aria-controls="pills-private" aria-selected="true">Private hotel
+                                                events</button>
+                                        </li>
+                                    }
+                                    @if (privateEventsHaveResults && publicEventsHaveResults) {&nbsp;}
+                                    @if (publicEventsHaveResults) {
+                                        <li class="nav-item" role="presentation">
+                                            <button class="btn btn-outline-success" id="pills-public-tab"
+                                                data-bs-toggle="pill" data-bs-target="#pills-public" type="button"
+                                                role="tab" aria-controls="pills-public" aria-selected="false">Public events
+                                                in the town</button>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
                             <!--Finish buttons of NAV AND start content-->
                             <div class="tab-content" id="pills-tabContent">
+                            @if (privateEventsHaveResults) {
                                 <div class="tab-pane fade show active" id="pills-private" role="tabpanel"
                                     aria-labelledby="pills-home-tab">
                                     <div class="row w-100 justify-content-left mb-5 mx-0">
-                                        <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                            <a id="anchor-to-hotel" [routerLink]="['/event/1']">
-                                                <div class="hotel-card card">
-                                                    <div class="card-img-top"
-                                                        style="background-image: url('../../assets/img/hotelxmas2.jpg');"></div>
-                                                    <div class="card-body">
-                                                        <p class="card-title text-center"><b>Private Event Name</b></p>
-                                                        <div class="hotel-card-footer">
-                                                            <hr>
-                                                            <div
-                                                                class="event-date-style d-flex justify-content-center pb-3">
-                                                                <p>19/12/2023</p>
-                                                                <p>07/01/2024</p>
+                                        @for (privateEvent of privateEvents; track $index) {
+                                            <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+                                                <a id="anchor-to-hotel" [routerLink]="['/event/' + privateEvent.id]">
+                                                    <div class="hotel-card card">
+                                                        <div class="card-img-top"
+                                                            style="background-image: url('{{privateEvent.imgUrl}}');"></div>
+                                                        <div class="card-body">
+                                                            <p class="card-title text-center"><b>{{privateEvent.title}}</b></p>
+                                                            <div class="hotel-card-footer">
+                                                                <hr>
+                                                                <div
+                                                                    class="event-date-style d-flex justify-content-center pb-3">
+                                                                    <p>{{privateEvent.startDate}}</p>
+                                                                    <p>{{privateEvent.endDate}}</p>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        @if (privateEvent.entryPrice == 0) {
+                                                            <p class="price-style h3 p-2 hohoho-primary-clear"><b>FREE</b></p>
+                                                        } @else {
+                                                            <p class="price-style h3 p-2"><b>{{privateEvent.entryPrice}}€</b></p>
+                                                        }
                                                     </div>
-                                                    <p class="price-style h3 p-2"><b>69€</b></p>
-                                                </div>
-                                            </a>
-                                        </div>
-
+                                                </a>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
+                            }
                                 <!--Fish content private events and start content public events-->
+                            @if (publicEventsHaveResults && privateEventsHaveResults) {
                                 <div class="tab-pane fade" id="pills-public" role="tabpanel"
                                     aria-labelledby="pills-profile-tab">
                                     <div class="row w-100 justify-content-left mb-5 mx-0">
-                                        <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                            <a id="anchor-to-hotel" [routerLink]="['/event/1']">
-                                                <div class="hotel-card card">
-                                                    <div class="card-img-top"
-                                                        style="background-image: url('../../assets/img/event_public.jpg');"></div>
-                                                    <div class="card-body">
-                                                        <p class="card-title text-center"><b>Public Event Name</b></p>
-                                                        <div class="hotel-card-footer">
-                                                            <hr>
-                                                            <div
-                                                                class="event-date-style d-flex justify-content-center pb-3">
-                                                                <p>19/12/2023</p>
-                                                                <p>07/01/2024</p>
+                                        @for (publicEvent of publicEvents; track $index) {
+                                            <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+                                                <a id="anchor-to-hotel" [routerLink]="['/event/' + publicEvent.id]">
+                                                    <div class="hotel-card card">
+                                                        <div class="card-img-top"
+                                                            style="background-image: url('{{publicEvent.imgUrl}}');"></div>
+                                                        <div class="card-body">
+                                                            <p class="card-title text-center"><b>{{publicEvent.title}}</b></p>
+                                                            <div class="hotel-card-footer">
+                                                                <hr>
+                                                                <div
+                                                                    class="event-date-style d-flex justify-content-center pb-3">
+                                                                    <p>{{publicEvent.startDate}}</p>
+                                                                    <p>{{publicEvent.endDate}}</p>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        @if (publicEvent.entryPrice == 0) {
+                                                            <p class="price-style h3 p-2 hohoho-primary-clear"><b>FREE</b></p>
+                                                        } @else {
+                                                            <p class="price-style h3 p-2"><b>{{publicEvent.entryPrice}}€</b></p>
+                                                        }
                                                     </div>
-                                                    <p class="price-style h3 p-2"><b>69€</b></p>
-                                                </div>
-                                            </a>
-                                        </div>
-
+                                                </a>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
+                            }
+                            @if (publicEventsHaveResults && !privateEventsHaveResults) {
+                                <div class="tab-pane fade show active" id="pills-public" role="tabpanel"
+                                    aria-labelledby="pills-profile-tab">
+                                    <div class="row w-100 justify-content-left mb-5 mx-0">
+                                        @for (publicEvent of publicEvents; track $index) {
+                                            <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+                                                <a id="anchor-to-hotel" [routerLink]="['/event/' + publicEvent.id]">
+                                                    <div class="hotel-card card">
+                                                        <div class="card-img-top"
+                                                            style="background-image: url('{{publicEvent.imgUrl}}');"></div>
+                                                        <div class="card-body">
+                                                            <p class="card-title text-center"><b>{{publicEvent.title}}</b></p>
+                                                            <div class="hotel-card-footer">
+                                                                <hr>
+                                                                <div
+                                                                    class="event-date-style d-flex justify-content-center pb-3">
+                                                                    <p>{{publicEvent.startDate}}</p>
+                                                                    <p>{{publicEvent.endDate}}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @if (publicEvent.entryPrice == 0) {
+                                                            <p class="price-style h3 p-2 hohoho-primary-clear"><b>FREE</b></p>
+                                                        } @else {
+                                                            <p class="price-style h3 p-2"><b>{{publicEvent.entryPrice}}€</b></p>
+                                                        }
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            }
                             </div>
                         </div>
                     </div>

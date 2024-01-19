@@ -49,7 +49,7 @@ export class HotelsService {
   }
 
   getHotelById(idHotel: any) : Observable <any>{
-    return this.http.get<any>(`${environment.apiUrl}/api/hotel/&${idHotel}`, httpOptions);
+    return this.http.get<any>(`${environment.apiUrl}/api/hotel/${idHotel}`, httpOptions);
   }
 
   addHotel(data : any) : Observable <object> {
