@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
         window.sessionStorage.setItem("auth-token", response.token);
         window.sessionStorage.setItem("auth-username", response.username);
         window.sessionStorage.setItem("auth-rol", response.rol[0].authority);
+        window.sessionStorage.setItem("id", response.id);
 
         this.isLoginFailed = false;
         this.isLoggin = false;
