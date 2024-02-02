@@ -8,38 +8,37 @@
             <div class="text-center pb-3 pt-1" id="avatar">
               <img src="../../assets/img/profile-img-3.png" width="100%"/>
             </div>
-            <form class="mb-5" method="post" id="contactForm" name="contactForm" novalidate="novalidate">
+            <form [formGroup]="myForm" class="mb-5" method="post" id="myForm" name="myForm" novalidate="novalidate">
               <div class="row">
                 <div class="col-md-6 form-group mb-3">
-                  <label for="" class="col-form-label">Username</label>
-                  <input type="text" class="form-control" name="name" id="name" placeholder="Your username" />
+                  <label for="name" class="col-form-label">Username</label>
+                  <input type="text" class="form-control" name="name" id="name" value="{{user.name}}" placeholder="Your username" />
                 </div>
                 <div class="col-md-6 form-group mb-3">
-                  <label for="" class="col-form-label">Name and Surname</label>
+                  <label for="surname" class="col-form-label">Name and Surname</label>
                   <input type="surname" class="form-control" name="surname" id="surname" placeholder="Your name and surname" />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6 form-group mb-3">
-                  <label for="" class="col-form-label">Email</label>
+                  <label for="email" class="col-form-label">Email</label>
                   <input type="email" class="form-control" name="email" id="email" placeholder="Your email" />
                 </div>
                 <div class="col-md-6 form-group mb-3">
-                  <label for="" class="col-form-label">Phone</label>
+                  <label for="phone" class="col-form-label">Phone</label>
                   <input type="phone" class="form-control" name="phone" id="phone" placeholder="Your phone" />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12 form-group mb-5">
-                  <label for="" class="col-form-label">URL Image</label>
-                  <input type="urlimage" class="form-control" name="urlimage" id="urlimage"
+                  <label for="urlImage" class="col-form-label">URL Image</label>
+                  <input type="urlImage" class="form-control" name="urlimage" id="urlimage"
                     placeholder="Your url image" />
                 </div>
               </div>
               <div class="row justify-content-center">
                 <div class="col-md-5 form-group text-center">
-
-                  <input type="submit" value="Update" class="btn btn-block btn-outline-success rounded-2 py-2 px-4" />
+                  <button (ngSubmit)="onSubmit()" type="submit" value="Update" class="btn btn-block btn-outline-success rounded-2 py-2 px-4">Update </button>
                 </div>
               </div>
             </form>

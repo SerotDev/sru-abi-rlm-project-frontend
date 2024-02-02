@@ -11,12 +11,12 @@ export class TokenStorageService {
   }
 
   public saveToken(token: string): void {
-    window.sessionStorage.removeItem('token');
-    window.sessionStorage.setItem('token', token);
+    window.sessionStorage.removeItem('auth-token');
+    window.sessionStorage.setItem('auth-token', token);
   }
 
   public getToken(): string | null {
-    return window.sessionStorage.getItem('token');
+    return window.sessionStorage.getItem('auth-token');
   }
 
   public saveUser(user: string): void {
@@ -24,7 +24,7 @@ export class TokenStorageService {
     window.sessionStorage.setItem('user', user);
   }
 
-  public getUser(): string | null {
+  public getUser(): any {
     return window.sessionStorage.getItem('user');
   }
 
