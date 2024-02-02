@@ -5,19 +5,38 @@
                 <div class="card-body p-0">
                     <div class="row">
                         <div class="col-12 col-lg-4 order-lg-2 filters-right text-center ps-4 pe-4">
-                            <p class="h2 pt-4 pb-2">Filters</p>
-                            <hr>
-                            <form>
+                            <div class="w-100 pt-3 pb-0 d-block d-lg-none position-relative">
+                                <a class="h2 btn-nav-accordion collapsed filters-title" data-bs-toggle="collapse" href="#collapseFilters"
+                                role="button" aria-expanded="false" aria-controls="collapseFilters">
+                                    <div class="position-absolute w-100 h-100"><p class="text-end mb-0"><i class="ms-3 fa fa-chevron-up"></i></p></div>
+                                    <span class="filters-title">Filters</span>
+                                </a>
+                                <hr class="mt-2">
+                            </div>
+                            <div class="w-100 d-none d-lg-block">
+                                <p class="h2 pt-4 pb-2 d-none d-lg-block">Filters</p>
+                                <hr>
+                            </div>
+                            <form class="collapse d-lg-block" id="collapseFilters">
                                 <form class="mb-5" method="post" id="contactForm" name="contactForm"
                                     novalidate="novalidate">
                                     <div class="row">
                                         <div class="col-12 form-group mb-3">
                                             <label for="town" class="col-form-label lbl-stl fw-bold">Select
                                                 Town</label>
-                                            <select name="town" class="form-select me-1" aria-label="Select your Town">
-                                                <option value="1" selected>Tarragona</option>
-                                                <option value="2">Reus</option>
-                                                <option value="3">Cambrils</option>
+                                            <select #townSelector name="town" (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" class="form-select selector-town me-1" aria-label="Select your Town">
+                                                @if (loaded) {
+                                                    <option value="" default>No selected</option>
+                                                    @for (town of towns; track $index; let isFirst = $first) {
+                                                        @if (isFirst) {
+                                                            <option value="{{town.id}}" default>{{town.name}}</option>
+                                                        } @else{
+                                                            <option value="{{town.id}}">{{town.name}}</option>
+                                                        }
+                                                    }
+                                                } @else{
+                                                    <option value="Loading" default>Loading...</option>
+                                                }
                                             </select>
                                         </div>
                                     </div>
@@ -26,7 +45,7 @@
                                         <div class="col-12 form-group mb-3">
                                             <label for="hotel-name " class="col-form-label lbl-stl fw-bold">Search By
                                                 Name</label>
-                                            <input type="text" class="form-control" name="name" id="hotel-name"
+                                            <input #hotelNameSearchSelector (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" type="text" class="form-control" name="name" id="hotel-name"
                                                 placeholder="Hotel Name">
                                         </div>
                                     </div>
@@ -35,7 +54,7 @@
                                         <div class="col-12 form-group mt-1 mb-1">
                                             <label for="star-rating" class="form-label lbl-stl fw-bold">Rating
                                                 Average</label>
-                                            <input type="range" class="form-range range-input" min="0" max="5" value="0"
+                                            <input #starRatingSelector (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" type="range" class="form-range range-input" min="0" max="5" value="0"
                                                 id="star-rating">
                                             <div class="d-flex justify-content-between fw-light text-muted ps-1 pe-1">
                                                 <p>0</p>
@@ -52,7 +71,7 @@
                                         <div class="col-12 form-group mt-1 mb-3">
                                             <label for="min-num-rooms" class="form-label lbl-stl fw-bold">Min
                                                 Number of Rooms</label>
-                                            <input type="number" class="form-control" name="min-num-rooms"
+                                            <input #minNumberRoomsSelector (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" type="number" class="form-control" name="min-num-rooms"
                                                 id="min-num-rooms" placeholder="0">
                                         </div>
                                     </div>
@@ -61,14 +80,14 @@
                                         <div class="col-md-6 form-group mb-3">
                                             <label for="min-price" class="col-form-label lbl-stl fw-bold">Min
                                                 Price</label>
-                                            <input type="number" class="form-control" name="min-rice" id="min-price"
+                                            <input #minPriceSelector (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" type="number" class="form-control" name="min-rice" id="min-price"
                                                 placeholder="0">
                                         </div>
                                         <div class="col-md-6 form-group mb-3">
                                             <label for="max-price" class="col-form-label lbl-stl fw-bold">Max
                                                 Price</label>
-                                            <input type="number" class="form-control" name="max-price" id="max-price"
-                                                placeholder="500">
+                                            <input #maxPriceSelector (change)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value)" type="number" class="form-control" name="max-price" id="max-price"
+                                                placeholder="">
                                         </div>
                                     </div>
                                     <hr>
@@ -76,30 +95,20 @@
                                         <div class="col-12 form-group mb-3">
                                             <fieldset>
                                                 <legend class="fs-6 lbl-stl fw-bold">Services</legend>
-                                                <div class="form-check d-inline-block text-truncate m-2">
-                                                    <input class="form-check-input range-input" type="checkbox" value=""
-                                                        id="flexCheckDefault"> <label class="form-check-label"
-                                                        for="flexCheckDefault"> SPA </label>
-                                                </div>
-                                                <div class="form-check d-inline-block text-truncate m-2">
-                                                    <input class="form-check-input range-input" type="checkbox" value=""
-                                                        id="flexCheckChecked" checked> <label class="form-check-label"
-                                                        for="flexCheckChecked"> Own activities </label>
-                                                </div>
-                                                <div class="form-check d-inline-block text-truncate m-2">
-                                                    <input class="form-check-input range-input" type="checkbox" value=""
-                                                        id="flexCheckChecked" checked> <label class="form-check-label"
-                                                        for="flexCheckChecked"> Wifi </label>
-                                                </div>
+                                                @for (service of services; track $index) {
+                                                    <div class="form-check d-inline-block text-truncate m-2">
+                                                        <input (change)="onChangeCheckbox(service.id)" class="form-check-input range-input" type="checkbox" value="{{service.id}}"
+                                                            id="flexCheckDefault"> <label class="form-check-label"
+                                                            for="flexCheckDefault"> {{service.name}} </label>
+                                                    </div>
+                                                }
                                             </fieldset>
                                         </div>
                                     </div>
                                     <hr>
                                     <div class="row">
                                         <div class="col-12 form-group mt-4 mb-0">
-                                            <input type="submit" value="Filter Results"
-                                                class="btn btn-outline-success py-2 px-4 w-100"> <span
-                                                class="submitting"></span>
+                                            <p (click)="onSubmitFilters()" value="Filter Results" class="btn btn-outline-success py-2 px-4 w-100">Filter Results</p>
                                         </div>
                                     </div>
                                 </form>
@@ -108,206 +117,140 @@
                         <div class="col-12 col-lg-8 order-lg-1 ">
                             <div class="d-flex align-items-center flex-column text-center">
                                 <h1 class="pt-3">Hotels</h1>
+                                @if (loaded) {
+                                @if (haveNoResults) {
                                 <div class="row w-100 justify-content-left mb-5">
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>69€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel"[routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>125€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>155€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>219€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>309€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
-                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/1']">
-                                            <div class="hotel-card card">
-                                                <div class="card-img-top"
-                                                    style="background-image: url('../../assets/img/hotelxmas.jpg');">
-                                                </div>
-                                                <div class="card-body">
-                                                    <p class="card-title"><b>Nombre</b></p>
-                                                    <div class="hotel-services">
-                                                        <p>SPA</p>
-                                                        <p>Own Activities</p>
-                                                        <p>Swimming Pool</p>
-                                                        <p>Wifi</p>
-                                                        <p>GYM</p>
-                                                    </div>
-                                                    <div class="hotel-card-footer">
-                                                        <hr>
-                                                        <div class="star-rating">
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                            <span class="fa fa-regular fa-star"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <p class="price-style h3 p-2"><b>205€</b></p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    
+                                    <hr class="mt-5">
+                                    <p class="h2 mt-4 mb-5">No results found.</p>
+                                    <hr>
                                 </div>
+                                } @else {
+                                <div class="row w-100 justify-content-left mb-5">
+                                    @for (hotel of hotels; track $index;){
+                                    <div class="col-12 col-sm-6 col-lg-4 card-col hotel-container">
+                                        <a id="anchor-to-hotel" [routerLink]="['/hotel/' + hotel.id]">
+                                            <div class="hotel-card card">
+                                                <div class="card-img-top"
+                                                    style="background-image: url('{{hotel.imgsUrl}}');">
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="card-title"><b>{{hotel.name}}</b></p>
+                                                    <div class="hotel-services">
+                                                        @for (service of hotel.hotelServices; track $index) {
+                                                        <p>{{service.name}}</p>
+                                                        }
+                                                    </div>
+                                                    <div class="hotel-card-footer">
+                                                        <hr>
+                                                        <h1></h1>
+                                                        <div class="star-rating">
+                                                            @switch (hotel.starRatingAvg) {
+                                                            @case (0) {
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            }
+                                                            @case (1) {
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            }
+                                                            @case (2) {
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            }
+                                                            @case (3) {
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            }
+                                                            @case (4) {
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-regular fa-star"></span>
+                                                            }
+                                                            @case (5) {
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            <span class="fa fa-star"></span>
+                                                            }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="price-style h3 p-2"><b>{{hotel.price}}€</b></p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    }
+                                </div>
+
                                 <nav class="pb-3" aria-label="Pages navigation">
                                     <ul class="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
+                                        @for (navPage of navPages; track $index; let isFirst = $first; let isLast = $last) {
+                                            @if (isFirst) {
+                                                @if (navPage == currentPage+1) {
+                                                    <li class="page-item">
+                                                        <p (click)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light"><i class="fas fa-angle-double-left"></i></p>
+                                                    </li>
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light">{{navPage}}</p></li>
+                                                } @else {
+                                                    <li class="page-item">
+                                                        <p (click)="onSelected(1, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success"><i class="fas fa-angle-double-left"></i></p>
+                                                    </li>
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success">{{navPage}}</p></li>
+                                                }
+                                            }
+                                            @if (!isFirst && !isLast) {
+                                                @if (navPage == currentPage+1) {
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light">{{navPage}}</p></li>
+                                                } @else {
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success">{{navPage}}</p></li>
+                                                }
+                                            } 
+                                            @if (!isFirst && isLast) {
+                                                @if (navPage == currentPage+1) {
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light">{{navPage}}</p></li>
+                                                    <li class="page-item">
+                                                        <p (click)="onSelected(totalPages, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light"><i class="fas fa-angle-double-right"></i></p>
+                                                    </li>
+                                                } @else {
+                                                    <li class="page-item"><p (click)="onSelected(navPage, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success">{{navPage}}</p></li>
+                                                    <li class="page-item">
+                                                        <p (click)="onSelected(totalPages, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success"><i class="fas fa-angle-double-right"></i></p>
+                                                    </li>
+                                                }
+                                            } @else if (isFirst && isLast) {
+                                                <li class="page-item">
+                                                    <p (click)="onSelected(totalPages, townSelector.value, hotelNameSearchSelector.value, starRatingSelector.value, minNumberRoomsSelector.value, minPriceSelector.value, maxPriceSelector.value); onSubmitFilters()" value="Filter Results" class="btn btn-outline-success bg-hohoho-light"><i class="fas fa-angle-double-right"></i></p>
+                                                </li>
+                                            }
+                                        }
                                     </ul>
                                 </nav>
+                                }
+                                } @else {
+                                <div class="row w-100 justify-content-left mb-5">
+                                    <hr class="mt-5">
+                                    <p class="h2 mt-4 mb-5">loading results...</p>
+                                    <p><img src="../../assets/img/logging-unscreen.gif" class="white-image" height="50"
+                                            width="50"></p>
+                                    <hr>
+                                </div>
+                                }
                             </div>
                         </div>
                     </div>

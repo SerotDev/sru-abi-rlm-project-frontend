@@ -9,5 +9,5 @@ export interface Event{
     entryPrice: number,
     latitude: number,
     longitude: number,
-    hotel: object,
+    hotel: any,
 }
