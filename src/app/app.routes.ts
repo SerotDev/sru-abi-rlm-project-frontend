@@ -14,6 +14,7 @@ import { UpdateHotelComponent } from './profile/hotels/update-hotel/update-hotel
 import { EventsComponent } from './profile/hotels/events/events.component';
 import { AddEventComponent } from './profile/hotels/add-event/add-event.component';
 import { UpdateEventComponent } from './profile/hotels/update-event/update-event.component';
+import { logedGuard } from './guards/loged.guard';
 import { isAdminGuard } from './guards/is-admin.guard';
 import { isHotelGuard } from './guards/is-hotel.guard';
 import { isVisitorGuard } from './guards/is-visitor.guard';
@@ -32,7 +33,7 @@ export const routes: Routes = [
     { path: 'map/:params', component: SearchMapComponent },
     { path: 'hotel/:id', component: HotelComponent },
     { path: 'event/:id', component: EventComponent },
-    { path: 'profile', component: ProfileComponent },
+    { path: 'profile', component: ProfileComponent, canActivate: [logedGuard]},
     { path: 'favourites', component: FavouritesComponent, canActivate: [isVisitorGuard]},
     { path: 'my-hotels', component: HotelsComponent, canActivate: [isHotelGuard]},
     { path: 'my-hotels/add-hotel', component: AddHotelComponent, canActivate: [isHotelGuard] },

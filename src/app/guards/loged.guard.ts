@@ -1,5 +1,8 @@
-import { CanActivateFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
 
 export const logedGuard: CanActivateFn = (route, state) => {
-  return true;
-};
+  const redirect = inject(Router);
+  const authToken = sessionStorage.getItem('auth-token');
+  return authToken && authToken !== "" ? true : redirect.navigate(['/not-found']);
+}

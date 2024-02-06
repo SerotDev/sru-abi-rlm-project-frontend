@@ -43,19 +43,23 @@
                         <a class="nav-link" [routerLink]="['/profile']" aria-current="page" href="#">Profile <img
                                 id="cookie" src="../assets/img/profile-unscreen.gif" height="25"></a>
                     </li>
-                    <div class="navbar-separator d-block d-lg-none"></div>
-                    <li class="nav-item" width="150">
-                        <a class="nav-link" [routerLink]="['/favourites']" aria-current="page">Favourites <img
-                                src="../assets/img/star favourites.png" height="25"></a>
-                    </li>
-                    <div class="navbar-separator d-block d-lg-none"></div>
-                    <li class="nav-item" width="150">
-                        <a class="nav-link" [routerLink]="['/my-hotels']" aria-current="page">My Hotels <img
-                                src="../assets/img/hotel.png" height="25"></a>
-                    </li>
+                        @if (canViewFavourites) {
+                            <div class="navbar-separator d-block d-lg-none"></div>
+                            <li class="nav-item" width="150">
+                                <a class="nav-link" [routerLink]="['/favourites']" aria-current="page">Favourites <img
+                                    src="../assets/img/star favourites.png" height="25"></a>
+                            </li>
+                        }
+                        @if (canViewMyHotels) {
+                            <div class="navbar-separator d-block d-lg-none"></div>
+                            <li class="nav-item" width="150">
+                                <a class="nav-link" [routerLink]="['/my-hotels']" aria-current="page">My Hotels <img
+                                    src="../assets/img/hotel.png" height="25"></a>
+                            </li>
+                        }
                     <div class="navbar-separator d-block d-lg-none"></div>
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/login']" aria-current="page" (click)="logout()">Logout</a>
+                        <a class="nav-link" [routerLink]="['/login']" aria-current="page" (click)="logout()">Logout <i class="fa fa-sign-out fa-lg text-white" aria-hidden="true"></i></a>
                     </li>
                     }
                 </ul>
