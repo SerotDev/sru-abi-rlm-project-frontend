@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { UserService } from '../services/auth/user.service';
 import { Router } from '@angular/router';
 import { User, UserDTO } from '../models/user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
@@ -24,11 +25,18 @@ export class ProfileComponent implements OnInit {
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
+    private http: HttpClient,
     ) {}
 
   ngOnInit(): void {
     this.currentTokenSesion = this.token.getToken();
     console.log(this.currentTokenSesion);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.currentTokenSesion}`
+    });
+
     this.currentIdUserSesion = this.token.getId();
     this.user = this.userService.getUserById(this.currentIdUserSesion);
 
