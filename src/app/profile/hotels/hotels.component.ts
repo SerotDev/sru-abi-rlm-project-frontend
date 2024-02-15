@@ -1,57 +1,44 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute } from '@angular/router';
-import { HotelsService } from '../../services/hotels/hotels.service';
+import { Hotel } from '../../models/hotel';
+import { UserService } from '../../services/auth/user.service';
 
 @Component({
   selector: 'app-hotels',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './hotels.component.html',
   styleUrl: './hotels.component.css'
 })
-export class HotelsComponent {
+export class HotelsComponent implements OnInit {
 
-  hotels: any = null;
-  peticionHoteles = false;
-  user_id: number = 1;
+  //hotels list results variables
+  protected isLoggedIn: boolean = false;
+  protected hotels: Hotel[] = [];
+  protected haveNoResults: boolean = false;
+  protected loaded: boolean = false;
 
-  constructor(private hotelService: HotelsService, private route : ActivatedRoute) { }
+  constructor(private userService: UserService, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
-    //this.hotels = this.jsonData;
-    this.peticionHoteles = true;
-    console.log(this.hotels);
-    this.getHotels();
-  }
+    // get user id and token data
+    let token = window.sessionStorage.getItem("auth-token");
+    let userId = window.sessionStorage.getItem("id");
 
-  getHotels()
-  {
-    this.hotelService.getHotelById(this.route.snapshot.paramMap.get('id')).subscribe(
-      data => {
-        this.peticionHoteles = true;
-        console.log(data);
-        this.hotels = data;
+    //makes the api data request
+    this.userService.getHotelbyUserId(userId, token).subscribe({
+      next: (response: any) => {
+        this.hotels = response;
+        this.loaded = true
+        //if has no results of hotels
+        if (this.hotels.length === 0) {
+          this.haveNoResults = true;
+        }
+      },
+      error: (error: any) => {
+        console.log("Error getting My-Hotels:\n" + error);
       }
-    )
-  }
- /*
-  hotel : any = {
-    id : '',
-    nombre : ''
-  };
-  recogidaDatos = false;
-  actualizado = false;
-  enviar = false;
-
-  ngOnInit(): void {
-    this.hotelService.getHotelbyId(this.route.snapshot.paramMap.get('id'))
-    .subscribe(
-      respuesta => {
-        this.recogidaDatos = true;
-        this.hotel = respuesta;
     });
-  }*/
-
+  }
 }

@@ -20,35 +20,48 @@
                                             class="btn btn-outline-secondary"><i class="fas fa-plus"></i></button></th>
                                 </tr>
                             </thead>
+                            @if(loaded && !haveNoResults) {
                             <tbody class="table-group-divider">
-                                <tr class="align-middle">
-                                    <td class="text-center d-no d-sm-cell">
-                                        <img
-                                            src="https://image.urlaubspiraten.de/1024/image/upload/v1663577256/mediavault_images/shutterstock_1621847380_aanalx.jpg">
-                                    </td>
-                                    <td class="text-center d-no d-xs-cell">town info</td>
-                                    <td class="text-center">name info</td>
-                                    <td class="text-center d-no d-lg-cell">phone info</td>
-                                    <td class="text-center d-no d-lg-cell">email info</td>
-                                    <td class="text-center d-no d-lg-cell">web info</td>
-                                    <td class="text-center td-btns">
-                                        <button [routerLink]="['/hotel/:id']" class="btn btn-outline-warning">
-                                            <i class="fa fa-eye"></i>
-                                        </button>
-                                        <button [routerLink]="['/my-hotels/update-hotel']"
-                                            class="btn btn-outline-success">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button class="btn btn-outline-danger">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <button [routerLink]="['/my-hotel/events']" class="btn btn-outline-primary">
-                                            <i class="fas fa-calendar"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                @for (hotel of hotels; track $index) {
+                                    <tr class="align-middle">
+                                        <td class="text-center d-no d-sm-cell">
+                                            <img
+                                                src="{{hotel.imgsUrl}}">
+                                        </td>
+                                        <td class="text-center d-no d-xs-cell">{{hotel.town.name}}</td>
+                                        <td class="text-center">{{hotel.name}}</td>
+                                        <td class="text-center d-no d-lg-cell">{{hotel.phone}}</td>
+                                        <td class="text-center d-no d-lg-cell">{{hotel.email}}</td>
+                                        <td class="text-center d-no d-lg-cell">{{hotel.web}}</td>
+                                        <td class="text-center td-btns">
+                                            <button [routerLink]="['/hotel/:id']" class="btn btn-outline-warning">
+                                                <i class="fa fa-eye"></i>
+                                            </button>
+                                            <button [routerLink]="['/my-hotels/update-hotel']"
+                                                class="btn btn-outline-success">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-outline-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            <button [routerLink]="['/my-hotel/events']" class="btn btn-outline-primary">
+                                                <i class="fas fa-calendar"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
                             </tbody>
+                            }
                         </table>
+                        @if (!loaded) {
+                            <div class="pt-3 pb-3">
+                                <h2 class="text-center">Loading results...</h2>
+                            </div>
+                        }@else if (haveNoResults) {
+                            <div class="pt-3 pb-3">
+                                <h3 class="text-center">No Hotels Created Yet</h3>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
