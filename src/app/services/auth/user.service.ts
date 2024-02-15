@@ -34,11 +34,6 @@ export class UserService {
     }, httpOptions);
   }
 
- /* getUser(username: any): Observable<any>
-  {
-    return this.http.get(environment.apiUrl + `/user/${username}/`, httpOptions);
-  }*/
-
   getUserById(id : any)  : Observable <any> {
     let token = this.tokenService.getToken(); 
     const headers = new HttpHeaders({
@@ -60,10 +55,16 @@ export class UserService {
     return this.http.put<any>(environment.apiUrl + id, updateData);
     
   }
-  //edit user by id
-
   
-  /*getRoles() : Observable <object>{
-    return this.http.get<object>(`${this.baseAPI}/api/roles`);
-  }*/
+  getHotelbyUserId(id: any, token: any): Observable <any> {
+    //create header structure
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    const requestOptions = { headers: headers };
+
+    //returns the result of the auth request
+    return this.http.get<any>(`${environment.apiUrl}/api/user/hotels/${id}`, requestOptions);
+  }
 }
