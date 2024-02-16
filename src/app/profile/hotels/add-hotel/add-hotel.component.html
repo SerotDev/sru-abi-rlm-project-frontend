@@ -12,7 +12,7 @@
                                         <div class="row">
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="" class="col-form-label">Name</label>
-                                                <input type="text" class="form-control" name="name" name="name"
+                                                <input #nameSelector (change)="nameSelected(nameSelector.value)" type="text" class="form-control" name="name"
                                                     id="floatingName" placeholder="Hotel name">
                                                 <div id="floatingName" class="invalid-feedback">
                                                     Nombre Plato no puede estar vacio!
@@ -20,89 +20,100 @@
                                             </div>
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="town" class="col-form-label">Town</label>
-                                                <select class="form-control" name="town" id="town">
-                                                    <option value="town1" selected>Town 1</option>
-                                                    <option value="town2">Town 2</option>
-                                                    <option value="town3">Town 3</option>
+                                                <select #townSelector name="town" (change)="townSelected(townSelector.value)" class="form-control" name="town" id="town">
+                                                    @if (townsLoaded) {
+                                                        @for (town of towns; track $index; let isFirst = $first;) {
+                                                            @if (isFirst) {
+                                                                <option value="{{town.id}}" selected>{{town.name}}</option>
+                                                            } @else {
+                                                                <option value="{{town.id}}">{{town.name}}</option>
+                                                            }
+                                                        }
+                                                    } @else {
+                                                        <option value="0" selected>Loading...</option>
+                                                    }
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="email" class="col-form-label">Email</label>
-                                                <input type="email" class="form-control" name="email" id="email"
+                                                <input #emailSelector (change)="emailSelected(emailSelector.value)" type="email" class="form-control" name="email" id="email"
                                                     placeholder="Hotel email">
                                             </div>
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="phone" class="col-form-label">Phone</label>
-                                                <input type="text" class="form-control" name="phone" id="phone"
+                                                <input #phoneSelector (change)="phoneSelected(phoneSelector.value)" type="text" class="form-control" name="phone" id="phone"
                                                     placeholder="Hotel phone">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 form-group mb-3">
-                                                <label for="" class="col-form-label">Price</label>
-                                                <input type="number" class="form-control" name="price" id="price"
+                                                <label for="price" class="col-form-label">Price</label>
+                                                <input #priceSelector (change)="priceSelected(priceSelector.value)" type="number" class="form-control" name="price" id="price"
                                                     placeholder="Hotel price">
                                             </div>
                                             <div class="col-md-6 form-group mb-3">
-                                                <label for="" class="col-form-label">Number rooms</label>
-                                                <input type="number" class="form-control" name="number_rooms"
+                                                <label for="rooms" class="col-form-label">Number rooms</label>
+                                                <input #numRoomsSelector (change)="numRoomsSelected(numRoomsSelector.value)" type="number" class="form-control" name="number_rooms"
                                                     id="number_rooms" placeholder="Hotel number rooms">
                                             </div>
                                         </div>
                                         <div class="row">
+                                            <div class="col-md-12 form-group mb-3">
+                                                <label for="address" class="col-form-label">Address</label>
+                                                <input #addressSelector (change)="addressSelected(addressSelector.value)" type="text" class="form-control" name="web" id="address"
+                                                    placeholder="Hotel address">
+                                            </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-6 form-group mb-3">
-                                                <label for="" class="col-form-label">Latitude</label>
-                                                <input type="number" step="any" class="form-control" name="latitude" id="latitude"
+                                                <label for="latitude" class="col-form-label">Latitude</label>
+                                                <input #latitudeSelector (change)="latitudeSelected(latitudeSelector.value)" type="number" step="any" class="form-control" name="latitude" id="latitude"
                                                     placeholder="Hotel latitude">
                                             </div>
                                             <div class="col-md-6 form-group mb-3">
-                                                <label for="" class="col-form-label">Longitude</label>
-                                                <input type="number" step="any" class="form-control" name="longitude" id="longitude"
+                                                <label for="longitude" class="col-form-label">Longitude</label>
+                                                <input #longitudeSelector (change)="longitudeSelected(longitudeSelector.value)" type="number" step="any" class="form-control" name="longitude" id="longitude"
                                                     placeholder="Hotel longitude">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12 form-group mb-3">
-                                                <label for="" class="col-form-label">Web</label>
-                                                <input type="text" class="form-control" name="web" id="web"
+                                                <label for="web" class="col-form-label">Web</label>
+                                                <input #webSelector (change)="webSelected(webSelector.value)" type="text" class="form-control" name="web" id="web"
                                                     placeholder="Hotel web">
                                             </div>
                                         </div>
                                         <div class="col-md-12 form-group mb-3">
                                             <label for="description" class="col-form-label">Description</label>
-                                            <textarea class="form-control" name="description" id="description"
+                                            <textarea #descriptionSelector (change)="descriptionSelected(descriptionSelector.value)" class="form-control" name="description" id="description"
                                                 placeholder="Hotel description" rows="6"></textarea>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12 form-group mb-3">
-                                                <label for="urlimage" class="col-form-label">Upload Image</label>
-                                                <input type="file" class="form-control" name="urlimage" id="urlimage"
-                                                    accept="image/*">
+                                                <label for="image" class="col-form-label">Image URL</label>
+                                                <input #imgSelector (change)="imgSelected(imgSelector.value)" type="text" class="form-control" name="image" id="image"
+                                                    placeholder="Hotel image URL">
                                             </div>
                                         </div>
                                         <div class="col-md-12 form-group mb-3">
                                             <label for="services" class="col-form-label">Select Hotel Services</label>
-                                            <hr />
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="wifi"
-                                                    name="services" value="wifi">
-                                                <label class="form-check-label" for="wifi">Wi-Fi</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="pool"
-                                                    name="services" value="pool">
-                                                <label class="form-check-label" for="pool">Swimming Pool</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="gym" name="services"
-                                                    value="gym">
-                                                <label class="form-check-label" for="gym">Gym</label>
-                                            </div>
+                                            @if (servicesLoaded) {
+                                                @for (service of services; track $index) {
+                                                    <div class="form-check">
+                                                        <input (change)="onChangeCheckbox(service.id)" type="checkbox" class="form-check-input" id="wifi"
+                                                            name="services" value="{{service.id}}">
+                                                        <label class="form-check-label" for="wifi">{{service.name}}</label>
+                                                    </div>
+                                                }
+                                            } @else {
+                                                <p>Loading services...</p>
+                                            }
                                         </div>
                                         <div class="row justify-content-center">
                                             <div class="col-md-5 form-group text-center">
+                                                <p (click)="onSubmitFilters()" value="Create Hotel" class="btn btn-block btn-outline-success rounded-0 py-2 px-4 mt-5">Create Hotel</p>
                                                 <input type="submit" value="Create"
                                                     class="btn btn-block btn-outline-success rounded-0 py-2 px-4 mt-5">
                                                 <span class="submitting"></span>

@@ -34,12 +34,15 @@ export class UserService {
     }, httpOptions);
   }
 
-  getUserById(id : any)  : Observable <any> {
-    let token = this.tokenService.getToken(); 
+  getUserById(id: any, token: any) : Observable <any> {
+    //create header structure
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
+      'Authorization': `Bearer ${token}`
     });
-    return this.http.get(environment.apiUrl + `/user/${id}/`, httpOptions);
+    const requestOptions = { headers: headers };
+
+    //returns the result of the auth request
+    return this.http.get<any>(`${environment.apiUrl}/api/user/${id}`, requestOptions);
   }
 
   deleteUser(id: any): Observable<any>
@@ -59,7 +62,6 @@ export class UserService {
   getHotelbyUserId(id: any, token: any): Observable <any> {
     //create header structure
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
     const requestOptions = { headers: headers };

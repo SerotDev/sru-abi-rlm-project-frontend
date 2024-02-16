@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
     this.currentTokenSesion = this.token.getToken();
     console.log(this.currentTokenSesion);
     this.currentIdUserSesion = this.token.getId();
-    this.user = this.userService.getUserById(this.currentIdUserSesion);
+    //this.user = this.userService.getUserById(this.currentIdUserSesion);
 
     this.myForm = this.formBuilder.group({
       name: this.currentIdUserSesion.name,
