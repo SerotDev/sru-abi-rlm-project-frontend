@@ -26,9 +26,13 @@
                                     <tr class="align-middle">
                                         <td class="text-center d-no d-sm-cell">
                                             <img
-                                                src="{{hotel.imgsUrl}}">
+                                                src="{{hotel.imgUrl}}">
                                         </td>
-                                        <td class="text-center d-no d-xs-cell">{{hotel.town.name}}</td>
+                                        <td class="text-center d-no d-xs-cell">
+                                            @if (hotel.town !== undefined) {
+                                                {{ hotel.town }}
+                                            }
+                                        </td>
                                         <td class="text-center">{{hotel.name}}</td>
                                         <td class="text-center d-no d-lg-cell">{{hotel.phone}}</td>
                                         <td class="text-center d-no d-lg-cell">{{hotel.email}}</td>
@@ -41,7 +45,7 @@
                                                 class="btn btn-outline-success">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button class="btn btn-outline-danger">
+                                            <button class="btn btn-outline-danger" data-bs-toggle="modal" attr.data-bs-target="#deleteHotel{{$index}}">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                             <button [routerLink]="['/my-hotel/events']" class="btn btn-outline-primary">
@@ -49,6 +53,26 @@
                                             </button>
                                         </td>
                                     </tr>
+                                    
+                                    <!-- Delete Hotel Confirmation Modal -->
+                                    <div class="modal fade" id="deleteHotel{{$index}}" tabindex="-1" aria-labelledby="deleteHotelLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="deleteHotelLabel">Delete Hotel</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body alert-danger">
+                                                    <p>Are you sure to delete the hotel <b>{{hotel.name}}</b> located in <b>{{hotel.town}}</b>?</p>
+                                                    <button data-bs-dismiss="modal" (click)="onDelete(hotel.id, $index)" class="btn btn-outline-danger">Delete Hotel</button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 }
                             </tbody>
                             }

@@ -51,7 +51,7 @@ export class HotelsService {
   }
 
   //add hotel with bearer token
-  addHotel(data: any, token: any): Observable<object> {
+  addHotel(body: any, token: any): Observable<object> {
     //create header structure
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -59,15 +59,33 @@ export class HotelsService {
     });
     const requestOptions = { headers: headers };
 
-    return this.http.post(`${environment.apiUrl}/api/hotel/add`, data, requestOptions);
+    return this.http.post(`${environment.apiUrl}/api/hotel/add`, body, requestOptions);
   }
 
   updateHotelById(id: any, data: any): Observable<object> {
     return this.http.put(`${environment.apiUrl}/api/hotel/update/&${id}`, data, httpOptions);
   }
 
-  deleteHotelById(id: any): Observable<object> {
-    return this.http.delete(`${environment.apiUrl}/api/hotel/delete/&${id}`, httpOptions);
+  deleteHotelById(id: any, token: any): Observable<object> {
+    //create header structure
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const requestOptions = { headers: headers };
+
+    return this.http.delete(`${environment.apiUrl}/api/hotel/delete/${id}`, requestOptions);
+  }
+
+  //add hotel with bearer token
+  addHotelService(body: any, token: any): Observable<object> {
+    //create header structure
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    const requestOptions = { headers: headers };
+
+    return this.http.post(`${environment.apiUrl}/api/hotelService/add`, body, requestOptions);
   }
 
 }  
