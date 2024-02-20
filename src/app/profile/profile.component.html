@@ -4,36 +4,36 @@
       <div class="card bg-white col-12 mx-auto">
         <div class="card-body">
           <div class="form h-100 contact-wrap p-0 p-md-3">
-            <h1 class="text-center mt-3 mb-3">Visitor</h1>
+            <h1 class="text-center mt-3 mb-3" >{{camelize(user.role.name)}}</h1>
             <div class="text-center pb-3 pt-1" id="avatar">
               <img src="../../assets/img/profile-img-3.png" width="100%"/>
             </div>
-            <form [formGroup]="myForm" class="mb-5" method="post" id="myForm" name="myForm" novalidate="novalidate">
+            <form [formGroup]="myForm" class="mb-5" method="post" id="myForm" name="myForm">
               <div class="row">
                 <div class="col-md-6 form-group mb-3">
                   <label for="name" class="col-form-label">Username</label>
-                  <input type="text" class="form-control" name="name" id="name" value="{{user.name}}" placeholder="Your username" />
+                  <input type="text-center" class="form-control" name="name" id="name" value="{{user.name}}" placeholder="Insert your username" />
                 </div>
                 <div class="col-md-6 form-group mb-3">
                   <label for="surname" class="col-form-label">Name and Surname</label>
-                  <input type="surname" class="form-control" name="surname" id="surname" placeholder="Your name and surname" />
+                  <input type="text-center" class="form-control" name="surname" id="surname" value="{{user.surname}}" placeholder="Insert your name and surname" />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6 form-group mb-3">
                   <label for="email" class="col-form-label">Email</label>
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your email" />
+                  <input type="text-center" class="form-control" name="email" id="email" value="{{user.email}}" placeholder="Insert your email " />
                 </div>
                 <div class="col-md-6 form-group mb-3">
                   <label for="phone" class="col-form-label">Phone</label>
-                  <input type="phone" class="form-control" name="phone" id="phone" placeholder="Your phone" />
+                  <input type="text-center" class="form-control" name="phone" id="phone" value="{{user.phone}}" placeholder="Insert your phone" />
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12 form-group mb-5">
                   <label for="urlImage" class="col-form-label">URL Image</label>
-                  <input type="urlImage" class="form-control" name="urlimage" id="urlimage"
-                    placeholder="Your url image" />
+                  <input type="text-center" class="form-control" name="urlimage" id="urlimage" value="{{user.profImgUrl}}"
+                    placeholder="Insert your image url" />
                 </div>
               </div>
               <div class="row justify-content-center">

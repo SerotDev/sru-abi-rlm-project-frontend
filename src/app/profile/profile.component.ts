@@ -3,7 +3,6 @@ import { TokenStorageService } from '../services/auth/token-storage.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '../services/auth/user.service';
 import { Router } from '@angular/router';
-import { User, UserDTO } from '../models/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -18,37 +17,44 @@ export class ProfileComponent implements OnInit {
   myForm!: FormGroup;
   currentIdUserSesion: any;
 
-  protected user: any = {}; 
+  protected user: any = {};
+  protected loaded: boolean = false
 
   constructor(
     private token: TokenStorageService,
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private http: HttpClient,
     ) {}
 
   ngOnInit(): void {
     this.currentTokenSesion = this.token.getToken();
     console.log(this.currentTokenSesion);
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.currentTokenSesion}`
-    });
-
     this.currentIdUserSesion = this.token.getId();
-    this.user = this.userService.getUserById(this.currentIdUserSesion);
+    console.log(this.currentIdUserSesion);
 
+    this.userService.getUserById(this.currentIdUserSesion, this.currentTokenSesion).subscribe({
+      next: (response: any) => {
+        this.user = response;
+        this.loaded = true;
+        console.log(JSON.stringify(response));
+
+        
     this.myForm = this.formBuilder.group({
-      name: this.currentIdUserSesion.name,
-      surname: this.currentIdUserSesion.surname,
-      email: this.currentIdUserSesion.email,
-      phone: this.currentIdUserSesion.phone,
-      urlImage: this.currentIdUserSesion.urlImage
+      name: this.user.name,
+      surname: this.user.surname,
+      email: this.user.email,
+      phone: this.user.phone,
+      urlImage: this.user.urlImage
     });
+  },
+  error: (error: any) => {
+    console.log("Error getting User:\n" + JSON.stringify(error));
   }
-  
+  });
+  }
+ 
   onSubmit() {
     if (this.myForm.valid) {
       let formData = this.myForm.value;
@@ -56,5 +62,12 @@ export class ProfileComponent implements OnInit {
         this.router.navigate(['/']);
       });
     }
+  }  
+
+  camelize(str: string) {
+    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+      return index === 0 ? word.toUpperCase() : word.toLowerCase();
+    }).replace(/\s+/g, '');
   }
+
 }

@@ -34,12 +34,13 @@ export class UserService {
     }, httpOptions);
   }
 
-  getUserById(id : any)  : Observable <any> {
-    let token = this.tokenService.getToken(); 
+  getUserById(id : any, token : any)  : Observable <any> {
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
     });
-    return this.http.get(environment.apiUrl + `/user/${id}/`, httpOptions);
+    const requestOptions = {headers:headers};
+    return this.http.get<any>(`${environment.apiUrl}/api/user/${id}`, requestOptions);
   }
 
   deleteUser(id: any): Observable<any>
@@ -52,7 +53,7 @@ export class UserService {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
-    return this.http.put<any>(environment.apiUrl + id, updateData);
+    return this.http.put(`${environment.apiUrl}/api/user/update/&${id}`, updateData, httpOptions);
     
   }
   
