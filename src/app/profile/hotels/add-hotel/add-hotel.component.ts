@@ -6,6 +6,8 @@ import { Service } from '../../../models/service';
 import { Town } from '../../../models/town';
 import { UserService } from '../../../services/auth/user.service';
 import { NoLoggedService } from '../../../services/no-logged.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-hotel',
@@ -64,7 +66,7 @@ export class AddHotelComponent implements OnInit {
       user: undefined
     };
 
-  constructor(private hotelsServices: HotelsService, private userService: UserService, private serviceNoLogged: NoLoggedService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private http: HttpClient, private hotelsServices: HotelsService, private userService: UserService, private serviceNoLogged: NoLoggedService) { }
 
   ngOnInit(): void {
 
@@ -205,8 +207,10 @@ export class AddHotelComponent implements OnInit {
               console.log("Error adding service wit id " + this.services[i].id + " to the hotel:\n" + JSON.stringify(error));
             }
           });
-
         }
+        // redirect to my-hotels page
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(["/my-hotels"])});
       },
       error: (error: any) => {
         console.log("Error adding hotel:\n" + JSON.stringify(error));

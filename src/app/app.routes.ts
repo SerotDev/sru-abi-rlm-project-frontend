@@ -37,7 +37,7 @@ export const routes: Routes = [
     { path: 'favourites', component: FavouritesComponent, canActivate: [isVisitorGuard]},
     { path: 'my-hotels', component: HotelsComponent, canActivate: [isHotelGuard]},
     { path: 'my-hotels/add-hotel', component: AddHotelComponent, canActivate: [isHotelGuard] },
-    { path: 'my-hotels/update-hotel', component: UpdateHotelComponent, canActivate: [isHotelGuard] },
+    { path: 'my-hotels/update-hotel/:index', component: UpdateHotelComponent, canActivate: [isHotelGuard] },
     { path: 'my-hotel/events', component: EventsComponent, canActivate: [isHotelGuard]},
     { path: 'my-hotel/add-event', component: AddEventComponent, canActivate: [isHotelGuard]},
     { path: 'my-hotel/update-event', component: UpdateEventComponent, canActivate: [isHotelGuard]},

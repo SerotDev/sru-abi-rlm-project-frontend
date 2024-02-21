@@ -8,96 +8,112 @@
                             <div class="col-md-12">
                                 <div class="form h-100 contact-wrap p-0 px-md-3 px-lg-5">
                                     <h1 class="text-center pt-3 pb-3">Update Hotel</h1>
+                                    @if (loaded) {
                                     <form class="mb-5" method="post" id="contactForm" name="contactForm"
                                         novalidate="novalidate">
                                         <div class="row">
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="" class="col-form-label">Name</label>
-                                                <input type="text" class="form-control" name="name" id="name"
+                                                <input type="text" class="form-control" name="name" id="name" value="{{hotel.name}}"
                                                     placeholder="Hotel name">
                                             </div>
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="town" class="col-form-label">Town</label>
-                                                <select class="form-control" name="town" id="town">
-                                                    <option value="town1" selected>Town 1</option>
-                                                    <option value="town2">Town 2</option>
-                                                    <option value="town3">Town 3</option>
+                                                <select #townSelector name="town" (change)="townSelected(townSelector.value)" class="form-control" name="town" id="town">
+                                                    @if (townsLoaded) {
+                                                        @for (town of towns; track $index; let isFirst = $first;) {
+                                                            @if (town.id == hotel.town.id) {
+                                                                <option value="{{town.id}}" selected>{{town.name}}</option>
+                                                            } @else {
+                                                                <option value="{{town.id}}">{{town.name}}</option>
+                                                            }
+                                                        }
+                                                    } @else {
+                                                        <option value="0" selected>Loading...</option>
+                                                    }
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="email" class="col-form-label">Email</label>
-                                                <input type="email" class="form-control" name="email" id="email"
+                                                <input type="email" class="form-control" name="email" id="email" value="{{hotel.email}}"
                                                     placeholder="Hotel email">
                                             </div>
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="phone" class="col-form-label">Phone</label>
-                                                <input type="text" class="form-control" name="phone" id="phone"
+                                                <input type="text" class="form-control" name="phone" id="phone" value="{{hotel.phone}}"
                                                     placeholder="Hotel phone">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="" class="col-form-label">Price</label>
-                                                <input type="number" class="form-control" name="price" id="price"
+                                                <input type="number" class="form-control" name="price" id="price" value="{{hotel.price}}"
                                                     placeholder="Hotel price">
                                             </div>
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="" class="col-form-label">Number rooms</label>
-                                                <input type="number" class="form-control" name="number_rooms"
+                                                <input type="number" class="form-control" name="number_rooms" value="{{hotel.numberRooms}}"
                                                     id="number_rooms" placeholder="Hotel number rooms">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 form-group mb-3">
+                                                <label for="address" class="col-form-label">Address</label>
+                                                <input #addressSelector type="text" class="form-control" name="web" id="address" value="{{hotel.address}}"
+                                                    placeholder="Hotel address">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="" class="col-form-label">Latitude</label>
-                                                <input type="number" step="any" class="form-control" name="latitude"
+                                                <input type="number" step="any" class="form-control" name="latitude" value="{{hotel.latitude}}"
                                                     id="latitude" placeholder="Hotel latitude">
                                             </div>
                                             <div class="col-md-6 form-group mb-3">
                                                 <label for="" class="col-form-label">Longitude</label>
-                                                <input type="number" step="any" class="form-control" name="longitude"
+                                                <input type="number" step="any" class="form-control" name="longitude" value="{{hotel.longitude}}"
                                                     id="longitude" placeholder="Hotel longitude">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12 form-group mb-3">
                                                 <label for="" class="col-form-label">Web</label>
-                                                <input type="text" class="form-control" name="web" id="web"
+                                                <input type="text" class="form-control" name="web" id="web" value="{{hotel.web}}"
                                                     placeholder="Hotel web">
                                             </div>
                                         </div>
                                         <div class="col-md-12 form-group mb-3">
                                             <label for="description" class="col-form-label">Description</label>
-                                            <textarea class="form-control" name="description" id="description"
+                                            <textarea class="form-control" name="description" id="description" value="{{hotel.description}}"
                                                 placeholder="Hotel description" rows="6"></textarea>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12 form-group mb-3">
-                                                <label for="urlimage" class="col-form-label">Upload Image</label>
-                                                <input type="file" class="form-control" name="urlimage" id="urlimage"
-                                                    accept="image/*">
+                                                <label for="image" class="col-form-label">Image URL</label>
+                                                <input #imgSelector type="text" class="form-control" name="image" id="image" value="{{hotel.imgsUrl}}"
+                                                    placeholder="Hotel image URL">
                                             </div>
                                         </div>
                                         <div class="col-md-12 form-group mb-3">
                                             <label for="services" class="col-form-label">Select Hotel Services</label>
-                                            <hr />
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="wifi"
-                                                    name="services" value="wifi">
-                                                <label class="form-check-label" for="wifi">Wi-Fi</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="pool"
-                                                    name="services" value="pool">
-                                                <label class="form-check-label" for="pool">Swimming Pool</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="gym" name="services"
-                                                    value="gym">
-                                                <label class="form-check-label" for="gym">Gym</label>
-                                            </div>
+                                            @if (servicesLoaded) {
+                                                @for (service of servicesWithCheckStatus; track $index) {
+                                                    <div class="form-check">
+                                                        @if (service.checked) {
+                                                            <input (change)="onChangeCheckbox(service.id)" type="checkbox" class="form-check-input" id="wifi"
+                                                            name="services" value="{{service.id}}" checked>
+                                                        } @else {
+                                                            <input (change)="onChangeCheckbox(service.id)" type="checkbox" class="form-check-input" id="wifi"
+                                                            name="services" value="{{service.id}}">
+                                                        }
+                                                        <label class="form-check-label" for="wifi">{{service.name}}</label>
+                                                    </div>
+                                                }
+                                            } @else {
+                                                <p>Loading services...</p>
+                                            }
                                         </div>
                                         <div class="row justify-content-center">
                                             <div class="col-md-5 form-group text-center">
@@ -107,6 +123,12 @@
                                             </div>
                                         </div>
                                     </form>
+                                    } @else {
+                                        <hr>
+                                        <h2 class="text-center">Loading...</h2>
+                                        <hr>
+                                    }
+
                                 </div>
                             </div>
                         </div>

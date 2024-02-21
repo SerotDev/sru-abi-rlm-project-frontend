@@ -17,7 +17,6 @@ import { HttpClient } from '@angular/common/http';
 export class HotelsComponent implements OnInit {
 
   //hotels list results variables
-  protected isLoggedIn: boolean = false;
   protected haveNoResults: boolean = false;
   protected loaded: boolean = false;
   protected hotels: any[] = [];
