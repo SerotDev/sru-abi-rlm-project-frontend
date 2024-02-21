@@ -38,10 +38,10 @@
                                         <td class="text-center d-no d-lg-cell">{{hotel.email}}</td>
                                         <td class="text-center d-no d-lg-cell">{{hotel.web}}</td>
                                         <td class="text-center td-btns">
-                                            <button [routerLink]="['/hotel/:id']" class="btn btn-outline-warning">
+                                            <button [routerLink]="['/hotel/' + hotel.id]" class="btn btn-outline-warning">
                                                 <i class="fa fa-eye"></i>
                                             </button>
-                                            <button [routerLink]="['/my-hotels/update-hotel']"
+                                            <button [routerLink]="['/my-hotels/update-hotel/' + $index]"
                                                 class="btn btn-outline-success">
                                                 <i class="fas fa-edit"></i>
                                             </button>
